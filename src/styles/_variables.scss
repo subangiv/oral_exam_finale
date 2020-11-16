@@ -1,0 +1,92 @@
+// MEDIA QUERIES
+
+$max-xs: 575.98px;
+$max-s: 767.98px;
+$max-m: 991.98px;
+$max-l: 1440px;
+
+// COLORS
+$primary: #453266;
+$primary-light: #8b489c;
+$primary-lighter: #dbd0ef;
+$secondary: #ffd524;
+$dark: #0f1119;
+$light: #f7f7f7;
+
+//TYPOGRAPHY
+
+$sans-serif: "Lato", Helvetica, Arial, sans-serif !default;
+$sans-serif-1: "Cabin", Helvetica, Arial, sans-serif !default;
+$serif: Georgia, "Times New Roman", Times, serif !default;
+$monospace: Courier, monospace !default;
+$display: "Playfair Display", serif;
+$font-family-base: $sans-serif !default;
+
+$font-size-base: 16px !default;
+
+$font-size-h1: 5rem;
+$font-size-h2: 2.5rem;
+$font-size-h3: 2rem;
+$font-size-h4: 1.5rem;
+$font-size-h5: 1.2rem;
+$font-size-h6: 1rem;
+$font-size-p: $font-size-base;
+$font-size-span: $font-size-base !default;
+$font-size-a: $font-size-base !default; // ~16px
+$font-size-blockquote: 1.2rem;
+$font-size-button: 14px !default;
+// $font-size-button-xs: 10px !default;
+// $font-size-button-s: 12px !default;
+// $font-size-button-l: 16px !default;
+// $font-size-button-xl: 18px !default;
+$font-size-label: 14px !default;
+$font-size-input: 14px !default;
+$font-size-helper-line: 12px !default;
+
+//LETTER SPACING
+$letter-spacing-h1: -1.5px !default;
+$letter-spacing-h2: -0.5px !default;
+$letter-spacing-h3: 0px !default;
+$letter-spacing-h4: 0.25px !default;
+$letter-spacing-h5: 0px !default;
+$letter-spacing-h6: 0.15px !default;
+$letter-spacing-p: 0.5px !default;
+$letter-spacing-span: 0.5px !default;
+$letter-spacing-a: 0.5px !default;
+$letter-spacing-blockquote: 0.15px !default;
+$letter-spacing-monospace: 0px !default;
+$letter-spacing-button: 0.25px !default;
+$letter-spacing-label: 0.25px !default;
+$letter-spacing-input: 0.25px !default;
+$letter-spacing-helper-line: 0.25px !default;
+
+//Font weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Unit-less `line-height` for use in components like buttons.
+$line-height-base: 1.6 !default;
+// Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed: floor(($font-size-base * $line-height-base)) !default; // ~20px
+
+//** By default, this inherits from the `<body>`.
+$headings-font-family: inherit !default;
+$headings-font-weight: 500 !default;
+$headings-line-height: 1.1 !default;
+$headings-color: inherit !default;
+
+$line-height-h1: 1.1;
+$line-height-h2: 1.2;
+$line-height-h3: 1.3;
+$line-height-h4: 1.4;
+$line-height-h5: 1.5;
+$line-height-h6: 1.5;
+$line-height-p: 1.6;
+$line-height-a: 1.6;
+$line-height-button: 1.6;
+$line-height-label: 1.6;
+$line-height-span: 1.6;
+$line-height-blockquote: 1.5;
+$line-height-code: 1.6;

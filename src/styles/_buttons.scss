@@ -1,0 +1,97 @@
+@media print {
+  .btn {
+    -webkit-print-color-adjust: exact !important;
+  }
+}
+
+// Standard button
+.btn {
+  color: inherit;
+  background-color: transparent;
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  min-width: 112px;
+  border: none;
+  outline: none;
+  user-select: none;
+  overflow: visible;
+  vertical-align: middle;
+  border-radius: 4px;
+  height: 32px;
+  padding: 0 8px 0 8px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  //Button label styling
+  &.label {
+    font-family: $sans-serif;
+    font-size: $font-size-button;
+    line-height: $line-height-button;
+    font-weight: $font-weight-medium;
+    letter-spacing: $letter-spacing-button;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0 8px 0 8px;
+  }
+
+  //Outlined button styling
+  &.outlined {
+    border-style: solid;
+    padding: 0 15px 0 15px;
+    border-width: 2px;
+    background-color: transparent;
+  }
+
+  //Disabled button styling
+  &-disabled {
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.37);
+    cursor: default;
+    pointer-events: none;
+
+    &.contained {
+      background-color: rgba(0, 0, 0, 0.05);
+      box-shadow: none;
+    }
+  }
+
+  //Truncated button styling
+  &.truncate {
+    &.label {
+      width: 100px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  // rounded button styling
+  &.rounded {
+    border-radius: 24px;
+    padding: 0 20px;
+    width: auto;
+    max-width: 100%;
+  }
+
+  //Standard and outlined styling of Primary button
+  &-primary {
+    background-color: $primary;
+    color: $light;
+
+    &.outlined {
+      color: $primary;
+      border-color: $primary;
+    }
+  }
+
+  //Standard and outlined styling of Secondary button
+  &-secondary,
+  &-donate {
+    background-color: $secondary;
+    color: $primary;
+  }
+}
