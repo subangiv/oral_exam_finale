@@ -1,4 +1,5 @@
 import './App.css';
+import InputField from './components/input-field/InputField'
 
 function App() {
   return (
@@ -7,6 +8,13 @@ function App() {
         <button className="btn rounded btn-primary label btn-disabled">Button</button>
         <button className="btn rounded btn-primary outlined">Button</button>
         <button className="btn rounded btn-donate">Button</button>
+        <label>
+          Name
+        <input type="password" className="input-primary" placeholder="E.g. John Doe"></input>
+        </label>
+
+      <InputField className="input-primary" type="text"/>
+
     </div>
   );
 }
