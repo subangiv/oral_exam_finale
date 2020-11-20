@@ -1,38 +1,56 @@
-@import "../styles//base";
 @import "../styles/variables";
-@import "../styles/typography";
-@import "../styles/colors";
-@import "../styles/buttons";
 
 .flex {
   display: flex;
   flex-direction: row;
   height: 90vh;
 }
+.flex__small {
+  display: flex;
+  flex-direction: row;
+  //height: 90vh;
+  padding: 10rem 0 15rem;
+}
+.flex__column__purple {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 65px;
+  background-color: rgba(219, 208, 239, 0.3);
+}
 .flex__right,
 .flex__left {
   width: 50%;
   align-self: center;
-}
-.flex__left {
   position: relative;
-
+}
+.flex__right {
   & img {
     position: absolute;
     width: 85%;
-    top: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 }
-.flex__right p {
+.single__center {
+  text-align: center;
+}
+.scrollbtn {
+  width: 1rem;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+  position: absolute;
+}
+.flex__right p,
+.flex__left p {
   padding-top: 36px;
   padding-bottom: 36px;
 }
 .padding__left__large {
   padding-left: 115px;
 }
+
 .purplebox__large {
   background-color: $primary;
   min-height: 70vh;
@@ -43,30 +61,50 @@
   -moz-box-shadow: -10px 10px 20px 0px rgba(0, 0, 0, 0.3);
   box-shadow: -10px 10px 20px 0px rgba(0, 0, 0, 0.3);
 }
+.purplelightbox {
+  background-color: rgba(219, 208, 239, 0.3);
+  border-radius: 20px;
+  min-height: 35vh;
+  -webkit-box-shadow: -10px 10px 20px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: -10px 10px 20px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: -10px 10px 20px 0px rgba(0, 0, 0, 0.3);
+}
+.intro__img {
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0%, -50%);
+}
 
 @media (max-width: $max-xs) {
   .flex {
     flex-direction: column-reverse;
   }
+  .flex__small {
+    flex-direction: column;
+  }
   .flex__right,
   .flex__left {
     width: 100%;
   }
-  .flex__right p {
+  .flex__left p {
     text-align: center;
   }
-  .flex__right button {
-    top: 50%;
+  .flex__left button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
   .padding__left__large {
-    padding: 30px;
+    padding: 30px !important;
   }
   .purplebox__large {
     min-height: 40vh;
     border-radius: 20px 0 0 20px;
+  }
+  .purplelightbox {
+    min-height: 25vh;
   }
 }
 @media (max-width: $max-s) {
@@ -74,6 +112,6 @@
     padding-left: 60px;
   }
   .purplebox__large {
-    min-height: 50vh;
+    min-height: 40vh;
   }
 }
