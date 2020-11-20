@@ -35,6 +35,22 @@
 .single__center {
   text-align: center;
 }
+.grid__five {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding-top: 45px;
+  grid-column-gap: 5px;
+}
+.grid__box {
+  display: block;
+  & h6 {
+    margin: 2rem 0 0;
+  }
+}
+.grid__box__flex {
+  display: flex;
+  flex-direction: row;
+}
 .scrollbtn {
   width: 1rem;
   top: 90%;
@@ -106,12 +122,35 @@
   .purplelightbox {
     min-height: 25vh;
   }
+  .grid__five {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .grid__box__flex {
+    justify-content: center;
+  }
+  .flex__small {
+    padding: 5rem 0;
+  }
 }
-@media (max-width: $max-s) {
+@media (max-width: $max-s) and (min-width: $max-xs) {
   .padding__left__large {
     padding-left: 60px;
   }
   .purplebox__large {
     min-height: 40vh;
+  }
+  .purplelightbox {
+    min-height: 25vh;
+  }
+  .grid__five {
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+  }
+  .grid__box__flex {
+    justify-content: center;
+  }
+  .flex__small {
+    padding: 5rem 0;
   }
 }
