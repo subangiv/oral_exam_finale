@@ -1,14 +1,8 @@
 import "./App.css";
+import LandingPage from "./components/LandingPage";
 
 function App() {
-  return (
-    <div className="App">
-      <h1 className="primary-text">Hej</h1>
-      <button className="btn rounded btn-primary">Button</button>
-      <button className="btn rounded btn-primary outlined">Button</button>
-      <button className="btn rounded btn-donate">Button</button>
-    </div>
-  );
+  return <LandingPage />;
 }
 
 export default App;
