@@ -1,0 +1,24 @@
+@import "../../styles/variables";
+
+footer {
+  background-color: $primary;
+  position: sticky;
+  color: $light;
+  padding: 9vw 0;
+}
+a {
+  color: $light;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.listWrapper {
+  margin: 4.5vw auto;
+  line-height: $line-height-a;
+  list-style: none;
+}
+.soMeLogos {
+  width: 10vw;
+  height: 100%;
+}
