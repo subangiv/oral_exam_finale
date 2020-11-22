@@ -1,0 +1,41 @@
+@import "../../styles/variables";
+@import "../../styles/buttons";
+@import "../burgermenu/BurgerMenu.module.scss";
+
+.header {
+  height: 12vh;
+}
+.polloName {
+  text-align: initial;
+  padding: 0 0 0 1rem;
+  color: $primary;
+  font-size: 1.4rem;
+  :nth-child(1) {
+    font-weight: 300;
+    color: $primary-light;
+    font-size: 1.4rem;
+  }
+}
+.actionBtns {
+  @include row-flex;
+  justify-content: space-around;
+  margin-top: 1.5vh;
+  //Offer button
+  :nth-child(2) {
+    background-color: $primary-light;
+  }
+}
+@media (max-width: 340px) {
+  .header {
+    height: 18vh;
+  }
+  .actionBtns {
+    button {
+      margin-bottom: 2vw;
+    }
+    //"Apply for product" button
+    :nth-child(3) {
+      width: 5vw;
+    }
+  }
+} ;
