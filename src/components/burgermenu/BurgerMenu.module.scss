@@ -21,13 +21,13 @@
   margin: 0 2rem 0 0;
   position: absolute;
   top: 1.3vh;
-  right: 1rem;
+  right: 2.4vw;
   z-index: 9999;
 
   .bar {
     background-color: $primary;
-    height: 0.5vh;
-    width: 7vw;
+    height: 3px;
+    width: 24px;
     border-radius: 2vw;
     margin: 0.4vh 0;
     opacity: 1;
@@ -56,7 +56,6 @@
   list-style-type: none;
   line-height: 3;
   text-align: initial;
-
   background-color: $light;
   z-index: 8888;
   top: 0;
@@ -86,6 +85,7 @@
   justify-content: center;
   margin-top: 15vh;
 }
+
 //Burgermenus height on mobile
 @media (max-width: $max-xs) {
   .navi {
