@@ -1,0 +1,35 @@
+@import "./src/styles/variables";
+
+.wrapper {
+  background-color: $primary;
+  margin: 40px 100px;
+  height: auto;
+  border-radius: 20px;
+  display: flex;
+}
+.text__div {
+  width: 60%;
+
+  & h1 {
+    color: $light;
+  }
+  & p {
+    color: $light;
+    font-weight: 200;
+    padding: 40px 0;
+  }
+}
+.img__div {
+  width: 40%;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 20px 20px 0;
+  }
+}
+.text__div__wrapper {
+  padding: 80px;
+  text-align: center;
+}
