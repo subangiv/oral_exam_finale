@@ -32,7 +32,7 @@ a {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 3vw;
-    padding: 0;
+    padding: 0 1vw;
   }
   .listWrapper {
     text-align: left;
@@ -50,5 +50,11 @@ a {
         height: 27px;
       }
     }
+  }
+}
+
+@media (min-width: $max-l) {
+  footer {
+    padding: 0 4vw;
   }
 }
