@@ -4,14 +4,14 @@ import TwitterLogo from "../../assets/images/icon_awesome_twitter.png";
 import ITULogo from "../../assets/svgs/ITU.svg";
 import ObyteLogo from "../../assets/svgs/obyte.svg";
 import ScrumwiseLogo from "../../assets/svgs/scrumwise.svg";
-import KEALogo from "../../assets/svgs/kea_logo.svg";
+import KEALogo from "../../assets/images/kea_logo.png";
 import { ReactSVG } from "react-svg";
 
 export default function Footer(props) {
   return (
     <footer style={{ styles }}>
       <ul className={styles.listWrapper}>
-        <h4>Discover</h4>
+        <h6>Discover</h6>
         <li>
           <a href="#" children="Make a donation" />
         </li>
@@ -23,7 +23,7 @@ export default function Footer(props) {
         </li>
       </ul>
       <ul className={styles.listWrapper}>
-        <h4>Contact</h4>
+        <h6>Connect</h6>
         <li>
           <a href="#" children="Contact" />
         </li>
@@ -32,7 +32,7 @@ export default function Footer(props) {
         </li>
       </ul>
       <div className={styles.listWrapper}>
-        <h4 style={{ marginBottom: "1vh" }}>Community & Help desk</h4>
+        <h6 style={{ marginBottom: "1vh" }}>Community & Help desk</h6>
         <a href="https://discord.gg/kQzuR4c">
           <img
             src={DiscordLogo}
@@ -90,20 +90,7 @@ export default function Footer(props) {
             svg.setAttribute("style", "width: 140px");
           }}
         />
-        <ReactSVG
-          src={KEALogo}
-          afterInjection={(error, svg) => {
-            if (error) {
-              console.error(error);
-              return;
-            }
-          }}
-          beforeInjection={(svg) => {
-            svg.classList.add("svgKEALogo");
-            svg.setAttribute("style", "width: 100px");
-            svg.setAttribute("style", "height: 4vh");
-          }}
-        />
+        <img src={KEALogo} alt="KEA logo" className={styles.keaLogo}></img>
       </div>
     </footer>
   );
