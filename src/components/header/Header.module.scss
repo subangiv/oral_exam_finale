@@ -25,17 +25,50 @@
     background-color: $primary-light;
   }
 }
+.expanedMenuList {
+  @include row-flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+  line-height: 3;
+  align-items: center;
+  color: $primary;
+  cursor: pointer;
+  margin-top: 1vw;
+}
+
 @media (max-width: 340px) {
   .header {
     height: 18vh;
   }
   .actionBtns {
-    button {
-      margin-bottom: 2vw;
-    }
     //"Apply for product" button
     :nth-child(3) {
       width: 5vw;
+      margin-top: 1vw;
     }
   }
-} ;
+}
+
+@media (min-width: $max-s) {
+  //Stretch action buttons
+  // header > div.actionBtns > button {
+  //   width: 30% !important;
+  // }
+  .actionBtns {
+    :nth-child(1),
+    :nth-child(2),
+    :nth-child(3) {
+      width: 30%;
+    }
+  }
+}
+
+@media (min-width: $max-m) {
+  .actionBtns {
+    margin-top: 0;
+  }
+  .polloName {
+    text-align: center;
+    padding-left: 2.5rem;
+  }
+}
