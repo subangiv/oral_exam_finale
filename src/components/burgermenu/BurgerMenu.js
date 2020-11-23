@@ -16,13 +16,12 @@ export default function BurgerMenu(props) {
 
     if (open === false) {
       //transform burgermenu icon
-      // bar1.current.style.transform = "rotate(135deg)";
       bar1.current.style.transform = "rotate(135deg) translate(5px, -6px)";
       bar2.current.style.opacity = "0";
       bar2.current.style.left = "-60px";
-      // bar3.current.style.transform = "rotate(-135deg)";
       bar3.current.style.transform = "rotate(-135deg) translate(3px, 4px)";
     } else {
+      //remove transformation
       bar1.current.style.transform = "unset";
       bar2.current.style.opacity = "unset";
       bar2.current.style.left = "unset";
@@ -37,16 +36,16 @@ export default function BurgerMenu(props) {
 
   return (
     <nav className={styles.navi}>
-      <div
-        ref={bars}
-        className={styles.bars}
-        onClick={clickOpenMenu}
-        open={open}
-      >
-        <span ref={bar1} className={styles.bar}></span>
-        <span ref={bar2} className={styles.bar}></span>
-        <span ref={bar3} className={styles.bar}></span>
-      </div>
+        <div
+          ref={bars}
+          className={styles.bars}
+          onClick={clickOpenMenu}
+          open={open}
+        >
+          <span ref={bar1} className={styles.bar}></span>
+          <span ref={bar2} className={styles.bar}></span>
+          <span ref={bar3} className={styles.bar}></span>
+        </div>
       <MenuList open={open}>
         {open === true && (
           <div className={styles.menuList} open={open}>
