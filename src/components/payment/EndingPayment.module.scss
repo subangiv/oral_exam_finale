@@ -33,3 +33,19 @@
   padding: 80px;
   text-align: center;
 }
+@media (max-width: $max-s) {
+  .wrapper {
+    flex-direction: column-reverse;
+    margin: 40px 20px;
+  }
+  .text__div,
+  .img__div {
+    width: 100%;
+  }
+  .text__div__wrapper {
+    padding: 20px;
+  }
+  .img__div img {
+    border-radius: 20px 20px 0 0;
+  }
+}
