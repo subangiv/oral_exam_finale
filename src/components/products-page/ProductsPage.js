@@ -32,7 +32,7 @@ import "../product-card/ProductCard"
         price: 5,
         country: "Venezuela, Bolivarian Republic of",
         landCode: "ve",
-        id: 1,
+        id: 2,
         statistics: {
             lastDonation: "",
             completedDonations: {
@@ -48,17 +48,19 @@ import "../product-card/ProductCard"
         }
     },
   ];
-//   const cards = myCards.map((card) => <ProductCard key={card.id} {...card});
+  const cards = myCards.map((card) => <ProductCard key={card.id} {...card}/>);
 
 function ProductsPage(props) {
 
     return (
-        <div>
+        <main>
             <h1 className={"primary-text"}>Products</h1>
             <img className={styles.filler}></img>
-            <ul></ul>
+            <p>{text.paragraph1}</p>
+            <p>{text.paragraph2}</p>
+            <ul>{cards}</ul>
             <button>Load more...</button>
-        </div>
+        </main>
     );
   }
   
