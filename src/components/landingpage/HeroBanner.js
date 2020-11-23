@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./LandingPage.module.scss";
-import landingpageimg from "../images/landing-page-banner.png";
-import scrollbtn from "../svg/scroll-button.svg";
+import landingpageimg from "../../images/landing-page-banner.png";
+import scrollbtn from "../../svg/scroll-button.svg";
 
 export default function HeroBanner() {
   return (

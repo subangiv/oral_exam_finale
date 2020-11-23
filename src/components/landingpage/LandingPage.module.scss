@@ -1,4 +1,4 @@
-@import "../styles/variables";
+@import "./src/styles/variables";
 
 .flex {
   display: flex;
@@ -16,6 +16,13 @@
   flex-direction: column;
   padding: 50px 65px;
   background-color: rgba(219, 208, 239, 0.3);
+}
+.wrapper {
+  padding: 50px 65px;
+
+  & h3 {
+    padding-bottom: 45px;
+  }
 }
 .flex__right,
 .flex__left {
@@ -50,6 +57,22 @@
 .grid__box__flex {
   display: flex;
   flex-direction: row;
+}
+.purple__div {
+  background-color: rgba(219, 208, 239, 0.5);
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+
+  & img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px 20px 0 0;
+  }
+
+  & p {
+    padding: 50px 40px;
+  }
 }
 .scrollbtn {
   width: 1rem;

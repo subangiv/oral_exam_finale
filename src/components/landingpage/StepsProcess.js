@@ -1,10 +1,11 @@
 import React from "react";
+import { ReactSVG } from "react-svg";
 import styles from "./LandingPage.module.scss";
-import stepone from "../svg/step-1.svg";
-import steptwo from "../svg/step-2.svg";
-import stepthree from "../svg/step-3.svg";
-import stepfour from "../svg/step-4.svg";
-import stepfive from "../svg/step-5.svg";
+import stepone from "../../svg/step-1.svg";
+import steptwo from "../../svg/step-2.svg";
+import stepthree from "../../svg/step-3.svg";
+import stepfour from "../../svg/step-4.svg";
+import stepfive from "../../svg/step-5.svg";
 
 export default function StepsProcess() {
   return (
