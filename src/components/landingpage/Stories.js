@@ -3,6 +3,7 @@ import styles from "./LandingPage.module.scss";
 import testimg from "../../images/test-image.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import "../../styles/Swiper.scss";
 
 // Import Swiper styles
 import "swiper/swiper.scss";
@@ -19,6 +20,7 @@ export default function Stories() {
         already received help
       </h3>
       <Swiper
+        id="stories-swiper"
         spaceBetween={50}
         slidesPerView={4}
         navigation

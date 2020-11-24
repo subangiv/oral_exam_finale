@@ -1,0 +1,19 @@
+@import "./src/styles/variables";
+
+#article-swiper .swiper-button-next,
+#article-swiper .swiper-button-prev {
+  color: $primary;
+}
+
+#article-swiper .swiper-pagination-bullet-active {
+  background: $primary;
+}
+
+#stories-swiper .swiper-button-next,
+#stories-swiper .swiper-button-prev {
+  color: $primary;
+}
+
+#stories-swiper .swiper-pagination-bullet-active {
+  background: $primary;
+}
