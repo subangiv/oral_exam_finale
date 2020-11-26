@@ -2,10 +2,105 @@
   "Profile": [
     {
       "id": 1,
-      "img": "/images/test-image.jpg",
+      "image": "../../images/test-img.jpg",
       "name": "Casper Niebe",
-      "title": "CEO",
-      "flag": ""
+      "title": "Founder"
+    },
+    {
+      "id": 2,
+      "image": "../../images/test-img.jpg",
+      "name": "Santiago Law",
+      "title": "Representative"
+    },
+    {
+      "id": 3,
+      "image": "../../images/test-img.jpg",
+      "name": "Paul Murray",
+      "title": "Digital Content"
+    },
+    {
+      "id": 4,
+      "image": "../../images/test-img.jpg",
+      "name": "John McLeod",
+      "title": "Public Relations"
+    },
+    {
+      "id": 5,
+      "image": "../../images/test-img.jpg",
+      "name": "Markus Olesen Mohr",
+      "title": "Developer"
+    },
+    {
+      "id": 6,
+      "image": "../../images/test-img.jpg",
+      "name": "Sif Kristensen",
+      "title": "Developer"
+    },
+    {
+      "id": 7,
+      "image": "../../images/test-img.jpg",
+      "name": "Jesper Falkenberg",
+      "title": "Developer"
+    },
+    {
+      "id": 8,
+      "image": "../../images/test-img.jpg",
+      "name": "Lasse Felskov Agersten",
+      "title": "Developer"
+    },
+    {
+      "id": 9,
+      "image": "../../images/test-img.jpg",
+      "name": "Trine Borre",
+      "title": "Developer"
+    },
+    {
+      "id": 10,
+      "image": "../../images/test-img.jpg",
+      "name": "Sophia Aumuller-Wagner",
+      "title": "Scrum Master"
+    },
+    {
+      "id": 11,
+      "image": "../../images/test-img.jpg",
+      "name": "Muhammet Agar",
+      "title": "Scrum Master"
+    },
+    {
+      "id": 12,
+      "image": "../../images/test-img.jpg",
+      "name": "Josefine Bowring",
+      "title": "Business Coach"
+    },
+    {
+      "id": 13,
+      "image": "../../images/test-img.jpg",
+      "name": "Christina Steinhauer",
+      "title": "Developer"
+    },
+    {
+      "id": 14,
+      "image": "../../images/test-img.jpg",
+      "name": "Valerius Coppens",
+      "title": "Advisory board"
+    },
+    {
+      "id": 15,
+      "image": "../../images/test-img.jpg",
+      "name": "Maxym Ukrainskyi",
+      "title": "Representative Russia"
+    },
+    {
+      "id": 16,
+      "image": "../../images/test-img.jpg",
+      "name": "Daniel Schledermann",
+      "title": "DevOps"
+    },
+    {
+      "id": 17,
+      "image": "../../images/test-img.jpg",
+      "name": "Reny Ochoa",
+      "title": "Representative Venezuela"
     }
   ]
 }
