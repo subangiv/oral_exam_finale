@@ -1,7 +1,7 @@
 @import "./src/styles/variables";
 
 .wrapper {
-  padding: 4rem;
+  padding: 0 4rem 4rem;
 }
 .flex {
   display: flex;
@@ -85,7 +85,9 @@
   text-align: center;
 
   & img {
-    width: 100%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
     border-radius: 50%;
   }
 }
@@ -95,13 +97,52 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-column-gap: 2rem;
   grid-row-gap: 2rem;
+  padding-top: 3rem;
 }
-@media (max-width: $max-s) {
+@media (max-width: $max-xs) {
+  .wrapper {
+    padding: 0 2rem 2rem;
+  }
   .flex {
     flex-direction: column-reverse;
   }
+  .flex__secondary {
+    flex-direction: column;
+    padding: 2rem;
+  }
   .flex__right,
-  .flex__left {
+  .flex__left,
+  .flex__right__secondary {
     width: 100%;
+    padding: 0;
+  }
+  .flex__left {
+    & p {
+      padding: 0 0 2rem;
+    }
+  }
+  .flex__right {
+    padding: 0 2rem 2rem;
+  }
+  .profile__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .articles__wrapper {
+    padding: 0;
+  }
+  .flex__left {
+    & img {
+      position: relative;
+      transform: translate(0%, 0%);
+      left: 0;
+    }
+  }
+}
+@media (max-width: $max-s) and (min-width: $max-xs) {
+  .profile__grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .articles__wrapper {
+    padding: 0;
   }
 }

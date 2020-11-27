@@ -5,6 +5,7 @@ import avatar from "../../images/test-image.jpg";
 export default function Profiles() {
   return (
     <section className={styles.wrapper}>
+      <h3>Meet the team</h3>
       <div className={styles.profile__grid}>
         {data.Profile.map((profile, i) => {
           return (
