@@ -3,7 +3,7 @@
 .flex {
   display: flex;
   flex-direction: row;
-  height: 90vh;
+  //height: 90vh;
 }
 .flex__small {
   display: flex;
@@ -88,6 +88,7 @@
 }
 .padding__left__large {
   padding-left: 115px;
+  text-align: left;
 }
 
 .purplebox__large {
