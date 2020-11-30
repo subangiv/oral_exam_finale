@@ -36,16 +36,16 @@ export default function BurgerMenu(props) {
 
   return (
     <nav className={styles.navi}>
-        <div
-          ref={bars}
-          className={styles.bars}
-          onClick={clickOpenMenu}
-          open={open}
-        >
-          <span ref={bar1} className={styles.bar}></span>
-          <span ref={bar2} className={styles.bar}></span>
-          <span ref={bar3} className={styles.bar}></span>
-        </div>
+      <div
+        ref={bars}
+        className={styles.bars}
+        onClick={clickOpenMenu}
+        open={open}
+      >
+        <span ref={bar1} className={styles.bar}></span>
+        <span ref={bar2} className={styles.bar}></span>
+        <span ref={bar3} className={styles.bar}></span>
+      </div>
       <MenuList open={open}>
         {open === true && (
           <div className={styles.menuList} open={open}>
