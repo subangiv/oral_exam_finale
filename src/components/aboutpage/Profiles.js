@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./AboutPage.module.scss";
 import data from "../json/profile.json";
-import avatar from "../../images/test-image.jpg";
+
 export default function Profiles() {
   return (
     <section className={styles.wrapper}>
@@ -12,9 +12,17 @@ export default function Profiles() {
             <div key={i}>
               <div className={styles.profile__div}>
                 <div className={styles.image__round}>
-                  <img src={avatar} alt="" />
+                  <img
+                    src={
+                      process.env.PUBLIC_URL +
+                      "/profile-images/" +
+                      profile.image
+                    }
+                    alt=""
+                  />
                 </div>
-                <p>{profile.name}</p>
+                <h5>{profile.name}</h5>
+                <p>{profile.title}</p>
               </div>
             </div>
           );

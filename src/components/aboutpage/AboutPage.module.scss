@@ -66,6 +66,10 @@
   border-radius: 20px;
   padding: 50px;
 
+  & img {
+    width: 100%;
+  }
+
   & h6 {
     color: #453266;
     font-weight: bold;
@@ -78,6 +82,9 @@
   & a {
     text-decoration: none;
   }
+}
+.article__mobile {
+  display: none;
 }
 .profile__div {
   display: flex;
@@ -128,7 +135,7 @@
     grid-template-columns: 1fr 1fr;
   }
   .articles__wrapper {
-    padding: 0;
+    padding: 1rem;
   }
   .flex__left {
     & img {
@@ -137,12 +144,18 @@
       left: 0;
     }
   }
+  .article__desktop {
+    display: none;
+  }
+  .article__mobile {
+    display: block;
+  }
 }
 @media (max-width: $max-s) and (min-width: $max-xs) {
   .profile__grid {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
   .articles__wrapper {
-    padding: 0;
+    padding: 1rem;
   }
 }

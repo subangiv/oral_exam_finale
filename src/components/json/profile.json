@@ -2,103 +2,103 @@
   "Profile": [
     {
       "id": 1,
-      "image": "../../images/test-img.jpg",
+      "image": "casper.png",
       "name": "Casper Niebe",
       "title": "Founder"
     },
     {
       "id": 2,
-      "image": "../../images/test-img.jpg",
+      "image": "santiago.png",
       "name": "Santiago Law",
       "title": "Representative"
     },
     {
       "id": 3,
-      "image": "../../images/test-img.jpg",
+      "image": "paul.png",
       "name": "Paul Murray",
       "title": "Digital Content"
     },
     {
       "id": 4,
-      "image": "../../images/test-img.jpg",
+      "image": "john.png",
       "name": "John McLeod",
       "title": "Public Relations"
     },
     {
       "id": 5,
-      "image": "../../images/test-img.jpg",
+      "image": "markus.png",
       "name": "Markus Olesen Mohr",
       "title": "Developer"
     },
     {
       "id": 6,
-      "image": "../../images/test-img.jpg",
+      "image": "sif.png",
       "name": "Sif Kristensen",
       "title": "Developer"
     },
     {
       "id": 7,
-      "image": "../../images/test-img.jpg",
+      "image": "jesper.png",
       "name": "Jesper Falkenberg",
       "title": "Developer"
     },
     {
       "id": 8,
-      "image": "../../images/test-img.jpg",
+      "image": "lasse.jpg",
       "name": "Lasse Felskov Agersten",
       "title": "Developer"
     },
     {
       "id": 9,
-      "image": "../../images/test-img.jpg",
+      "image": "trine.png",
       "name": "Trine Borre",
       "title": "Developer"
     },
     {
       "id": 10,
-      "image": "../../images/test-img.jpg",
+      "image": "sophia.jpg",
       "name": "Sophia Aumuller-Wagner",
       "title": "Scrum Master"
     },
     {
       "id": 11,
-      "image": "../../images/test-img.jpg",
+      "image": "muhammet.jpg",
       "name": "Muhammet Agar",
       "title": "Scrum Master"
     },
     {
       "id": 12,
-      "image": "../../images/test-img.jpg",
+      "image": "josefine.jpg",
       "name": "Josefine Bowring",
       "title": "Business Coach"
     },
     {
       "id": 13,
-      "image": "../../images/test-img.jpg",
+      "image": "christina.jpg",
       "name": "Christina Steinhauer",
       "title": "Developer"
     },
     {
       "id": 14,
-      "image": "../../images/test-img.jpg",
+      "image": "valerius.png",
       "name": "Valerius Coppens",
       "title": "Advisory board"
     },
     {
       "id": 15,
-      "image": "../../images/test-img.jpg",
+      "image": "maxym.png",
       "name": "Maxym Ukrainskyi",
       "title": "Representative Russia"
     },
     {
       "id": 16,
-      "image": "../../images/test-img.jpg",
+      "image": "daniel.jpg",
       "name": "Daniel Schledermann",
       "title": "DevOps"
     },
     {
       "id": 17,
-      "image": "../../images/test-img.jpg",
+      "image": "avatar_male.png",
       "name": "Reny Ochoa",
       "title": "Representative Venezuela"
     }

@@ -7,7 +7,7 @@ import AboutPage from "./components/aboutpage/AboutPage";
 function App() {
   const Route = require("react-router-dom").Route;
 
-  return <AboutPage />;
+  return <LandingPage />;
 }
 
 export default App;

@@ -11,11 +11,12 @@ export default function AboutBanner() {
       <div className={styles.flex__right}>
         <h1>About Us</h1>
         <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-          ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur.
+          PolloPollo is a non-profit peer-to-peer charity project that directly
+          connects people in need with people who want to help - without the
+          need for any intermediaries. PolloPollo has three kinds of users:
+          producers, applicants and donors. A producer offers products that
+          applicants apply for. A donor donates money to pay for the product of
+          an application.
         </p>
       </div>
     </section>

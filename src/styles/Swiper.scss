@@ -17,3 +17,23 @@
 #stories-swiper .swiper-pagination-bullet-active {
   background: $primary;
 }
+.stories-swiper-ipad,
+.stories-swiper-mobile {
+  display: none;
+}
+@media screen and (max-width: 480px) {
+  .stories-swiper-desktop {
+    display: none;
+  }
+  .stories-swiper-mobile {
+    display: block;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .stories-swiper-desktop {
+    display: none;
+  }
+  .stories-swiper-ipad {
+    display: block;
+  }
+}
