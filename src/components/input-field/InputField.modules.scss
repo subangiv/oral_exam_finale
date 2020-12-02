@@ -1,0 +1,64 @@
+@import "../../styles/index";
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px;
+  background-color: #ffffff;
+}
+
+.textfield {
+  position: relative;
+  background-color: inherit;
+}
+
+input {
+  border-radius: 15px;
+  border-style: solid;
+  border-width: 1px;
+  outline: none;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+input::placeholder {
+  font-size: $font-size-placeholder;
+  font-family: $sans-serif;
+}
+
+label {
+  font-size: $font-size-button;
+  letter-spacing: $letter-spacing-button;
+  font-weight: $font-weight-normal;
+  position: absolute;
+  font-size: $font-size-label;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: inherit;
+  color: gray;
+  padding: 0 0.3rem;
+  margin: 0 0.5rem;
+  transition: 0.1s ease-out;
+  transform-origin: left top;
+  pointer-events: none;
+}
+
+input + label {
+  top: 0;
+  transform: translateY(-50%) translateX(16px) scale(0.9);
+}
+
+.input-primary input {
+  border-color: $primary;
+  color: $primary;
+
+  &::placeholder {
+    color: $primary;
+  }
+}
+
+.input-primary label {
+  color: $primary;
+}
