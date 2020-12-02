@@ -1,15 +1,24 @@
 import "./InputField.modules.scss";
+import data from "../json/countries.json";
 
 function InputField(props) {
-
-    return (
-     <div className={props.className + " container"}>
-        <div className="textfield">
-          <input placeholder="E.g. John Doe" type={props.type}/>
-          <label>Label</label>
-        </div>
+  return (
+    <div className={props.className + " container"}>
+      <div className="textfield">
+        <input
+          placeholder={props.placeholder}
+          type={props.type}
+          list={props.list}
+        />
+        <label>{props.label}</label>
+        <datalist id="countries">
+          {data.map((country, key) => (
+            <option key={key} value={country.country} />
+          ))}
+        </datalist>
       </div>
-    );
-  }
-  
-  export default InputField;
+    </div>
+  );
+}
+
+export default InputField;
