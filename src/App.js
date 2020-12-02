@@ -1,15 +1,13 @@
 import "./App.css";
 import InputField from "./components/input-field/InputField";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import HelpPage from "./components/help_page/HelpPage";
 
 function App() {
   return (
     <div className="App">
-      <h1 className="primary-text">Hola</h1>
-      <button className="btn rounded btn-primary label btn-disabled">
-        Button
-      </button>
-      <button className="btn rounded btn-primary outlined">Button</button>
-      <button className="btn rounded btn-donate">Button</button>
+      <Header />
       <label>
         Name
         <input
@@ -20,6 +18,8 @@ function App() {
       </label>
 
       <InputField className="input-primary" type="text" />
+
+      <Footer />
     </div>
   );
 }
