@@ -1,0 +1,100 @@
+@import "../../styles/index";
+
+.contactPage {
+  margin: 5vh 0 18vh 0;
+  padding: 0 5vw;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+
+  & h1 {
+    color: $primary;
+    align-self: flex-start;
+    margin-bottom: 2vw;
+  }
+}
+.bannerWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  background-color: $primary;
+  width: clamp(80%, 376px, 100%);
+  border-radius: 20px;
+  margin-bottom: 6vh;
+  -webkit-box-shadow: -10px 10px 20px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: -10px 10px 20px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: -10px 10px 20px 0px rgba(0, 0, 0, 0.3);
+}
+.contactTextWrapper {
+  color: $primary;
+  text-align: left;
+  padding: 3vw 3vw;
+}
+
+@media (min-width: $max-s) {
+  .contactPage {
+    display: grid;
+    place-items: self-start;
+    gap: 0 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "left ." "left right" "left .";
+    :nth-child(1) {
+      grid-area: left;
+      text-align: left;
+    }
+    :nth-child(2) {
+      grid-area: right;
+    }
+
+    .bannerWrapper {
+      margin-bottom: 3vh;
+    }
+  }
+  .contactTextWrapper {
+    padding: 3vw 1vw 0 1vw;
+  }
+}
+
+@media (min-width: $max-m) {
+  .contactPage {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "left left ." "left left right";
+    & h1 {
+      font-size: 4rem;
+    }
+  }
+  
+  .leftColumnWrapper {
+    position: relative;
+    left: -7vw;
+  }
+
+  .bannerWrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    //min-height: 20vh;
+    //width: 112%;
+    width: 112%;
+    min-height: 22vw;
+
+    & img {
+      // width: 86%;
+      width: clamp(50%, 100px, 80%);
+      align-self: end;
+    }
+    div:nth-last-child(1) {
+      align-self: center;
+      color: $light;
+      padding: 3.8vw 2vw 3.8vw 0;
+    }
+    & h1 {
+      color: $light;
+    }
+  }
+}
+@media (min-width: $max-l) {
+  .bannerWrapper {
+    max-height: 22vw;
+  }
+}
