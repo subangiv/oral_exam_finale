@@ -9,6 +9,11 @@
   max-width: 500px;
   & h6 {
     padding: 2rem 0 0;
+    text-align: center;
+  }
+
+  & p {
+    text-align: center;
   }
 }
 .profile__img {
@@ -27,13 +32,21 @@
   color: white;
 
   &__outline {
-    background-color: white;
+    background-color: transparent;
     color: $primary;
     border-radius: 15px;
     border-style: solid;
     border-width: 1px;
-    outline: none;
-    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    padding: 0.3rem 1.5rem 0.3rem 1.5rem;
     width: 325px;
+    border-color: $primary;
+
+    & a {
+      color: $primary !important;
+      font-size: 13px;
+      padding: 0;
+      margin: 0;
+      text-decoration: none;
+    }
   }
 }

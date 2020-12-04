@@ -1,4 +1,4 @@
-import styles from "./SignUp.module.scss";
+import styles from "./Account.module.scss";
 import SignUpForm from "./SignUpForm";
 import signupprofile from "../../svg/sign-up.svg";
 
