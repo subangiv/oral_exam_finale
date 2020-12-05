@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./ContactForm.module.scss";
-import InputField from "../input-field/InputField";
+import TextField from "../textFieldStyle/TextField";
 import InputArea from "../input-area/InputArea";
 import { useMediaQuery } from "react-responsive";
 
@@ -10,7 +10,7 @@ export default function ContactForm(props) {
 
   return (
     <form className={styles.formStyle}>
-      <InputField
+      <TextField
         type="text"
         name="email"
         label="Email"
@@ -19,8 +19,8 @@ export default function ContactForm(props) {
         className="input-primary"
         textFieldStyle={{ width: "100%" }}
         style={{ width: "100%" }}
-      ></InputField>
-      <InputField
+      ></TextField>
+      <TextField
         type="text"
         name="inquiry"
         label="Inquiry"
@@ -29,7 +29,7 @@ export default function ContactForm(props) {
         className="input-primary"
         textFieldStyle={{ width: "100%" }}
         style={{ width: "100%" }}
-      ></InputField>
+      ></TextField>
       <InputArea
         type="text"
         name="message"
