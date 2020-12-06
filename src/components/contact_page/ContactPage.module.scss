@@ -70,15 +70,13 @@
     }
   }
   .leftColumnWrapper {
+    position: relative;
+    left: -7vw;
+    
     .contactTextWrapper {
       color: $light;
       padding: 0;
     }
-  }
-
-  .leftColumnWrapper {
-    position: relative;
-    left: -7vw;
   }
 
   .bannerWrapper {
