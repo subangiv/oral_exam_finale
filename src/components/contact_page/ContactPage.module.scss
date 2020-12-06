@@ -10,7 +10,7 @@
   & h1 {
     color: $primary;
     align-self: flex-start;
-    margin-bottom: 2vw;
+    margin-bottom: 2vh;
   }
 }
 
@@ -66,6 +66,7 @@
     grid-template-areas: "left left ." "left left right";
     & h1 {
       font-size: 4rem;
+      margin-bottom: 2vw;
     }
   }
   .leftColumnWrapper {
