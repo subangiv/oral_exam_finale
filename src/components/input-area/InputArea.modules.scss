@@ -52,7 +52,7 @@ textarea + label {
   transform: translateY(-50%) translateX(16px) scale(0.9);
 }
 
-.input-primary textarea {
+.textarea-primary textarea {
   border-color: $primary;
   color: $primary;
   resize: none;
@@ -65,6 +65,6 @@ textarea + label {
   }
 }
 
-.input-primary label {
+.textarea-primary label {
   color: $primary;
 }
