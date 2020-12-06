@@ -13,6 +13,14 @@
     margin-bottom: 2vw;
   }
 }
+
+.leftColumnWrapper {
+  .contactTextWrapper {
+    color: $primary;
+    text-align: left;
+    padding: 3vw 3vw;
+  }
+}
 .bannerWrapper {
   display: flex;
   flex-wrap: wrap;
@@ -25,11 +33,6 @@
   -webkit-box-shadow: -10px 10px 20px 0px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: -10px 10px 20px 0px rgba(0, 0, 0, 0.3);
   box-shadow: -10px 10px 20px 0px rgba(0, 0, 0, 0.3);
-}
-.contactTextWrapper {
-  color: $primary;
-  text-align: left;
-  padding: 3vw 3vw;
 }
 
 @media (min-width: $max-s) {
@@ -64,7 +67,10 @@
       font-size: 4rem;
     }
   }
-  
+  .contactTextWrapper {
+    color: $light;
+  }
+
   .leftColumnWrapper {
     position: relative;
     left: -7vw;
