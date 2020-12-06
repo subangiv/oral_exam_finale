@@ -14,6 +14,7 @@ export default function ContactForm(props) {
         type="text"
         name="email"
         label="Email"
+        labelFor="email"
         inputSize={isTablet ? "40" : "30"}
         inputPlaceHolder="Write your email"
         className="input-primary"
@@ -24,6 +25,7 @@ export default function ContactForm(props) {
         type="text"
         name="inquiry"
         label="Inquiry"
+        labelFor="inquiry"
         inputSize={isTablet ? "40" : "30"}
         inputPlaceHolder="Inquiry"
         className="input-primary"
@@ -38,7 +40,7 @@ export default function ContactForm(props) {
         cols={isTablet ? "34" : "26"}
         rows={isTablet ? "8" : "5"}
         inputPlaceHolder="Write your message here..."
-        className="input-primary container"
+        className="textarea-primary"
         textFieldStyle={{ width: "100%" }}
         style={{ width: "100%" }}
       />
