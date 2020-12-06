@@ -1,4 +1,4 @@
-import "./InputField.modules.scss";
+import "./TextField.module.scss";
 
 function InputField(props) {
   return (
