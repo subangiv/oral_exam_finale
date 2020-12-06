@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./ContactForm.module.scss";
-import TextField from "../textFieldStyle/TextField";
+import TextField from "../textfield/TextField";
 import InputArea from "../input-area/InputArea";
 import { useMediaQuery } from "react-responsive";
 

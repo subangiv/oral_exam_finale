@@ -1,6 +1,6 @@
-import "./InputField.modules.scss";
+import "./TextField.module.scss";
 
-function InputField(props) {
+function TextField(props) {
   return (
     <div className={props.className + " container"} style={props.style}>
       <div className="textfield" style={props.textFieldStyle}>
@@ -19,4 +19,4 @@ function InputField(props) {
   );
 }
 
-export default InputField;
+export default TextField;
