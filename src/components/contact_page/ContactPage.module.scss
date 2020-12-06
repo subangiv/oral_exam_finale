@@ -21,6 +21,7 @@
     padding: 3vw 3vw;
   }
 }
+
 .bannerWrapper {
   display: flex;
   flex-wrap: wrap;
@@ -67,8 +68,11 @@
       font-size: 4rem;
     }
   }
-  .contactTextWrapper {
-    color: $light;
+  .leftColumnWrapper {
+    .contactTextWrapper {
+      color: $light;
+      padding: 0;
+    }
   }
 
   .leftColumnWrapper {
