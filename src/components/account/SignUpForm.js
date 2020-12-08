@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import InputField from "../input-field/InputField";
 import styles from "./Account.module.scss";
 import { useForm } from "react-hook-form";
@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 import data from "../json/countries.json";
 
 const SignUpForm = () => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors, watch } = useForm();
   const [message, setMessage] = useState();
   const onSubmit = (data) => console.log(data);
+  const password = useRef({});
+  password.current = watch("password", "");
 
   return (
     <section className={styles.form__wrapper}>
@@ -17,6 +19,7 @@ const SignUpForm = () => {
         <div className="input-primary container">
           <div className="textfield textfield-flex">
             <input
+              id="inputForFirstName"
               name="firstname"
               type="text"
               aria-describedby="Enter your first name here"
@@ -28,7 +31,7 @@ const SignUpForm = () => {
                 },
               })}
             />
-            <label htmlFor="firstname">First name</label>
+            <label htmlFor="inputForFirstName">First name</label>
             {errors.firstname && (
               <span className={styles.text}>{errors.firstname.message}</span>
             )}
@@ -37,6 +40,7 @@ const SignUpForm = () => {
         <div className="input-primary container">
           <div className="textfield textfield-flex">
             <input
+              id="inputForLastName"
               name="lastname"
               type="text"
               aria-describedby="Enter your last name here"
@@ -48,7 +52,7 @@ const SignUpForm = () => {
                 },
               })}
             />
-            <label htmlFor="lastname">Last name</label>
+            <label htmlFor="inputForLastName">Last name</label>
             {errors.lastname && (
               <span className={styles.text}>{errors.lastname.message}</span>
             )}
@@ -85,6 +89,7 @@ const SignUpForm = () => {
         <div className="input-primary container">
           <div className="textfield textfield-flex">
             <input
+              id="inputForCountry"
               name="country"
               type="select"
               list="countries"
@@ -97,7 +102,7 @@ const SignUpForm = () => {
                 },
               })}
             />
-            <label htmlFor="country">Country</label>
+            <label htmlFor="inputForCountry">Country</label>
             <datalist id="countries">
               {data.map((country, key) => (
                 <option key={key} value={country.country} />
@@ -111,6 +116,7 @@ const SignUpForm = () => {
         <div className="input-primary container">
           <div className="textfield textfield-flex">
             <input
+              id="inputForPassword"
               name="password"
               type="password"
               aria-describedby="Enter your password here"
@@ -130,15 +136,36 @@ const SignUpForm = () => {
                 },
               })}
             />
-            <label htmlFor="password">Password</label>
+            <label htmlFor="inputForPassword">Password</label>
             {errors.password && (
               <span className={styles.text}>{errors.password.message}</span>
             )}
           </div>
         </div>
+        <div className="input-primary container">
+          <div className="textfield textfield-flex">
+            <input
+              id="inputForPasswordRepeat"
+              name="password_repeat"
+              type="password"
+              aria-describedby="Repeat your password here"
+              placeholder="Repeat your password here"
+              ref={register({
+                validate: (value) =>
+                  value === password.current || "Password does not match",
+              })}
+            />
+            <label htmlFor="inputForPasswordRepeat">Repeat your password</label>
+            {errors.password_repeat && (
+              <span className={styles.text}>
+                {errors.password_repeat.message}
+              </span>
+            )}
+          </div>
+        </div>
 
         <button type="submit" className={styles.btn}>
-          Sign up
+          Sign Up
         </button>
         <p>or</p>
         <button className={styles.btn__outline}>

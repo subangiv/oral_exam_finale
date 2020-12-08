@@ -23,21 +23,28 @@
 }
 .btn {
   border-radius: 15px;
-  border-style: solid;
-  border-width: 1px;
+  border: none;
   outline: none;
-  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  padding: 0.4rem 1.5rem 0.4rem 1.5rem;
   width: 325px;
   background-color: $primary;
   color: white;
 
+  & a {
+    color: white;
+    font-size: 13px;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+  }
+
   &__outline {
     background-color: transparent;
+    padding: 0.3rem 1.5rem 0.3rem 1.5rem;
     color: $primary;
     border-radius: 15px;
     border-style: solid;
     border-width: 1px;
-    padding: 0.3rem 1.5rem 0.3rem 1.5rem;
     width: 325px;
     border-color: $primary;
 

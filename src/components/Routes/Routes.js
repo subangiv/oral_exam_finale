@@ -11,6 +11,7 @@ import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import LandingPage from "../landingpage/LandingPage";
 import AboutPage from "../aboutpage/AboutPage";
+import Sucess from "../payment/Success";
 
 const Routes = (props) => (
   <Router {...props}>

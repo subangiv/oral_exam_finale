@@ -8,6 +8,7 @@ const SignInForm = () => {
   const { register, handleSubmit, errors } = useForm();
   const [message, setMessage] = useState();
   const onSubmit = (data) => console.log(data);
+  //localStorage.setItem("user", JSON.stringify(onSubmit));
 
   return (
     <section className={styles.form__wrapper}>
