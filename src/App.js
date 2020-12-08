@@ -4,16 +4,8 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import SignUp from "./components/account/SignUp";
 import SignIn from "./components/account/SignIn";
+import LandingPage from "./components/landingpage/LandingPage";
 
-function App() {
-  const App = (props) => props.children;
-  return (
-    <div className="App">
-      <Header />
-      <SignUp />
-      <Footer />
-    </div>
-  );
-}
+const App = (props) => props.children;
 
 export default App;

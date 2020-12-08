@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Header.module.scss";
 import BurgerMenu from "../burgermenu/BurgerMenu";
 import { useMediaQuery } from "react-responsive";
+import { Link } from "react-router-dom";
 
 export default function Header(props) {
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
@@ -19,9 +20,11 @@ export default function Header(props) {
   };
   const Title = () => {
     return (
-      <h2 className={styles.polloName}>
-        POLLO<span>POLLO</span>
-      </h2>
+      <Link to="/">
+        <h2 className={styles.polloName}>
+          POLLO<span>POLLO</span>
+        </h2>
+      </Link>
     );
   };
   return (
@@ -35,7 +38,12 @@ export default function Header(props) {
       ) : (
         <>
           <ul className={styles.expanedMenuList}>
-            <li>About</li>
+            <li>
+              {" "}
+              <Link to="/about">
+                <p>About</p>
+              </Link>
+            </li>
             <li>Donations</li>
             <li>Applications</li>
             <li>Products</li>
@@ -45,7 +53,12 @@ export default function Header(props) {
             <li>
               <ActionButtons />
             </li>
-            <li>Sign in</li>
+            <li>
+              {" "}
+              <Link to="/sign-in">
+                <p>Sign in</p>
+              </Link>
+            </li>
           </ul>
         </>
       )}
