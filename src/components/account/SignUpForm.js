@@ -114,7 +114,7 @@ const SignUpForm = () => {
               name="password"
               type="password"
               aria-describedby="Enter your password here"
-              placeholder="CEnter your password here"
+              placeholder="Enter your password here"
               ref={register({
                 required: {
                   value: true,
