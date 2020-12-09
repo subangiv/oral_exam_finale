@@ -16,7 +16,6 @@ export default function ContactPage(props) {
       <p className={props.className}>
         Feel free to join our community or help desk on Discord or Twitter.
         <br />
-        <br />
         Or send a email for questions or press inquiries on:
         casper@pollopollo.org
       </p>
@@ -28,7 +27,11 @@ export default function ContactPage(props) {
       <div className={styles.leftColumnWrapper}>
         {!isDeskTop && <Title style={{ marginBottom: "2vw" }} />}
         <div className={styles.bannerWrapper}>
-          <img src={FigureforBanner} alt="figure with computer" />
+          <img
+            src={FigureforBanner}
+            alt="figure with computer"
+            className={styles.contactFigure}
+          />
           {isDeskTop ? (
             <div>
               <Title />
