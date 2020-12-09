@@ -42,7 +42,7 @@
   }
   .actionBtns {
     //"Apply for product" button
-    & button {
+    :nth-child(3) {
       margin-top: 1vw;
     }
   }
