@@ -23,9 +23,6 @@
   :nth-child(2) {
     background-color: $primary-light;
   }
-  & button {
-    margin: auto 1rem;
-  }
 }
 .expanedMenuList {
   @include row-flex;
@@ -45,8 +42,7 @@
   }
   .actionBtns {
     //"Apply for product" button
-    :nth-child(3) {
-      width: 5vw;
+    & button {
       margin-top: 1vw;
     }
   }
@@ -54,9 +50,6 @@
 
 @media (min-width: $max-s) {
   //Stretch action buttons
-  // header > div.actionBtns > button {
-  //   width: 30% !important;
-  // }
   .header {
     height: 7vh;
   }
