@@ -1,3 +1,75 @@
-.product-card-item {
-  background-color: yellow;
+@import "../../styles/index";
+
+.productCard {
+  &ListItem {
+    list-style: none;
+    margin: 8px;
+  }
+
+  &Wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &Item {
+    background-color: rgba($primary-lighter, 0.4);
+    border-radius: 25px;
+    margin-bottom: 8px;
+    padding: 16px;
+    // height: 250px;
+  }
+
+  &Header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &Heading {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &Title {
+    text-align: left;
+    margin-bottom: 8px;
+  }
+
+  &Info {
+    margin-left: 16px;
+    margin-bottom: 8px;
+  }
+
+  &Desc {
+    height: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &Image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &Interaction {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+}
+
+.detailsButton {
+  background-color: transparent;
+  border-style: none;
+  outline: none;
+}
+
+.statistics {
+  text-align: left;
+  list-style: none;
+
+  & li {
+    margin-bottom: 8px;
+  }
 }
