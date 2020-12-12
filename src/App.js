@@ -1,6 +1,7 @@
 import './App.css';
 import InputField from './components/input-field/InputField'
 import ProductsPage from './components/products-page/ProductsPage'
+import ApplicationsPage from './components/applications-page/ApplicationsPage'
 import React from "react";
 import "./App.css";
 import Header from "./components/header/Header";
@@ -12,7 +13,7 @@ function App() {
      
       <Header />
       &emsp; &emsp;
-      <ProductsPage/>
+      <ApplicationsPage/>
       <Footer />
     </div>
   );

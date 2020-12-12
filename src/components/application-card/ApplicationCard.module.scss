@@ -1,6 +1,6 @@
 @import "../../styles/index";
 
-.productCard {
+.applicationCard {
   &ListItem {
     list-style: none;
     margin: 8px;
@@ -13,7 +13,8 @@
   }
 
   &Item {
-    background-color: rgba($primary-lighter, 0.4);
+    border-color: $primary;
+    border-style: solid;
     border-radius: 25px;
     margin-bottom: 8px;
     padding: 16px;
