@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import InputField from "../input-field/InputField";
 import styles from "./Account.module.scss";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import SignUpForm from "./SignUpForm";
 
 const SignInForm = () => {
   const { register, handleSubmit, errors } = useForm();
   const [message, setMessage] = useState();
-  const onSubmit = (data) => console.log(data);
-  //localStorage.setItem("user", JSON.stringify(onSubmit));
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [user, setUser] = useState();
+
+  const onSubmit = (person) => {
+    localStorage.setItem("user", JSON.stringify(person));
+  };
+
+  // if there's a user show the message below
 
   return (
     <section className={styles.form__wrapper}>

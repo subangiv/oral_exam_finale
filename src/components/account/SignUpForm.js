@@ -2,15 +2,26 @@ import React, { useState, useRef } from "react";
 import InputField from "../input-field/InputField";
 import styles from "./Account.module.scss";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import data from "../json/countries.json";
+import axios from "axios";
 
 const SignUpForm = () => {
   const { register, handleSubmit, errors, watch } = useForm();
   const [message, setMessage] = useState();
-  const onSubmit = (data) => console.log(data);
   const password = useRef({});
   password.current = watch("password", "");
+  const [submitted, setSubmitted] = useState(false);
+  const onSubmit = (person) => {
+    setSubmitted(true);
+    localStorage.setItem("user", JSON.stringify(person));
+    console.log(person);
+  };
+  if (submitted) {
+    return <Redirect to="/" />;
+  }
+  //const getUser = localStorage.getItem("user");
+  //console.log(getUser);
 
   return (
     <section className={styles.form__wrapper}>
