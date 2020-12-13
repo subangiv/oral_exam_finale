@@ -1,10 +1,8 @@
 import React, { useState, useRef } from "react";
-import InputField from "../input-field/InputField";
 import styles from "./Account.module.scss";
 import { useForm } from "react-hook-form";
 import { Link, Redirect } from "react-router-dom";
 import data from "../json/countries.json";
-import axios from "axios";
 
 const SignUpForm = () => {
   const { register, handleSubmit, errors, watch } = useForm();
@@ -27,6 +25,31 @@ const SignUpForm = () => {
     <section className={styles.form__wrapper}>
       <h6>Register a new user</h6>
       <form onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
+        <div className="input-primary container">
+          <div className="textfield textfield-flex">
+            <input
+              id="inputForOption"
+              name="position"
+              type="select"
+              aria-describedby="Select an option here"
+              placeholder="Select an option here"
+              list="positions"
+              ref={register({
+                required: {
+                  required: true,
+                  message: "Please select an option",
+                },
+              })}
+            />
+            <label htmlFor="inputForOption">Register as...</label>
+            <datalist id="positions">
+              <option value="Donor" />
+            </datalist>
+            {errors.position && (
+              <span className={styles.text}>{errors.position.message}</span>
+            )}
+          </div>
+        </div>
         <div className="input-primary container">
           <div className="textfield textfield-flex">
             <input

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import InputField from "../input-field/InputField";
 import styles from "./Account.module.scss";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
