@@ -50,6 +50,13 @@ input + label {
   transform: translateY(-50%) translateX(16px) scale(0.9);
 }
 
+input:focus {
+  border-width: 2px;
+  + label {
+    font-weight: 800;
+  }
+}
+
 .input-primary input {
   border-color: $primary;
   color: $primary;
