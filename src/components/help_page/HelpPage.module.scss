@@ -1,0 +1,126 @@
+@import "../../styles/index";
+@import "../QAcard/QACard.module.scss";
+
+p {
+  font-size: 0.9rem;
+}
+.helpPage {
+  margin: 5vh 0 18vh 0;
+  padding: 0 5vw;
+  text-align: left;
+  display: flex;
+  flex-flow: column wrap;
+  & h1,
+  & h2,
+  & p,
+  .guideLink {
+    color: $primary;
+  }
+}
+
+.sections {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  padding: 3vw 0;
+  & h6 {
+    color: $primary;
+  }
+  & h1,
+  & h2 {
+    margin: 0 0 2vh 0;
+  }
+}
+
+.bannerWrapper {
+  margin: 0 0 6vh 0;
+  background-color: $primary;
+  width: clamp(80%, 650px, 100%);
+  max-height: 70vw;
+  border-radius: 0 20px 20px 0;
+  position: relative;
+  left: calc(-25px - 25px);
+  -webkit-box-shadow: -10px 10px 20px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: -10px 10px 20px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: -10px 10px 20px 0px rgba(0, 0, 0, 0.3);
+  & img {
+    width: clamp(50%, 65%, 70%);
+    height: auto;
+    position: relative;
+    top: -17px;
+    left: 20%; //58px
+  }
+}
+
+.faqLink {
+  color: $primary-light;
+  text-decoration: underline;
+}
+
+.guideContainer {
+  background-color: rgba($color: $primary-lighter, $alpha: 0.25);
+  border-radius: 4vw;
+  padding: 4vw;
+  margin: 2vh 0 0 0;
+  display: flex;
+  flex-flow: column wrap;
+  h2 {
+    margin: 0 0 1vh 0;
+  }
+}
+
+//iPhone SE
+@media (max-width: 340px) {
+  .topWrapper {
+    margin-top: 7vw;
+  }
+}
+
+@media (min-width: $max-s) {
+  .topWrapper {
+    display: grid;
+    grid-template-columns: repeat((2, 1fr));
+  }
+  .bannerWrapper {
+    // max-height: 34vw;
+    max-height: 62%;
+    margin: 5vh 0 6vh 0;
+    & img {
+      top: -19px;
+    }
+  }
+  .cardWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1vw 3vw;
+  }
+}
+
+@media (min-width: $max-s) {
+  .helpPage {
+    margin-top: 1vh;
+  }
+}
+
+@media (min-width: $max-l) {
+  .helpPage {
+    & h1 {
+      font-size: 4rem;
+    }
+    & h2 {
+      font-size: 2rem;
+    }
+  }
+  .bannerWrapper {
+    top: 3vw;
+    left: -5vw;
+    & img {
+      width: 50%;
+      top: -15%;
+    }
+  }
+  .guideContainer {
+    border-radius: 2.8vw;
+    padding: 2.8vw;
+  }
+}
