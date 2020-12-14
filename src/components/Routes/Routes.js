@@ -14,6 +14,7 @@ import AboutPage from "../aboutpage/AboutPage";
 import Sucess from "../payment/Success";
 import ApplicationsPage from "../applications-page/ApplicationsPage";
 import ProductsPage from "../products-page/ProductsPage";
+import Account from "../account/Account";
 
 const Routes = (props) => (
   <Router {...props}>
@@ -33,6 +34,9 @@ const Routes = (props) => (
       </Route>
       <Route path="/sign-up">
         <SignUp />
+      </Route>
+      <Route path="/account">
+        <Account />
       </Route>
       <Route path="/">
         <LandingPage />
