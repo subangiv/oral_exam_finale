@@ -34,7 +34,6 @@
     font-weight: $font-weight-medium;
     letter-spacing: $letter-spacing-button;
     text-decoration: none;
-    text-transform: uppercase;
     padding: 0 8px 0 8px;
   }
 
@@ -48,15 +47,11 @@
 
   //Disabled button styling
   &-disabled {
-    background-color: transparent;
     color: rgba(0, 0, 0, 0.37);
     cursor: default;
     pointer-events: none;
-
-    &.contained {
-      background-color: rgba(0, 0, 0, 0.05);
-      box-shadow: none;
-    }
+    background-color: rgba(0, 0, 0, 0.05);
+    box-shadow: none;
   }
 
   //Truncated button styling
