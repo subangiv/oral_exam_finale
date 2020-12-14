@@ -52,6 +52,13 @@ textarea + label {
   transform: translateY(-50%) translateX(16px) scale(0.9);
 }
 
+textarea:focus {
+  border-width: 2px;
+  + label {
+    font-weight: 800;
+  }
+}
+
 .textarea-primary textarea {
   border-color: $primary;
   color: $primary;
