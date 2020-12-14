@@ -6,7 +6,7 @@ import Stories from "./Stories";
 
 export default function LandingPage() {
   return (
-    <section style={{ marginTop: "20vh" }}>
+    <section>
       <HeroBanner />
       <Intro />
       <StepsProcess />
