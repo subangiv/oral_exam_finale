@@ -5,7 +5,6 @@ import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 
 export default function Header(props) {
-  console.log(props);
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
   const ActionButtons = () => {
     return (
@@ -31,57 +30,55 @@ export default function Header(props) {
   return (
     <header className={styles.header}>
       {isMobile ? (
-        <header className={styles.header}>
+        <>
           <Title />
           <ActionButtons />
           <BurgerMenu />
-        </header>
+        </>
       ) : (
-        <header className={styles.header}>
-          <ul className={styles.expanedMenuList}>
-            <li>
-              <Link className="primary-text" to="/">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link className="primary-text" to="/about">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link className="primary-text" to="/applications">
-                Applications
-              </Link>
-            </li>
-            <li>
-              <Link className="primary-text" to="/products">
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link className="primary-text" to="/help">
-                Help
-              </Link>
-            </li>
-            <li>
-              <Title />
-            </li>
-            <li>
-              <ActionButtons />
-            </li>
-            <li>
-              <Link to="/sign-in">
-                <p>Sign in</p>
-              </Link>
-            </li>
-            <li>
-              <Link to="/sign-up">
-                <p>Sign up</p>
-              </Link>
-            </li>
-          </ul>
-        </header>
+        <ul className={styles.expanedMenuList}>
+          <li>
+            <Link className="primary-text" to="/">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link className="primary-text" to="/about">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link className="primary-text" to="/applications">
+              Applications
+            </Link>
+          </li>
+          <li>
+            <Link className="primary-text" to="/products">
+              Products
+            </Link>
+          </li>
+          <li>
+            <Link className="primary-text" to="/help">
+              Help
+            </Link>
+          </li>
+          <li>
+            <Title />
+          </li>
+          <li>
+            <ActionButtons />
+          </li>
+          <li>
+            <Link to="/sign-in">
+              <p>Sign in</p>
+            </Link>
+          </li>
+          <li>
+            <Link to="/sign-up">
+              <p>Sign up</p>
+            </Link>
+          </li>
+        </ul>
       )}
     </header>
   );
