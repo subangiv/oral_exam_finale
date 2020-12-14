@@ -13,6 +13,7 @@
   align-items: flex-start;
   margin: 6vh auto;
   padding: 22px;
+  width: clamp(150px, 279px, 300px);
 
   & h4 {
     color: $primary;

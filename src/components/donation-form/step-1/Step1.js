@@ -2,12 +2,30 @@ import React from "react";
 import styles from "../DonationForm.module.scss";
 import TextField from "../../textfield/TextField";
 import InputArea from "../../input-area/InputArea";
+import AmexIcon from "../../../assets/images/icon-simple-americanexpress.png";
+import VisaIcon from "../../../assets/images/icon-awesome-cc-visa.png";
+import MCardIcon from "../../../assets/images/icon-awesome-cc-mastercard.png";
+import PayPalIcon from "../../../assets/images/icon-awesome-cc-paypal.png";
 
 export default function Step1(props) {
   console.log(props);
   return (
     <>
       <li className={styles.step1}>Select your payment method *</li>
+      <fieldset className={styles.eachStep}>
+        <div className={styles.paymentMethods}>
+          <p for="paypal-creditcard" className={styles.creditcardLabel}>
+            PayPal/Credit card
+          </p>
+          <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <img src={PayPalIcon} alt="PayPal method"></img>
+            <img src={VisaIcon} alt="Visa method"></img>
+            <img src={MCardIcon} alt="PayPal method"></img>
+            <img src={AmexIcon} alt="PayPal method"></img>
+          </div>
+        </div>
+        <div></div>
+      </fieldset>
       <li className={styles.step1}>Personal information</li>
       <fieldset className={styles.eachStep}>
         <TextField
