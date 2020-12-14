@@ -1,4 +1,5 @@
 @import "../../styles/variables";
+
 .container {
   display: flex;
   flex-direction: column;
@@ -105,6 +106,7 @@
   & p {
     color: white;
     padding-bottom: 10px;
+    text-align: center;
   }
   & h6 {
     color: white;
