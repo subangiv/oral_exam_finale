@@ -1,0 +1,59 @@
+@import "../../styles/variables";
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 0;
+}
+.form__wrapper {
+  max-width: 500px;
+  & h6 {
+    padding: 2rem 0 0;
+    text-align: center;
+  }
+
+  & p {
+    text-align: center;
+  }
+}
+.profile__img {
+  max-width: 325px;
+  -webkit-filter: drop-shadow(10px 10px 20px rgba (0, 0, 0, 0.3));
+  filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.3));
+}
+.btn {
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  padding: 0.4rem 1.5rem 0.4rem 1.5rem;
+  width: 325px;
+  background-color: $primary;
+  color: white;
+
+  & a {
+    color: white;
+    font-size: 13px;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+  }
+
+  &__outline {
+    background-color: transparent;
+    padding: 0.3rem 1.5rem 0.3rem 1.5rem;
+    color: $primary;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 1px;
+    width: 325px;
+    border-color: $primary;
+
+    & a {
+      color: $primary !important;
+      font-size: 13px;
+      padding: 0;
+      margin: 0;
+      text-decoration: none;
+    }
+  }
+}

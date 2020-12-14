@@ -1,14 +1,11 @@
-import './App.css';
+import "./App.css";
+import InputField from "./components/input-field/InputField";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import SignUp from "./components/account/SignUp";
+import SignIn from "./components/account/SignIn";
+import LandingPage from "./components/landingpage/LandingPage";
 
-function App() {
-  return (
-    <div className="App">
-        <h1 className="primary-text">Hola</h1>
-        <button className="btn rounded btn-primary label btn-disabled">Button</button>
-        <button className="btn rounded btn-primary outlined">Button</button>
-        <button className="btn rounded btn-donate">Button</button>
-    </div>
-  );
-}
+const App = (props) => props.children;
 
 export default App;
