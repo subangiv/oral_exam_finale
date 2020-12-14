@@ -8,7 +8,7 @@ import { RestDB } from "../../modules/APIRequest";
 export default function ContactForm(props) {
   const isTablet = useMediaQuery({ query: "(min-width: 767.98px)" });
   const isBigScreen = useMediaQuery({ query: "(min-width: 991.98px)" });
-  const [informtion, setInformation] = useState();
+
   const [inputValues, setInputValues] = useState({
     email: "",
     inquiry: "",
@@ -26,7 +26,6 @@ export default function ContactForm(props) {
   };
   const onSubmitContactForm = (e) => {
     e.preventDefault();
-    console.log(inputValues);
     RestDB.postContactRequest(inputValues);
   };
   return (
