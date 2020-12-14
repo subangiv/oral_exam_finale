@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./ShowText.module.scss"
 
 function ShowText(props) {
 
@@ -12,9 +13,9 @@ const [showToggle, setShowToggle] = useState(false);
             <p>
                 {!showToggle ? `${props.text.substr(0, props.maxLength).trim()} ... ` : props.text}
                 {!showToggle ? (
-                    <a onClick={() => setShowToggle(!showToggle)}> Show more</a>
+                    <a onClick={() => setShowToggle(!showToggle)} className="primary-text"> Show more</a>
                     ) : (
-                    <a onClick={() => setShowToggle(!showToggle)}> Show less</a>
+                    <a onClick={() => setShowToggle(!showToggle)} className={styles.showLess + " primary-text"}> Show less</a>
                 )}
             </p>
         );

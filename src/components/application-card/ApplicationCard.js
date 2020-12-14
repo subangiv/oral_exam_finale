@@ -1,19 +1,23 @@
 import { useState } from "react";
 import ShowText from "../show-text/ShowText";
 import styles from "./ApplicationCard.module.scss";
+import flags from "../../logic/countryFlag";
 
 function ApplicationCard(props) {
 
-const [detailsToggle, setDetailsToggle] = useState(false)
-const [showToggle, setShowToggle] = useState(false);
+const [detailsToggle, setDetailsToggle] = useState(false);
 
+console.log(new Date(props.created));
 
-    return (
+    return ( 
      <li className={styles.applicationCardListItem}>
          <article className={styles.applicationCardItem}>
              <section className={styles.applicationCardTop}>
                 <div className={styles.applicationCardWrapper}>
-                    <img className={styles.applicationCardImage} src={"https://exampollopollo-e360.restdb.io/media/"+props.applicant[0].image[0]} alt=""/>
+                    <div className={styles.applicationCardImageWrapper}>
+                        <img className={styles.applicationCardImage} src={"https://exampollopollo-e360.restdb.io/media/"+props.applicant[0].image[0]} alt=""/>
+                        {flags.getFlag(props.applicant[0].country, styles.applicationCardFlag)}
+                    </div>
                     <section className={styles.applicationCardInfo}>
                         <hgroup className={styles.applicationCardHeading}>
                             <h2 className={"display-4 " + styles.applicationCardTitle }>{props.product[0].title}</h2>

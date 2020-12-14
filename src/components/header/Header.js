@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Header.module.scss";
 import BurgerMenu from "../burgermenu/BurgerMenu";
 import { useMediaQuery } from "react-responsive";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default function Header(props) {
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
@@ -35,10 +36,10 @@ export default function Header(props) {
       ) : (
         <>
           <ul className={styles.expanedMenuList}>
-            <li>About</li>
-            <li>Donations</li>
-            <li>Applications</li>
-            <li>Products</li>
+            <li><Link className="primary-text" to="/about">About</Link></li>
+            <li><Link className="primary-text" to="/applications">Applications</Link></li>
+            <li><Link className="primary-text" to="/products">Products</Link></li>
+            <li><Link className="primary-text" to="/help">Help</Link></li>
             <li>
               <Title />
             </li>

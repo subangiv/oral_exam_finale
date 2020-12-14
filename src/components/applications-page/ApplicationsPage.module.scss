@@ -63,6 +63,29 @@ h1 {
   justify-content: center;
 }
 
+.productsWrapper {
+}
+
+.filterSortGroup {
+  display: flex;
+}
+.filterWrapper {
+}
+
+.filterButton {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.filterSelect {
+  display: block;
+}
+
+.sortSelection {
+  height: 35px;
+  margin-right: 8px;
+}
+
 .spinner {
   width: 100px;
   height: 100px;

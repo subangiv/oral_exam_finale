@@ -54,6 +54,18 @@
     left: 0;
   }
 
+  &ImageWrapper {
+    position: relative;
+    height: 110px;
+  }
+
+  &Flag {
+    width: 50px;
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+  }
+
   &Image {
     width: 100px;
     height: 100px;
