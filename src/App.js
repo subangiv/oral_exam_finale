@@ -1,17 +1,11 @@
-import React from "react";
 import "./App.css";
+import InputField from "./components/input-field/InputField";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
-import ContactPage from "./components/contact_page/ContactPage";
+import SignUp from "./components/account/SignUp";
+import SignIn from "./components/account/SignIn";
+import LandingPage from "./components/landingpage/LandingPage";
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <ContactPage />
-      <Footer />
-    </div>
-  );
-}
+const App = (props) => props.children;
 
 export default App;
