@@ -11,23 +11,23 @@ import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import LandingPage from "../landingpage/LandingPage";
 import AboutPage from "../aboutpage/AboutPage";
-import Sucess from "../payment/Success";
+import Success from "../payment/Success";
 import ApplicationsPage from "../applications-page/ApplicationsPage";
 import ProductsPage from "../products-page/ProductsPage";
 import Account from "../account/Account";
 
 const Routes = (props) => (
   <Router {...props}>
-    <Header />
+    <Header {...props} />
     <Switch>
       <Route path="/about">
         <AboutPage />
       </Route>
       <Route path="/applications">
-            <ApplicationsPage/>
+        <ApplicationsPage />
       </Route>
       <Route path="/products">
-        <ProductsPage/>
+        <ProductsPage />
       </Route>
       <Route path="/sign-in">
         <SignIn />
