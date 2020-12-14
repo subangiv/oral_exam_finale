@@ -12,6 +12,7 @@ function TextField(props) {
           size={props.inputSize}
           maxLength={props.maxLength}
           style={{ width: "100%" }}
+          onChange={props.onChange}
         />
         <label htmlFor={props.labelFor} children={props.label}></label>
       </div>

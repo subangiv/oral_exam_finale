@@ -11,6 +11,7 @@ function InputArea(props) {
           value={props.inputValue}
           cols={props.cols}
           rows={props.rows}
+          onChange={props.onChange}
         />
         <label htmlFor={props.labelFor} children={props.label} />
       </div>
