@@ -1,0 +1,122 @@
+@import "../../styles/index";
+
+ol.listOfSteps {
+  counter-set: li; // Initiate a counter
+  list-style-type: none;
+  line-height: $line-height-base;
+  text-align: left;
+  color: $primary;
+
+  li {
+    position: relative;
+    padding: 2vw 0 2vw 47px;
+
+    &::before {
+      border-radius: 50%;
+      color: $light;
+      background: $primary;
+      width: 36px;
+      height: 36px;
+      //positioning circles
+      position: absolute;
+      left: 0;
+      top: 4px;
+      //positioning text inside the circle
+      text-align: center;
+      line-height: 2.2;
+    }
+  }
+}
+
+.step1::before {
+  counter-increment: li; // Increment the counter by 1
+  content: counter(li); // Use the counter as content
+}
+.step2::before {
+  counter-set: li 3;
+  content: counter(li);
+}
+.step2last::before {
+  content: counter(li);
+  counter-increment: li;
+}
+
+fieldset.eachStep {
+  border: none;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: first baseline;
+  padding-left: 32px;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+@media (min-width: $max-s) {
+  .donateSection {
+    display: flex;
+    flex-flow: row-reverse wrap;
+    justify-content: space-around;
+  }
+}
+
+.checkBoxContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  color: $primary;
+
+  input[type="checkbox"] {
+    // visibility: hidden;
+    margin: 0 3px 0 0;
+  }
+  & p {
+    font-size: 14px;
+  }
+}
+
+.checkBoxContainer .checkBoxLabel {
+  //unset label's standard styles
+  position: unset;
+  top: 0;
+  left: 0;
+  transform: none;
+  transition: none;
+  transform-origin: 0;
+
+  background-color: #ffffff;
+  border: 1px solid $primary;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  left: 0;
+  top: 0;
+}
+.checkBoxContainer .checkBoxLabel > label::after {
+  border: 2px solid $primary-light;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 7px;
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+// .roundCheckBox {
+//   position: relative;
+
+input[type="checkbox"]:checked + label {
+  background-color: $primary-lighter;
+  border-color: $primary-lighter;
+}
+
+input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
