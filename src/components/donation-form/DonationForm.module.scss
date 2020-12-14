@@ -1,5 +1,12 @@
 @import "../../styles/index";
 
+.donateSection {
+  & h5,
+  span {
+    color: $primary;
+  }
+}
+
 ol.listOfSteps {
   counter-set: li; // Initiate a counter
   list-style-type: none;

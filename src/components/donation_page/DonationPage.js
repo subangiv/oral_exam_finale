@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./DonationPage.module.scss";
 import DonationImage from "../../assets/images/donation-img-small.png";
 import DonationForm from "../donation-form/DonationForm";
+import { RestDB } from "../../modules/APIRequests";
 
 export default function DonationPage(props) {
+  // const [applications, setApplications] = useState([]);
+  // useEffect(() => {
+  //   RestDB.getApplications(setApplications);
+  // }, []);
+  // console.log(applications);
+
   const [isGuestMode, setGuestMode] = useState(false);
   const clickGuest = () => {
     setGuestMode(true);
   };
-
   const [isSignIn, setSignIn] = useState(false);
   const clickSignIn = () => {
     setSignIn(true);
@@ -39,26 +45,31 @@ export default function DonationPage(props) {
           </p>
         </div>
       </section>
-      <div className={styles.donationBtns}>
-        <button
-          className="btn rounded btn-secondary outlined"
-          onClick={clickGuest}
-        >
-          Continue as guest
-        </button>
-        <button
-          className="btn rounded btn-secondary outlined"
-          onClick={clickSignIn}
-        >
-          Sign in
-        </button>
-        <button
-          className="btn rounded btn-secondary outlined"
-          onClick={clickSignUp}
-        >
-          Sign up
-        </button>
-      </div>
+      {!isGuestMode ? (
+        <div className={styles.donationBtns}>
+          <button
+            className="btn rounded btn-secondary outlined"
+            onClick={clickGuest}
+          >
+            Continue as guest
+          </button>
+          <button
+            className="btn rounded btn-secondary outlined"
+            onClick={clickSignIn}
+          >
+            Sign in
+          </button>
+          <button
+            className="btn rounded btn-secondary outlined"
+            onClick={clickSignUp}
+          >
+            Sign up
+          </button>
+        </div>
+      ) : (
+        <h3 style={{ margin: "4vh auto" }}>Continue as guest</h3>
+      )}
+
       {isGuestMode && <DonationForm />}
     </main>
   );

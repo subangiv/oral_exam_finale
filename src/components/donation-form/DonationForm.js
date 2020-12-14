@@ -3,6 +3,7 @@ import styles from "./DonationForm.module.scss";
 import { Steps, Step } from "react-step-builder";
 import Step1 from "./step-1/Step1";
 import Step2 from "./step-2/Step2";
+import DetailedCard from "../detailed-card/DetailedCard";
 
 export default function DonationForm(props) {
   //Inputs in sections 1 & 2
@@ -80,9 +81,7 @@ export default function DonationForm(props) {
 
   return (
     <section className={styles.donateSection}>
-      <h3>
-        Your are helping <span>Rafael</span> !
-      </h3>
+      <DetailedCard />
       <form onSubmit={onClick}>
         <ol className={styles.listOfSteps}>
           <Steps>

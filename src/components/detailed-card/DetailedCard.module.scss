@@ -1,0 +1,20 @@
+@import "../../styles/index";
+
+.applicantCard {
+  //Styling
+  background-color: #fff;
+  border-radius: 20px;
+  -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+  //Content
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  margin: 6vh auto;
+  padding: 22px;
+
+  & h4 {
+    color: $primary;
+  }
+}
