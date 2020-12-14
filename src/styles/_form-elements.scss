@@ -56,3 +56,11 @@
 //     color: $primary;
 //   }
 // }
+
+select {
+  border-radius: 25px;
+  padding: 8px;
+  border-color: $primary;
+  border-width: 2px;
+  outline: none;
+}

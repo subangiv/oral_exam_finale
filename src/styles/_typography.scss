@@ -77,7 +77,11 @@ p {
   letter-spacing: $letter-spacing-p;
   font-weight: $font-weight-normal;
   line-height: $line-height-p;
+<<<<<<< HEAD
   color: $primary;
+=======
+  text-align: left;
+>>>>>>> cards
 }
 
 span {
@@ -89,7 +93,7 @@ span {
 
 a {
   font-size: $font-size-a;
-  font-weight: $font-weight-medium;
+  font-weight: $font-weight-bold;
   letter-spacing: $letter-spacing-a;
   line-height: $line-height-a;
 }

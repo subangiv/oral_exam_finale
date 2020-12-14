@@ -153,13 +153,13 @@
 //   }
 // }
 
-// // light color.
-// .light {
-//   &-text {
-//     color: $light;
-//   }
+// light color.
+.light {
+  &-text {
+    color: $light;
+  }
 
-//   &-bg {
-//     background-color: $light;
-//   }
-// }
+  &-bg {
+    background-color: $light;
+  }
+}

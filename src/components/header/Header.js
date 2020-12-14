@@ -38,15 +38,10 @@ export default function Header(props) {
       ) : (
         <>
           <ul className={styles.expanedMenuList}>
-            <li>
-              {" "}
-              <Link to="/about">
-                <p>About</p>
-              </Link>
-            </li>
-            <li>Donations</li>
-            <li>Applications</li>
-            <li>Products</li>
+            <li><Link className="primary-text" to="/about">About</Link></li>
+            <li><Link className="primary-text" to="/applications">Applications</Link></li>
+            <li><Link className="primary-text" to="/products">Products</Link></li>
+            <li><Link className="primary-text" to="/help">Help</Link></li>
             <li>
               <Title />
             </li>
