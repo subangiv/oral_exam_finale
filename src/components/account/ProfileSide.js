@@ -21,7 +21,7 @@ function ProfileSide() {
       <h1>Profile</h1>
       <div style={btnWidth} className={styles.lightpurple__div}>
         <h6>Your balance</h6>
-        <h4>100 USD</h4>
+        <h4>0 USD</h4>
       </div>
       <button style={btnWidth} className="btn rounded btn-disabled">
         Top up
