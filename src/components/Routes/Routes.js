@@ -12,6 +12,8 @@ import Footer from "../footer/Footer";
 import LandingPage from "../landingpage/LandingPage";
 import AboutPage from "../aboutpage/AboutPage";
 import Sucess from "../payment/Success";
+import ApplicationsPage from "../applications-page/ApplicationsPage";
+import ProductsPage from "../products-page/ProductsPage";
 
 const Routes = (props) => (
   <Router {...props}>
@@ -19,6 +21,12 @@ const Routes = (props) => (
     <Switch>
       <Route path="/about">
         <AboutPage />
+      </Route>
+      <Route path="/applications">
+            <ApplicationsPage/>
+      </Route>
+      <Route path="/products">
+        <ProductsPage/>
       </Route>
       <Route path="/sign-in">
         <SignIn />

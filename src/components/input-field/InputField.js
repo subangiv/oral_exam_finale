@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-import "./InputField.modules.scss";
 import data from "../json/countries.json";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "../account/Account.module.scss";
-=======
 import "./InputField.module.scss";
->>>>>>> cards
 
 function InputField(props) {
   const { register, handleSubmit, errors } = useForm();

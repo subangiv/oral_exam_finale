@@ -8,40 +8,14 @@ import Footer from "./components/footer/Footer";
 import SignUp from "./components/account/SignUp";
 import SignIn from "./components/account/SignIn";
 import LandingPage from "./components/landingpage/LandingPage";
-import Aboutpage from "./components/aboutpage/AboutPage"
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
+import AboutPage from "./components/aboutpage/AboutPage"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Routes from './components/Routes/Routes';
 // const App = (props) => props.children;
 
 function App() {
   return (
-    <Router>
-    <div className="App">
-      <Header />
-      &emsp; &emsp;
-      <Switch>
-          <Route path="/about">
-            <AboutPage />
-          </Route>
-          <Route path="/applications">
-            <ApplicationsPage/>
-          </Route>
-          <Route path="/products">
-            <ProductsPage/>
-          </Route>
-          <Route path="/">
-          <LandingPage/>
-          </Route>
-        </Switch>
-      <Footer />
-    </div>
-
-    
-    </Router>
+    <Routes/>
   );
 }
 
