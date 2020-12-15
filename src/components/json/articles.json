@@ -8,21 +8,45 @@
     },
     {
       "id": 2,
-      "desc": "Cryptocurrency platform delivers food and medicine to struggling Venezuelans",
-      "author": "The telegraph (UK)",
-      "url": "https://www.telegraph.co.uk/global-health/science-and-disease/cyptocurrency-platform-delivers-food-medicine-struggling-venezuelans/"
+      "desc": "Blockchain Enables Charitable Donations In Venezuela",
+      "author": "City A.M. (UK)",
+      "url": "https://www.cityam.com/wp-content/uploads/2019/07/Cityam-2019-07-23.pdf"
     },
     {
       "id": 3,
-      "desc": "Cryptocurrency platform delivers food and medicine to struggling Venezuelans",
-      "author": "The Onion",
-      "url": "https://www.telegraph.co.uk/global-health/science-and-disease/cyptocurrency-platform-delivers-food-medicine-struggling-venezuelans/"
+      "desc": "PolloPollo the crypto project putting chicken back on the table in Venezuela",
+      "author": "Decrypt Media (US)",
+      "url": "https://decrypt.co/10972/pollopollo-the-crypto-project-putting-chicken-back-on-the-table-in-venezuela"
     },
     {
       "id": 4,
-      "desc": "Cryptocurrency platform delivers food and medicine to struggling Venezuelans",
-      "author": "The telegraph (UK)",
-      "url": "https://www.telegraph.co.uk/global-health/science-and-disease/cyptocurrency-platform-delivers-food-medicine-struggling-venezuelans/"
+      "desc": "How DLT will enhance charities",
+      "author": "Digital Asset (DK)",
+      "url": "https://digitalasset.live/2019/10/09/how-dlt-will-enhance-charities/"
+    },
+    {
+      "id": 5,
+      "desc": "Venezuela Blockchain allows decentralized donations without intermediaries",
+      "author": "Coin Telegraph (ES)",
+      "url": "https://es.cointelegraph.com/news/pollopollos-representative-venezuela-blockchain-demonstrated-allows-implementation-decentralized-donation-without-intermediaries"
+    },
+    {
+      "id": 6,
+      "desc": "Travesia bitcoiner venezolano premic LABitConf",
+      "author": "Cripto Noticias (VE)",
+      "url": "https://www.criptonoticias.com/comunidad/travesia-bitcoiner-venezolano-premio-labitconf/"
+    },
+    {
+      "id": 6,
+      "desc": "Blockchain charity platform to fight against the coronavirus outbreak",
+      "author": "Coin Telegraph (ES)",
+      "url": "https://es.cointelegraph.com/news/blockchain-charity-platform-to-fight-against-the-coronavirus-outbreak"
+    },
+    {
+      "id": 7,
+      "desc": "Bitcoin BTC proyecto humanitario en blockchain lleva comida a Venezuela",
+      "author": "ABM Crypto (ES)",
+      "url": "https://es.ambcrypto.com/bitcoin-btc-proyecto-humanitario-en-blockchain-lleva-comida-a-venezuela/"
     }
   ]
 }

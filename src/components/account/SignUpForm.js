@@ -36,7 +36,7 @@ const SignUpForm = () => {
               list="positions"
               ref={register({
                 required: {
-                  required: true,
+                  value: true,
                   message: "Please select an option",
                 },
               })}
