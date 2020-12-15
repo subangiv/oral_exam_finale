@@ -65,15 +65,28 @@ fieldset.eachStep {
   border: 1px solid $primary;
   border-radius: 20px;
   margin: 16px;
-  height: 67px;
+  // height: 67px;
   width: 170px;
-  .creditcardLabel {
+  cursor: pointer;
+
+  .methodsLabel {
     color: $primary;
     font-size: $font-size-label;
     background-color: #fff;
     width: max-content;
     top: 0;
     transform: translateY(-50%) translateX(16px) scale(0.9);
+    // pointer-events: none;
+  }
+
+  .paymentImg {
+    display: grid;
+    gap: 1vw;
+    grid-template-columns: repeat(2, 50px);
+    justify-content: center;
+    //center imags vertically
+    position: relative;
+    top: -5px;
   }
 }
 
