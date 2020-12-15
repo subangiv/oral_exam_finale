@@ -79,6 +79,11 @@ h1 {
   display: block;
 }
 
+.outOfScope {
+  width: 200px;
+  margin: 8px auto;
+}
+
 @media screen and (min-width: $max-m) {
   .bannerWrapper {
     flex-basis: 45%;

@@ -91,6 +91,29 @@
   }
 }
 
+.producerCard {
+  &Top {
+    padding: 16px;
+  }
+  &Desc {
+    max-width: 450px;
+  }
+
+  &Close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 16px;
+  }
+
+  &Country {
+    margin-bottom: 8px;
+  }
+  &Address {
+    margin-bottom: 8px;
+  }
+}
+
 .detailsButton {
   background-color: transparent;
   border-style: none;

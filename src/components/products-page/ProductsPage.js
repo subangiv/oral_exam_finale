@@ -6,6 +6,8 @@ import "../product-card/ProductCard"
 import countries from "../../common/countries.json";
 import FilterSelect from "../filter-select/FilterSelect";
 import SortSelect from "../sort-select/SortSelect";
+import Dialog from "@material-ui/core/Dialog";
+import { Button, DialogContent, DialogContentText, DialogTitle } from "@material-ui/core";
 
   const productsShown = 2;
 
@@ -19,6 +21,8 @@ function ProductsPage(props) {
     const [filterOption, setFilterOption] = useState("")
     const [toggleFilter, setToggleFilter] = useState(false);
     const [isFiltered, setIsFiltered] = useState(false);
+    const [open, setOpen] = useState(false);
+
 
     const filterOptions = countries;
 
@@ -128,6 +132,14 @@ function ProductsPage(props) {
         setTotal(data.totals.total);   
       }
 
+      function openHandler() {
+        setOpen(true);
+      }
+
+      function handleClose() {
+        setOpen(false);
+      }
+
     return (
         <main>
             <article className={styles.page}>
@@ -141,6 +153,17 @@ function ProductsPage(props) {
                         <p className={styles.paragraph + " primary-text"}>{text.paragraph2}</p>
                     </section>
                 </section>
+                <Dialog open={open}>
+                  <DialogTitle>
+                    Proof of concept
+                  </DialogTitle>
+                  <DialogContent>
+                    <DialogContentText>
+                      As this part is out of scope for the exams project, applying for a product is not avaible.
+                    </DialogContentText>
+                  </DialogContent>
+                  <button onClick={handleClose} className={"btn btn-primary rounded " + styles.outOfScope}>Understood</button>
+                </Dialog>
 
                 <div className={styles.filterSortGroup}>
                     <div className={styles.filterSortWrapper}>
@@ -154,7 +177,7 @@ function ProductsPage(props) {
 
                 {shownProducts.length > 0 &&
                     <ul className={styles.productList}>
-                    {shownProducts.map((card) => <ProductCard key={card._id} {...card}/>)}
+                    {shownProducts.map((card) => <ProductCard key={card._id} openHandler={openHandler} {...card}/>)}
                     </ul>
                   }
 
