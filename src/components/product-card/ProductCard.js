@@ -28,7 +28,7 @@ const [detailsToggle, setDetailsToggle] = useState(false)
                     </div>
                     <img className="product-card-flag flag" src="" alt=""/>
                     <section className={styles.productCardInteraction}>
-                        <button onClick={() => {setDetailsToggle(!detailsToggle)}} className={styles.detailsButton}><b>+</b> Details</button>
+                        <button onClick={() => {setDetailsToggle(!detailsToggle)}} className={styles.detailsButton}>{!detailsToggle ? "▼" : "▲"} Details</button>
                         <button className="btn btn-primary rounded">Apply</button>
                     </section>
                 </section>

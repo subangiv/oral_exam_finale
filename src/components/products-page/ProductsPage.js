@@ -4,6 +4,8 @@ import styles from "./ProductsPage.module.scss";
 import text from "./static/product-page.json"
 import "../product-card/ProductCard"
 import countries from "../../common/countries.json";
+import FilterSelect from "../filter-select/FilterSelect";
+import SortSelect from "../sort-select/SortSelect";
 
   const productsShown = 2;
 
@@ -112,15 +114,15 @@ function ProductsPage(props) {
         setShownProducts([])
         setPending(true);
         if (selected === "all") {
-            getData(filterApplication, "?max=" + productsShown + "&totals=true");
+            getData(filterProduct, "?max=" + productsShown + "&totals=true");
             setIsFiltered(false);
         } else {
-            getData(filterApplication, "?filter="+ selected + "&max=" + productsShown + "&totals=true")
+            getData(filterProduct, "?filter="+ selected + "&max=" + productsShown + "&totals=true")
             setIsFiltered(true);
         }
       }
 
-      function filterApplication(data) {
+      function filterProduct(data) {
         setShownProducts(data.data);
         setIndex(productsShown);
         setTotal(data.totals.total);   
@@ -131,9 +133,7 @@ function ProductsPage(props) {
             <article className={styles.page}>
                 <section className={styles.topSection}>
                     <div className={styles.bannerWrapper}>
-                        <div className={styles.filler}>
-                        <img className={styles.banner} src={process.env.PUBLIC_URL + "products-images/products-img.png"}></img>
-                        </div>
+                        <img className={styles.banner} src={process.env.PUBLIC_URL + "product-banner.png"}></img>
                     </div>
                     <section className={styles.paragraphWrapper}>
                         <h1 className={"primary-text display-1"}>Products</h1>
@@ -143,25 +143,14 @@ function ProductsPage(props) {
                 </section>
 
                 <div className={styles.filterSortGroup}>
-                    <select value={sortOption} onChange={sortChangeHandler} className={styles.sortSelection} >
-                      {sortOptions.map((option) => (
-                        <option key={option.value} value={option.value}>{option.label}</option>
-                      ))}
-                    </select>
-
-                    <div className={styles.filterWrapper}>
-                      <button onClick={()=>{ setToggleFilter(!toggleFilter) }} className={"btn rounded btn-primary " + styles.filterButton}>Filter</button>
+                    <div className={styles.filterSortWrapper}>
+                      <SortSelect sortOption={sortOption} sortOptions={sortOptions} sortChangeHandler={sortChangeHandler} />
+                      <button onClick={()=>{ setToggleFilter(!toggleFilter) }}className={"btn rounded btn-primary " + styles.filterButton}>Filter</button>
+                      </div>
                       {toggleFilter &&
-                        <select value={filterOption} onChange={filterChangeHandler} className={`${styles.filterSelect}`} >
-                            <option value="all">All countries</option>
-                            {filterOptions.map((option) => (
-                            <option key={option.code} value={option.name}>{option.name}</option>
-                            ))}
-                        </select>
+                      <FilterSelect all="All countries" filterOption={filterOption} filterOptions={countries} filterChangeHandler={filterChangeHandler}/>
                       }
                     </div>
-
-                </div>
 
                 {shownProducts.length > 0 &&
                     <ul className={styles.productList}>
@@ -174,7 +163,7 @@ function ProductsPage(props) {
                   }
 
                 {pending &&
-                <p>Loading ...</p>}
+                <div className={"spinner"}></div>}
 
                 {shownProducts.length !== total  && (
                 <button className={"btn outlined rounded btn-primary " + styles.loadingBtn} onClick={loadProductsHandler} >Load more...</button>

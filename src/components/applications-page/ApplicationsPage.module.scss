@@ -58,11 +58,11 @@ h1 {
   grid-gap: 1rem;
 }
 
-.applicationsWrapper {
-  // display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+// .applicationsWrapper {
+//   // display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
 
 .filterSortGroup {
   display: flex;
@@ -82,26 +82,6 @@ h1 {
   margin-bottom: 8px;
 }
 
-.filterSelect {
-  margin-bottom: 16px;
-}
-
-.sortSelection {
-  height: 35px;
-  margin-right: 8px;
-  margin-bottom: 8px;
-}
-
-.selection {
-  border-radius: 25px;
-  padding: 8px;
-  border-color: $primary;
-  border-width: 2px;
-  outline: none;
-  height: 35px;
-  max-width: 200px;
-}
-
 .noApplicationsText {
   margin-bottom: 40px;
   padding-top: 32px;
@@ -111,36 +91,6 @@ h1 {
 .loadingBtn {
   margin: 0 auto;
   display: block;
-}
-
-.spinner {
-  margin: 0 auto;
-  margin-bottom: 8px;
-  border: 8px solid $primary-lighter;
-  border-radius: 50%;
-  border-top: 8px solid $primary;
-  width: 100px;
-  height: 100px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 1s linear infinite;
-}
-
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 @media screen and (min-width: $max-m) {

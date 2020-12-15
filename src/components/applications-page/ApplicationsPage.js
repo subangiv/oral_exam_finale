@@ -4,6 +4,8 @@ import styles from "./ApplicationsPage.module.scss";
 import text from "./static/applications-page.json"
 import "../application-card/ApplicationCard"
 import countries from "../../common/countries.json";
+import FilterSelect from "../filter-select/FilterSelect";
+import SortSelect from "../sort-select/SortSelect";
 
   const applicationsShown = 2;
 
@@ -143,20 +145,11 @@ function ApplicationsPage(props) {
                 <section className={styles.applicationsWrapper}>
                   <div className={styles.filterSortGroup}>
                     <div className={styles.filterSortWrapper}>
-                    <select value={sortOption} onChange={sortChangeHandler} className={`${styles.sortSelection} ${styles.selection}`} >
-                      {sortOptions.map((option) => (
-                        <option key={option.value} value={option.value}>{option.label}</option>
-                      ))}
-                    </select>
+                      <SortSelect sortOption={sortOption} sortOptions={sortOptions} sortChangeHandler={sortChangeHandler} />
                       <button onClick={()=>{ setToggleFilter(!toggleFilter) }}className={"btn rounded btn-primary " + styles.filterButton}>Filter</button>
                       </div>
                       {toggleFilter &&
-                        <select value={filterOption} onChange={filterChangeHandler} className={`${styles.filterSelect} ${styles.selection}`} >
-                          <option value="all">All countries</option>
-                          {filterOptions.map((option) => (
-                            <option key={option.code} value={option.name}>{option.name}</option>
-                        ))}
-                        </select>
+                      <FilterSelect all="All countries" filterOption={filterOption} filterOptions={countries} filterChangeHandler={filterChangeHandler}/>
                       }
                     </div>
  
@@ -171,7 +164,7 @@ function ApplicationsPage(props) {
                   }
                   
                   {pending &&
-                  <div className={styles.spinner}>
+                  <div className={"spinner"}>
                   </div>}
 
                   {shownApplications.length !== total  && (

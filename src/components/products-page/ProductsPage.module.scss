@@ -2,6 +2,8 @@
 
 .page {
   position: relative;
+  max-width: $max-ml;
+  margin: 24px auto;
 }
 
 h1 {
@@ -10,52 +12,35 @@ h1 {
 }
 .topSection {
   display: flex;
-  max-width: 1200px;
-  // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  // column-gap: 32px;
   margin-bottom: 16px;
-  justify-content: space-between;
   position: relative;
   flex-wrap: wrap;
-  margin: 0 16px;
+  margin: 0 16px 16px 16px;
   align-items: flex-end;
+  margin: 16px auto;
+  // padding: 16px;
 }
 
 .bannerWrapper {
-  // height: 100%;
-  min-height: 300px;
-  // width: 50vw;
-  max-width: 550px;
+  max-width: 650px;
   width: 100%;
-  // flex-basis: ;
-  margin: 0 auto;
   position: relative;
-  // right: 0;
 }
 .filler {
-  background-color: $primary;
-  width: 100%;
-  height: 80%;
-  min-height: 100px;
-  position: absolute;
-  bottom: 0;
-  border-radius: 20px;
   margin: 0 auto;
 }
 
 .banner {
-  width: 90%;
-  // height: 110%;
+  width: 100%;
   object-fit: cover;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  margin: 0 auto;
 }
 
 .paragraphWrapper {
   justify-self: center;
   max-width: 550px;
   margin: 0 auto;
+  padding: 16px;
 }
 
 .paragraph {
@@ -64,32 +49,34 @@ h1 {
 }
 
 .productList {
-  max-width: 1400px;
-  padding: 1rem;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 400px));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 400px));
   justify-content: center;
+  grid-gap: 1rem;
 }
 
-.spinner {
-  width: 100px;
-  height: 100px;
-  position: absolute;
+.filterSortGroup {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0 auto;
+  width: 300px;
+}
+.filterSortWrapper {
+  display: flex;
+  margin-bottom: 8px;
+}
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: -1px;
-    left: -1px;
-    right: -1px;
-    bottom: -1px;
-    border: 8.5px solid #dbd0ef;
-    border-radius: 50%;
-    border-left-color: #443266;
-    animation: spin 0.9s linear infinite;
-    transform: opacity 0.2s linear;
-  }
+.filterButton {
+  max-width: 100px;
+  margin-bottom: 8px;
+}
+
+.loadingBtn {
+  margin: 0 auto;
+  display: block;
 }
 
 @media screen and (min-width: $max-m) {
@@ -99,5 +86,23 @@ h1 {
 
   .paragraphWrapper {
     flex-basis: 45%;
+  }
+
+  .filterSortGroup {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 0 24px;
+  }
+  .filterSortWrapper {
+    display: flex;
+    margin-bottom: 8px;
+  }
+}
+
+@media screen and (min-width: $max-ml) {
+  .applicationList {
+    justify-content: flex-start;
   }
 }
