@@ -41,6 +41,9 @@ const Routes = (props) => (
       <Route path="/">
         <LandingPage />
       </Route>
+      <Route>
+        <Success />
+      </Route>
     </Switch>
     <Footer />
   </Router>
