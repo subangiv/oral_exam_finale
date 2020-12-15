@@ -4,8 +4,7 @@ import countries from "../common/countries.json"
 
 function findCountry(array, value) {
     const country = array.find(object => object.name === value);
-    return country;
-    
+    return country;  
 }
 
 function getFlag(country, className) {

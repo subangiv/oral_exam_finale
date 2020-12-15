@@ -11,11 +11,6 @@ function ProductCard(props) {
 const [isProducerOpen, setIsProducerOpen] = useState(false);
 const [detailsToggle, setDetailsToggle] = useState(false)
 
-
-
-
-
-
 const fullName = "".concat(props.producer[0].first_name, " ", props.producer[0].last_name);
 
     return (

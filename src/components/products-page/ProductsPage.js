@@ -27,7 +27,6 @@ function ProductsPage(props) {
     const filterOptions = countries;
 
     useEffect(() => {
-        // showMoreProducts([...myCards], index, productsShown);
         if(shownProducts.length === 0 && index === 0) {
             getData(showProducts, "?max="+productsShown + "&totals=true");
             console.log(shownProducts);

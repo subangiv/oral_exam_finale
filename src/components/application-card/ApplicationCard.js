@@ -32,7 +32,6 @@ function convertDate(date) {
                         <ShowText text={props.motivation} maxLength={55}/>
                     </section>
                 </div>
-                <img className="application-card-flag flag" src="" alt=""/>
                 <section className={styles.applicationCardInteraction}>
                     <button onClick={() => {setDetailsToggle(!detailsToggle)}} className={styles.detailsButton}><b>{!detailsToggle ? "▼" : "▲"}</b> Details</button>
                     <button className="btn btn-secondary rounded secondary-text">Donate ${props.product[0].price}</button>
