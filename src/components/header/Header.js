@@ -36,26 +36,49 @@ export default function Header(props) {
           <BurgerMenu />
         </>
       ) : (
-        <>
-          <ul className={styles.expanedMenuList}>
-            <li><Link className="primary-text" to="/about">About</Link></li>
-            <li><Link className="primary-text" to="/applications">Applications</Link></li>
-            <li><Link className="primary-text" to="/products">Products</Link></li>
-            <li><Link className="primary-text" to="/help">Help</Link></li>
-            <li>
-              <Title />
-            </li>
-            <li>
-              <ActionButtons />
-            </li>
-            <li>
-              {" "}
-              <Link to="/sign-in">
-                <p>Sign in</p>
-              </Link>
-            </li>
-          </ul>
-        </>
+        <ul className={styles.expanedMenuList}>
+          <li>
+            <Link className="primary-text" to="/">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link className="primary-text" to="/about">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link className="primary-text" to="/applications">
+              Applications
+            </Link>
+          </li>
+          <li>
+            <Link className="primary-text" to="/products">
+              Products
+            </Link>
+          </li>
+          <li>
+            <Link className="primary-text" to="/help">
+              Help
+            </Link>
+          </li>
+          <li>
+            <Title />
+          </li>
+          <li>
+            <ActionButtons />
+          </li>
+          <li>
+            <Link to="/sign-in">
+              <p>Sign in</p>
+            </Link>
+          </li>
+          <li>
+            <Link to="/sign-up">
+              <p>Sign up</p>
+            </Link>
+          </li>
+        </ul>
       )}
     </header>
   );

@@ -8,8 +8,10 @@
 
   &Wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 16px;
+    flex-direction: column;
+    align-items: center;
   }
 
   &Item {
@@ -18,7 +20,7 @@
     border-radius: 25px;
     margin-bottom: 8px;
     padding: 16px;
-    min-height: 225px;
+    min-height: 275px;
     position: relative;
   }
 
@@ -35,8 +37,6 @@
   }
 
   &Heading {
-    display: flex;
-    justify-content: space-between;
   }
 
   &Title {
@@ -45,7 +45,8 @@
   }
 
   &Info {
-    margin-left: 16px;
+    margin-left: 24px;
+    // max-width: 225px;
   }
 
   &Details {
@@ -58,6 +59,8 @@
   &ImageWrapper {
     position: relative;
     height: 110px;
+    margin-bottom: 16px;
+    width: 100px;
   }
 
   &Flag {
@@ -91,6 +94,7 @@
   background-color: transparent;
   border-style: none;
   outline: none;
+  color: $primary;
 }
 
 .statistics {
@@ -104,4 +108,16 @@
 
 .flags {
   width: 100px;
+}
+
+@media screen and (min-width: 405px) {
+  .applicationCard {
+    &Wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
 }

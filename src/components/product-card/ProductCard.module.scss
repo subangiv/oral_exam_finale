@@ -8,8 +8,11 @@
 
   &Wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 16px;
+    flex-direction: column;
+    align-items: center;
+    min-height: 275px;
   }
 
   &Item {
@@ -17,7 +20,6 @@
     border-radius: 25px;
     margin-bottom: 8px;
     padding: 16px;
-    min-height: 225px;
     position: relative;
   }
 
@@ -41,6 +43,7 @@
   &Title {
     text-align: left;
     margin-bottom: 8px;
+    margin-right: 8px;
   }
 
   &Info {
@@ -57,6 +60,8 @@
   &ImageWrapper {
     position: relative;
     height: 110px;
+    margin-bottom: 16px;
+    width: 100px;
   }
 
   &Flag {
@@ -86,10 +91,34 @@
   }
 }
 
+.producerCard {
+  &Top {
+    padding: 16px;
+  }
+  &Desc {
+    max-width: 450px;
+  }
+
+  &Close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 16px;
+  }
+
+  &Country {
+    margin-bottom: 8px;
+  }
+  &Address {
+    margin-bottom: 8px;
+  }
+}
+
 .detailsButton {
   background-color: transparent;
   border-style: none;
   outline: none;
+  color: $primary;
 }
 
 .statistics {
