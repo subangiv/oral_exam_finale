@@ -1,11 +1,11 @@
 import styles from "./Account.module.scss";
 import SignInForm from "./SignInForm";
-import signupprofile from "../../svg/sign-up.svg";
+import signinprofile from "../../svg/sign-in.svg";
 
 function SignUp() {
   return (
     <section className={styles.container}>
-      <img className={styles.profile__img} src={signupprofile} alt="" />
+      <img className={styles.profile__img} src={signinprofile} alt="" />
       <SignInForm />
     </section>
   );
