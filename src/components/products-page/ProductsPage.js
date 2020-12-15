@@ -3,120 +3,8 @@ import ProductCard from "../product-card/ProductCard";
 import styles from "./ProductsPage.module.scss";
 import text from "./static/product-page.json"
 import "../product-card/ProductCard"
+import countries from "../../common/countries.json";
 
-  const myCards = [
-    {
-        name: "Milk",
-        desc: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos.",
-        img: "milk.jpg",
-        price: 5,
-        country: "Venezuela, Bolivarian Republic of",
-        landCode: "ve",
-        id: 1,
-        statistics: {
-            lastDonation: "",
-            completedDonations: {
-                pastWeek:0,
-                pastMonth: 0,
-                allTime: 0,
-            },
-            pendingDonations: {
-                pastWeek:0,
-                pastMonth: 0,
-                allTime: 0
-            }
-      }
-    },
-    {
-        name: "Beef",
-        desc: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos.",
-        img: "beef.jpg",
-        price: 5,
-        country: "Venezuela, Bolivarian Republic of",
-        landCode: "ve",
-        id: 2,
-        statistics: {
-            lastDonation: "",
-            completedDonations: {
-                pastWeek:0,
-                pastMonth: 0,
-                allTime: 0,
-            },
-            pendingDonations: {
-              pastWeek:0,
-              pastMonth: 0,
-              allTime: 0
-            }
-        }
-    },
-    {
-        name: "Beef",
-        desc: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos.",
-        img: "beef.jpg",
-        price: 5,
-        country: "Venezuela, Bolivarian Republic of",
-        landCode: "ve",
-        id: 3,
-        statistics: {
-            lastDonation: "",
-            completedDonations: {
-                pastWeek:0,
-                pastMonth: 0,
-                allTime: 0,
-            },
-            pendingDonations: {
-              pastWeek:0,
-              pastMonth: 0,
-              allTime: 0
-            }
-        }
-    },
-    {
-        name: "Milk",
-        desc: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos.",
-        img: "milk.jpg",
-        price: 5,
-        country: "Venezuela, Bolivarian Republic of",
-        landCode: "ve",
-        id: 4,
-        statistics: {
-            lastDonation: "",
-            completedDonations: {
-                pastWeek:0,
-                pastMonth: 0,
-                allTime: 0,
-            },
-            pendingDonations: {
-                pastWeek:0,
-                pastMonth: 0,
-                allTime: 0
-            }
-      }
-    }, 
-    {
-        name: "Beef",
-        desc: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos.",
-        img: "beef.jpg",
-        price: 5,
-        country: "Venezuela, Bolivarian Republic of",
-        landCode: "ve",
-        id: 5,
-        statistics: {
-            lastDonation: "",
-            completedDonations: {
-                pastWeek:0,
-                pastMonth: 0,
-                allTime: 0,
-            },
-            pendingDonations: {
-                pastWeek:0,
-                pastMonth: 0,
-                allTime: 0
-            }
-      }
-    }
-];
-  const cards = myCards.map((card) => <ProductCard key={card.id} {...card}/>);
   const productsShown = 2;
 
 
@@ -125,28 +13,37 @@ function ProductsPage(props) {
     const [index, setIndex] = useState(0);
     const [total, setTotal] = useState(0)
     const [pending, setPending] = useState(true);
+    const [sortOption, setSortOption] = useState("newest");
+    const [filterOption, setFilterOption] = useState("")
+    const [toggleFilter, setToggleFilter] = useState(false);
+    const [isFiltered, setIsFiltered] = useState(false);
 
+    const filterOptions = countries;
 
     useEffect(() => {
         // showMoreProducts([...myCards], index, productsShown);
-        if(shownProducts.length === 0) {
-        getData(showProducts, "?max="+productsShown + "&totals=true");
-        console.log(shownProducts);
-        }
-      }, []);
+        if(shownProducts.length === 0 && index === 0) {
+            getData(showProducts, "?max="+productsShown + "&totals=true");
+            console.log(shownProducts);
+            }
+      });
 
     function showProducts(data) {
-        // console.log(newCards)
-        console.log(data)
         setShownProducts([...shownProducts].concat(data.data));
         setIndex(index+productsShown);
         setTotal(data.totals.total);        
     }
 
     function loadProductsHandler(){
-        setPending(true);
-        getData(showProducts, "?skip=" + index + "&max=" + productsShown + "&totals=true")
-    };
+        console.log(index)
+          setPending(true);
+          if (!isFiltered) {
+          getData(showProducts, "?skip=" + index + "&max=" + productsShown + "&totals=true");
+          console.log("not filtered")
+          } else {
+            getData(showProducts, "?filter="+ filterOption +"&skip=" + index + "&max=" + productsShown + "&totals=true")
+          }
+      };
 
     function getData(callback, parameter) {
         fetch("https://exampollopollo-e360.restdb.io/rest/products" + parameter, {
@@ -166,6 +63,69 @@ function ProductsPage(props) {
           })
       }
 
+      const sortOptions = [
+        {
+          label: "Sort by: Newest",
+          value: "newest"
+        },
+        {
+          label: "Sort by: Oldest",
+          value: "oldest"
+        },
+        {
+          label: "Sort by: Lowest price",
+          value: "lowestPrice"
+        },
+        {
+          label: "Sort by: Highest price",
+          value: "highestPrice"
+        }
+      ]
+
+      function sortList(selected, array) {
+        let sorted;
+        if (selected === sortOptions[0].value) {
+          sorted =  array.sort((a,b) => new Date(b.created) - new Date(a.created));
+        }
+        if (selected === sortOptions[1].value) {
+          sorted =  array.sort((a,b) => new Date(a.created) - new Date(b.created));
+        }
+        else if (selected === sortOptions[2].value) {
+          sorted =  array.sort((a,b) => a.price - b.price);
+        }
+        else if (selected === sortOptions[3].value) {
+          sorted =  array.sort((a,b) => b.price - a.price);
+        } 
+    
+        return sorted
+    }
+      
+      function sortChangeHandler(e) {
+        const selected = e.target.value;
+        setSortOption(e.target.value);
+        setShownProducts(sortList(selected, [...shownProducts] ));
+      }
+
+      function filterChangeHandler(e) {
+        const selected = e.target.value;
+        setFilterOption(selected);
+        setShownProducts([])
+        setPending(true);
+        if (selected === "all") {
+            getData(filterApplication, "?max=" + productsShown + "&totals=true");
+            setIsFiltered(false);
+        } else {
+            getData(filterApplication, "?filter="+ selected + "&max=" + productsShown + "&totals=true")
+            setIsFiltered(true);
+        }
+      }
+
+      function filterApplication(data) {
+        setShownProducts(data.data);
+        setIndex(productsShown);
+        setTotal(data.totals.total);   
+      }
+
     return (
         <main>
             <article className={styles.page}>
@@ -176,17 +136,48 @@ function ProductsPage(props) {
                         </div>
                     </div>
                     <section className={styles.paragraphWrapper}>
-                        <h1 className={"primary-text display-2"}>Products</h1>
+                        <h1 className={"primary-text display-1"}>Products</h1>
                         <p className={styles.paragraph + " primary-text"}>{text.paragraph1}</p>
                         <p className={styles.paragraph + " primary-text"}>{text.paragraph2}</p>
                     </section>
                 </section>
-                <ul className={styles.productList}>{shownProducts.map((card) => <ProductCard key={card._id} {...card}/>)}</ul>
+
+                <div className={styles.filterSortGroup}>
+                    <select value={sortOption} onChange={sortChangeHandler} className={styles.sortSelection} >
+                      {sortOptions.map((option) => (
+                        <option key={option.value} value={option.value}>{option.label}</option>
+                      ))}
+                    </select>
+
+                    <div className={styles.filterWrapper}>
+                      <button onClick={()=>{ setToggleFilter(!toggleFilter) }} className={"btn rounded btn-primary " + styles.filterButton}>Filter</button>
+                      {toggleFilter &&
+                        <select value={filterOption} onChange={filterChangeHandler} className={`${styles.filterSelect}`} >
+                            <option value="all">All countries</option>
+                            {filterOptions.map((option) => (
+                            <option key={option.code} value={option.name}>{option.name}</option>
+                            ))}
+                        </select>
+                      }
+                    </div>
+
+                </div>
+
+                {shownProducts.length > 0 &&
+                    <ul className={styles.productList}>
+                    {shownProducts.map((card) => <ProductCard key={card._id} {...card}/>)}
+                    </ul>
+                  }
+
+                  {(shownProducts.length <= 0 && !pending) &&
+                    <p>Unfortunately, there's no products from this country yet</p>
+                  }
+
                 {pending &&
                 <p>Loading ...</p>}
 
                 {shownProducts.length !== total  && (
-                <button className="btn outlined rounded btn-primary" onClick={loadProductsHandler} >Load more...</button>
+                <button className={"btn outlined rounded btn-primary " + styles.loadingBtn} onClick={loadProductsHandler} >Load more...</button>
                 )}
             </article>
         </main>
