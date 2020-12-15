@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import styles from "./Account.module.scss";
 import { useForm } from "react-hook-form";
 import { Link, Redirect } from "react-router-dom";
-import data from "../json/countries.json";
+import data from "../../common/countries.json";
 
 const SignUpForm = () => {
   const { register, handleSubmit, errors, watch } = useForm();
@@ -139,7 +139,7 @@ const SignUpForm = () => {
             <label htmlFor="inputForCountry">Country</label>
             <datalist id="countries">
               {data.map((country, key) => (
-                <option key={key} value={country.country} />
+                <option key={key} value={country.name} />
               ))}
             </datalist>
             {errors.country && (
