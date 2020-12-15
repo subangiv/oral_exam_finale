@@ -4,8 +4,7 @@ import TextField from "../../textfield/TextField";
 import LongArrow from "../../../assets/svgs/long-arrow.svg";
 import { ReactSVG } from "react-svg";
 
-export default function Step2(props) {
-  console.log(props);
+export default function DonationFormSec2(props) {
   //Inputs in section 3
   return (
     <>
