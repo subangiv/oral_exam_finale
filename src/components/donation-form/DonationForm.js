@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styles from "./DonationForm.module.scss";
 import { Steps, Step } from "react-step-builder";
-import Step1 from "./step-1/Step1";
-import Step2 from "./step-2/Step2";
+import DonationFormSec1 from "./donation-form-section1/DonationFormSec1";
+import DonationFormSec2 from "./donation-form-section2/DonationFormSec2";
 import DetailedCard from "../detailed-card/DetailedCard";
 
 export default function DonationForm(props) {
@@ -74,9 +74,11 @@ export default function DonationForm(props) {
   const onPhoneNumberChange = (e) => {
     setBillingAdd({ ...billingAdd, phonenum: e.target.value });
   };
-  const onClick = () => {
+  const onClick = (e) => {
+    e.preventDefault();
     console.log(personalInputs);
     console.log(cardInputs);
+    console.log(billingAdd);
   };
 
   return (
@@ -86,7 +88,7 @@ export default function DonationForm(props) {
         <ol className={styles.listOfSteps}>
           <Steps>
             <Step
-              component={Step1}
+              component={DonationFormSec1}
               personalInputs={personalInputs}
               onFistNameChange={onFistNameChange}
               onLastNameChange={onLastNameChange}
@@ -94,7 +96,7 @@ export default function DonationForm(props) {
               onMessageChange={onMessageChange}
             ></Step>
             <Step
-              component={Step2}
+              component={DonationFormSec2}
               cardInputs={cardInputs}
               onCardNameChange={onCardNameChange}
               onCardNumberChange={onCardNumberChange}
