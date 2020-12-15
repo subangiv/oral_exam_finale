@@ -1,9 +1,13 @@
 @import "../../styles/index";
 
 .donateSection {
-  & h5,
+  & h4,
+  h5,
   span {
     color: $primary;
+  }
+  & h4 {
+    text-align: left;
   }
 }
 
@@ -48,7 +52,8 @@ ol.listOfSteps {
   counter-increment: li;
 }
 
-fieldset.eachStep {
+fieldset.eachStep,
+.step1Container {
   border: none;
   display: flex;
   flex-flow: column wrap;
@@ -65,8 +70,10 @@ fieldset.eachStep {
   border: 1px solid $primary;
   border-radius: 20px;
   margin: 16px;
-  // height: 67px;
-  width: 170px;
+  // padding: 0 10px 5px 20px;
+  width: 150px;
+  // width: clamp(30%, 125px, 50%);
+  height: 100%;
   cursor: pointer;
 
   .methodsLabel {
@@ -74,19 +81,11 @@ fieldset.eachStep {
     font-size: $font-size-label;
     background-color: #fff;
     width: max-content;
+    position: relative;
     top: 0;
     transform: translateY(-50%) translateX(16px) scale(0.9);
+    // left: -2px;
     // pointer-events: none;
-  }
-
-  .paymentImg {
-    display: grid;
-    gap: 1vw;
-    grid-template-columns: repeat(2, 50px);
-    justify-content: center;
-    //center imags vertically
-    position: relative;
-    top: -5px;
   }
 }
 
@@ -94,7 +93,29 @@ fieldset.eachStep {
   .donateSection {
     display: flex;
     flex-flow: row-reverse wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+
+    &:nth-child(2),
+    &:nth-child(1) {
+      flex-grow: 1;
+      flex-basis: 300px;
+    }
+    & form:nth-child(2) {
+      margin-right: 2vw;
+    }
+  }
+
+  fieldset.eachStep {
+    width: 100%;
+  }
+
+  .step1Container {
+    flex-flow: row wrap;
+  }
+  ol.listOfSteps {
+    li {
+      padding-top: 9px;
+    }
   }
 }
 
@@ -103,6 +124,7 @@ fieldset.eachStep {
   flex-flow: row wrap;
   justify-content: space-between;
   color: $primary;
+  margin: 16px;
 
   input[type="checkbox"] {
     // visibility: hidden;

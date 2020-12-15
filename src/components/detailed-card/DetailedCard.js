@@ -4,9 +4,9 @@ import styles from "./DetailedCard.module.scss";
 export default function DetailedCard(props) {
   return (
     <section>
-      <h5>You are helping Rafael!</h5>
+      <h4>You are helping Rafael!</h4>
       <article className={styles.applicantCard}>
-        <h4>Combo chicken @ $5</h4>
+        <h5>Combo chicken @ $5</h5>
         <p>
           MOTIVATION:
           <span>

@@ -1,11 +1,18 @@
 import React from "react";
 import styles from "../DonationForm.module.scss";
+import { useMediaQuery } from "react-responsive";
 import TextField from "../../textfield/TextField";
 import LongArrow from "../../../assets/svgs/long-arrow.svg";
 import { ReactSVG } from "react-svg";
 
 export default function DonationFormSec2(props) {
-  //Inputs in section 3
+  const isTablet = useMediaQuery({ query: "(min-width: 767.98px)" });
+  // const isBigScreen = useMediaQuery({ query: "(min-width: 991.98px)" });
+  const responsiveInputs = {
+    // width: isTablet ? "90%" : "max-content",
+    justifyContent: "flex-start",
+  };
+
   return (
     <>
       <li className={styles.step2}>Card details</li>
@@ -16,14 +23,18 @@ export default function DonationFormSec2(props) {
           labelFor="fullname"
           label="Fullname"
           inputPlaceHolder="Enter your full name here"
+          inputSize={isTablet ? "30" : "20"}
           inputValue={props.cardInputs.cardname}
           onChange={props.onCardNameChange}
+          textFieldStyle={responsiveInputs}
+          style={responsiveInputs}
         />
         <TextField
           className="input-primary"
           labelFor="card-number"
           label="Card number"
           inputPlaceHolder="XXXX  XXXX  XXXX  XXXX"
+          inputSize={isTablet ? "30" : "20"}
           maxLength="16"
           inputValue={props.cardInputs.cardnumber}
           onChange={props.onCardNumberChange}
@@ -58,6 +69,7 @@ export default function DonationFormSec2(props) {
           labelFor="address-line1"
           label="Address line 1"
           inputPlaceHolder="Street name"
+          inputSize={isTablet ? "30" : "20"}
           inputValue={props.billingAdd.address1}
           onChange={props.onAddress1Change}
         />
@@ -66,6 +78,7 @@ export default function DonationFormSec2(props) {
           labelFor="address-line2"
           label="Address line 2"
           inputPlaceHolder="House number, Apartment number"
+          inputSize={isTablet ? "30" : "20"}
           inputValue={props.billingAdd.address2}
           onChange={props.onAddress2Change}
         />
@@ -74,6 +87,7 @@ export default function DonationFormSec2(props) {
           labelFor="city"
           label="City"
           inputPlaceHolder="City"
+          inputSize={isTablet ? "30" : "20"}
           inputValue={props.billingAdd.city}
           onChange={props.onCityChange}
         />
@@ -81,10 +95,10 @@ export default function DonationFormSec2(props) {
           <TextField
             className="input-primary"
             labelFor="zipcode"
-            label="Zip code"
-            inputPlaceHolder="Zip code"
+            label="ZIP"
+            inputPlaceHolder="ZIP Code"
             maxLength="4"
-            inputSize="7"
+            inputSize="4"
             inputValue={props.billingAdd.zip}
             onChange={props.onZipChange}
           />
@@ -103,6 +117,7 @@ export default function DonationFormSec2(props) {
           labelFor="phone-number"
           label="Phone number"
           inputPlaceHolder="Phone number"
+          inputSize={isTablet ? "30" : "20"}
           inputValue={props.billingAdd.phonenum}
           onChange={props.onPhoneNumberChange}
         />
@@ -110,7 +125,9 @@ export default function DonationFormSec2(props) {
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 50px 2fr 100px",
-            gap: "4vw",
+            gap: "15px",
+            alignSelf: "center",
+            width: "min-content",
           }}
         >
           <ReactSVG

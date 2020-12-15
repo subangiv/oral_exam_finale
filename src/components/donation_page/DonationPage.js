@@ -67,7 +67,7 @@ export default function DonationPage(props) {
           </button>
         </div>
       ) : (
-        <h3 style={{ margin: "4vh auto" }}>Continue as guest</h3>
+        <h4 style={{ margin: "4vh auto" }}>Continue as guest</h4>
       )}
 
       {isGuestMode && <DonationForm />}
