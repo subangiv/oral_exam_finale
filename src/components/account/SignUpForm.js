@@ -17,12 +17,9 @@ const SignUpForm = (props) => {
     console.log(person);
   };
   if (submitted) {
-    props.submitHandler(true);
+    //props.submitHandler(true);
     return <Redirect to="/" />;
   }
-  //const getUser = localStorage.getItem("user");
-  //console.log(getUser);
-
   return (
     <section className={styles.form__wrapper}>
       <h6>Register a new user</h6>

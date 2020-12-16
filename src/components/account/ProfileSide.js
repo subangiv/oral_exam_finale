@@ -5,8 +5,10 @@ import { Redirect } from "react-router-dom";
 function ProfileSide() {
   // logout the user
   const handleLogout = () => {
+    //setUser({});
+    //setUsername("");
+    //setPassword("");
     setLogout(true);
-    localStorage.clear();
   };
   const [logout, setLogout] = useState(false);
   const btnWidth = {
@@ -14,7 +16,7 @@ function ProfileSide() {
     margin: "10px 0",
   };
   if (logout) {
-    return <Redirect to="/sign-in" />;
+    return <Redirect to="/" />;
   }
   return (
     <div className={styles.wrapper__right}>
