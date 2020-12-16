@@ -41,6 +41,9 @@ const Routes = (props) => (
       <Route path="/donations">
         <DonationPage />
       </Route>
+      <Route path="/success">
+        <Success />
+      </Route>
       <Route path="/sign-in">
         <SignIn />
       </Route>
@@ -52,9 +55,6 @@ const Routes = (props) => (
       </Route>
       <Route path="/">
         <LandingPage />
-      </Route>
-      <Route>
-        <Success />
       </Route>
     </Switch>
     <Footer />
