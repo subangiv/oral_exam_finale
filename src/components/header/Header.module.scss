@@ -45,7 +45,7 @@ header.header {
 
 //iphone SE
 @media (max-width: 340px) {
-  .header {
+  header.header {
     height: 18vh;
   }
   .actionBtns {
@@ -58,7 +58,7 @@ header.header {
 
 @media (min-width: $max-s) {
   //Stretch action buttons
-  .header {
+  header.header {
     height: 7vh;
   }
   // .actionBtns {
@@ -76,6 +76,6 @@ header.header {
   }
   .polloName {
     text-align: center;
-    padding-left: 2.5rem;
+    padding: 1rem;
   }
 }
