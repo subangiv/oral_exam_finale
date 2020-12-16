@@ -18,17 +18,23 @@ const SignInFormTest = () => {
     }
   }, []);
 
+ console.log("loggedInUser");
+
   // login the user
   const onSubmit = (person) => {
     console.log(user);
     const personEmail = user.email;
     const personPass = user.password;
     //if there's a user show the message below
-    if (personEmail === email && personPass === password) {
-      //setSubmitted(true);
-      return console.log("logged in");
+    const signIn;
+    if(personPass === passwor && personEmail === email){
+        signIn = setSubmitted(true);
+    }else if (user === null){
+        signIn = alert("there's no user registered.");
+    }else{
+        signIn = alert("Your email or password is incorrect");
     }
-    return alert("Your email or password is incorrect.");
+    return signIn;  
   };
 
   if (submitted) {

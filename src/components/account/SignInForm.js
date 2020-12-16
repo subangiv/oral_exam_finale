@@ -23,12 +23,19 @@ const SignInFormTest = () => {
     console.log(user);
     const personEmail = user.email;
     const personPass = user.password;
+    const userData = localStorage.getItem("user");
     //if there's a user show the message below
-    if (personEmail === email && personPass === password) {
-      setSubmitted(true);
-      return console.log("logged in");
+    let signIn;
+    if (personPass === password && personEmail === email) {
+      signIn = setSubmitted(true);
+    } else if (userData === null) {
+      signIn = alert(
+        "There's no user registered with this email. Please sign up."
+      );
+    } else {
+      signIn = alert("Your email or password is incorrect");
     }
-    return alert("Your email or password is incorrect.");
+    return signIn;
   };
 
   if (submitted) {
