@@ -6,7 +6,7 @@ import DonationFormSec2 from "./donation-form-section2/DonationFormSec2";
 import DetailedCard from "../detailed-card/DetailedCard";
 import Success from "../payment/Success";
 
-export default function DonationForm(props, onSubmitDonationForm) {
+export default function DonationForm(props) {
   //Inputs in sections 1 & 2
   const [personalInputs, setPersonalInputs] = useState({
     firstname: "",
@@ -97,7 +97,7 @@ export default function DonationForm(props, onSubmitDonationForm) {
 
   return (
     <section className={styles.donateSection}>
-      <DetailedCard />
+      <DetailedCard {...props} />
       <form noValidate="">
         <ol className={styles.listOfSteps}>
           <Steps>

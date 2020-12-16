@@ -1,27 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { RestDB } from "../../modules/APIRequests";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import styles from "./DonationPage.module.scss";
 import DonationImage from "../../assets/images/donation-img-small.png";
 import DonationForm from "../donation-form/DonationForm";
 
 export default function DonationPage(props) {
-  // const [applications, setApplications] = useState([]);
-  // useEffect(() => {
-  //   RestDB.getApplications(setApplications);
-  // }, []);
-  // console.log(applications);
+  const location = useLocation();
+  const applicationId = location.state.application;
+
+  const [application, setApplication] = useState([]);
+
+  useEffect(() => {
+    RestDB.getOneApplication(setApplication, applicationId);
+  }, [applicationId]);
 
   const [isGuestMode, setGuestMode] = useState(false);
   const clickGuest = () => {
     setGuestMode(true);
   };
+  const history = useHistory();
   const clickSignIn = () => {
-    useHistory.push("/sign-in");
+    history.push("/sign-in");
   };
   const clickSignUp = () => {
-    useHistory.push("/sign-up");
+    history.push("/sign-up");
   };
+
   return (
     <main className={styles.donationPage}>
       <section className={styles.donationIntro}>
@@ -46,17 +51,17 @@ export default function DonationPage(props) {
       {!isGuestMode ? (
         <div className={styles.donationBtns}>
           <button
-            className="btn rounded btn-secondary outlined"
+            className="btn outlined rounded btn-primary"
             onClick={clickGuest}
             children="Continue as guest"
           ></button>
           <button
-            className="btn rounded btn-secondary outlined"
+            className="btn outlined rounded btn-primary"
             children=" Sign in"
             onClick={clickSignIn}
           />
           <button
-            className="btn rounded btn-secondary outlined"
+            className="btn outlined rounded btn-primary"
             children="Sign up"
             onClick={clickSignUp}
           />
@@ -64,7 +69,7 @@ export default function DonationPage(props) {
       ) : (
         <h4 style={{ margin: "4vh auto" }}>Continue as guest</h4>
       )}
-      {isGuestMode && <DonationForm />}
+      {isGuestMode && <DonationForm application={application} />}
     </main>
   );
 }

@@ -1,30 +1,45 @@
 import React from "react";
 import styles from "./DetailedCard.module.scss";
-import exampleImg from "../../assets/images/help_image.png";
+import countryFlags from "../../logic/countryFlag";
 
 export default function DetailedCard(props) {
+  const thisApplicant =
+    props.application.applicant !== undefined
+      ? props.application.applicant[0]
+      : null;
+  const productApplied =
+    props.application.product !== undefined
+      ? props.application.product[0]
+      : null;
+
   return (
     <section>
-      <h4>You are helping Rafael!</h4>
+      <h4>
+        You are helping{" "}
+        <span className="display-4">{thisApplicant.first_name}</span>!
+      </h4>
       <article className={styles.applicantCard}>
         <div className={styles.imgContainer}>
-          <img src={exampleImg} alt="applicant profile pic" />
+          <img
+            src={
+              "https://exampollopollo-e360.restdb.io/media/" +
+              thisApplicant.image[0]
+            }
+            alt="applicant profile pic"
+          />
+          {countryFlags.getFlag(thisApplicant.country, styles.flag)}
         </div>
-        <h5>
-          Combo chicken @ $5 <span></span>
+        <h5 className={styles.eachElm + " display-5"}>
+          {productApplied.title} @ ${productApplied.price}
         </h5>
-        <p>
-          MOTIVATION:
-          <span>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut
-          </span>
+        <h5 className={styles.eachElm + " display-5"}>
+          {thisApplicant.first_name}
+        </h5>
+        <p className={styles.eachElm}>
+          MOTIVATION: <span>{props.application.motivation}</span>
         </p>
-        <p>
-          ADDRESS: <span>Lorem ipsum</span>
-        </p>
-        <p>
-          COUNTRY: <span>Lorem ipsum</span>
+        <p className={styles.eachElm}>
+          COUNTRY: <span>{thisApplicant.country}</span>
         </p>
       </article>
     </section>

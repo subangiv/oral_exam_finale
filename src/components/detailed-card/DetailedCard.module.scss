@@ -16,7 +16,9 @@
   padding: 22px;
   width: clamp(150px, 279px, 300px);
 
-  & h4 {
+  & h4,
+  h5,
+  span {
     color: $primary;
   }
 }
@@ -34,4 +36,15 @@
     object-fit: cover;
     border-radius: 50%;
   }
+
+  & .flag {
+    width: 50px;
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+  }
+}
+
+.eachElm {
+  margin: 3px 0;
 }
