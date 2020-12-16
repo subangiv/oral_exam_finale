@@ -81,6 +81,10 @@
       color: $primary;
       border-color: $primary;
     }
+
+    &:hover {
+      background-color: $primary-light;
+    }
   }
 
   //Standard and outlined styling of Secondary button

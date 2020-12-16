@@ -68,16 +68,20 @@ export default function Header(props) {
           <li>
             <ActionButtons />
           </li>
+          {!props.isLoggedIn && 
           <li>
             <Link to="/sign-in">
               <p>Sign in</p>
             </Link>
           </li>
+          }
+          {!props.isLoggedIn &&
           <li>
             <Link to="/sign-up">
               <p>Sign up</p>
             </Link>
           </li>
+          }
         </ul>
       )}
     </header>
