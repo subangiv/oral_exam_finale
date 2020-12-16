@@ -1,0 +1,61 @@
+@import "../../styles/variables";
+
+footer {
+  background-color: $primary;
+  position: sticky;
+  color: $light;
+  padding: 3vh 0;
+  margin-top: 3vh;
+}
+a {
+  color: $light;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.listWrapper {
+  margin: 4.5vw auto;
+  line-height: $line-height-a;
+  list-style: none;
+}
+.soMeLogos {
+  width: 10vw;
+  height: 100%;
+}
+.keaLogo {
+  // width: 28vw;
+  // height: 80%;
+  width: clamp(30%, 6rem, 100%);
+}
+@media (min-width: $max-s) {
+  footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 3vw;
+    padding: 0 1vw;
+  }
+  .listWrapper {
+    text-align: left;
+  }
+  .soMeLogos {
+    width: 31px;
+    height: 31px;
+  }
+  .listWrapper {
+    margin-left: 1rem;
+    //Twitter icon
+    :nth-child(3) {
+      img {
+        width: 33px;
+        height: 27px;
+      }
+    }
+  }
+}
+
+@media (min-width: $max-l) {
+  footer {
+    padding: 0 4vw;
+  }
+}

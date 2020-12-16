@@ -1,0 +1,20 @@
+@import "../../styles/index";
+
+.formStyle {
+  margin: 5vh 0 0 0;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+}
+
+@media (min-width: $max-s) {
+  .formStyle {
+    margin: 2vh auto;
+  }
+}
+@media (min-width: $max-m) {
+  .formStyle {
+    margin: 0 auto;
+    // width: 25%;
+  }
+}

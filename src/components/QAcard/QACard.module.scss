@@ -1,0 +1,45 @@
+@import "../../styles/variables";
+@import "../../styles/typography";
+
+.cardContainer {
+  border: 2px solid $primary-lighter;
+  border-radius: min(20px, 57px);
+  display: grid;
+  grid-template-columns: 0.1fr 1fr;
+  padding: 2vw;
+  margin: 0 0 2vh 0;
+  height: min-content;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 0 2vw 0 0;
+  h4,
+  p {
+    color: $primary;
+  }
+  .link {
+    color: $primary-light;
+    text-decoration: underline;
+  }
+}
+
+.qaArrow {
+  margin: 2vw 1vw 0 0;
+  cursor: pointer;
+}
+
+@media (min-width: $max-s) {
+  .qaArrow {
+    margin: 0.5vw 0 0 0;
+  }
+}
+@media (min-width: $max-m) {
+  .contentWrapper {
+    & h4 {
+      font-size: 1.2rem;
+    }
+  }
+}
