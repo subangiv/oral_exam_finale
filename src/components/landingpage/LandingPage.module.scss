@@ -142,9 +142,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  .padding__left__large {
-    padding: 30px !important;
-  }
   .purplebox__large {
     height: 40vh;
     border-radius: 20px 0 0 20px;
@@ -168,7 +165,11 @@
     height: 60vh;
   }
   .padding__left__large {
-    padding-left: 60px;
+    padding-left: 30px;
+
+    & h1 {
+      font-size: 2.2rem;
+    }
   }
   .purplebox__large {
     height: 40vh;

@@ -89,8 +89,8 @@
 .profile__avatar {
   position: absolute;
   z-index: 1;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 20px;
   top: -10%;
@@ -119,9 +119,9 @@
 }
 .profile__text {
   position: absolute;
-  top: 65%;
+  top: 60%;
   left: 50%;
-  transform: translate(-50%, -65%);
+  transform: translate(-50%, -60%);
 }
 .lightpurple__div {
   background-color: rgba(219, 208, 239, 0.4);
