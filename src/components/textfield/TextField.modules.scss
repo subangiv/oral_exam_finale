@@ -26,7 +26,8 @@
   }
 }
 input {
-  -webkit-appearance: none;
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
   appearance: none;
   border-radius: 15px;
   border-style: solid;
