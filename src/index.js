@@ -1,10 +1,10 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-import Routes from "./components/Routes/Routes";
+import Routes from "./components/routes/Routes";
 ReactDOM.render(
     <React.StrictMode>
         <App />
