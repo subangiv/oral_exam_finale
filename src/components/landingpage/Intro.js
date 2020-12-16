@@ -18,7 +18,7 @@ export default function Intro() {
             providers of physical products together.
           </p>
           <button
-            className="btn outlined rounded"
+            className="btn btn-primary outlined rounded"
             style={{ top: "0", left: "0", transform: "translate(0, 0)" }}
           >
             Read More

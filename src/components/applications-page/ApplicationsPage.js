@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ApplicationCard from "../application-card/ApplicationCard";
 import styles from "./ApplicationsPage.module.scss";
 import text from "./static/applications-page.json"
@@ -6,6 +6,7 @@ import "../application-card/ApplicationCard"
 import countries from "../../common/countries.json";
 import FilterSelect from "../filter-select/FilterSelect";
 import SortSelect from "../sort-select/SortSelect";
+import { wrapGrid } from 'animate-css-grid';
 
   const applicationsShown = 2;
 
@@ -19,16 +20,20 @@ function ApplicationsPage(props) {
     const [filterOption, setFilterOption] = useState("")
     const [toggleFilter, setToggleFilter] = useState(false);
     const [isFiltered, setIsFiltered] = useState(false);
-
+    const grid = useRef();
+  
+    console.log(grid)
+    wrapGrid(grid.current);
 
     useEffect(() => {
+     
         if(shownApplications.length === 0 && index === 0) {
         getData(showApplications, "?max="+applicationsShown + "&totals=true");
         console.log(shownApplications);
         }
       });
 
-
+      
     function showApplications(data) {
         setShownApplications([...shownApplications].concat(data.data));
         setIndex(index+applicationsShown);
@@ -154,7 +159,7 @@ function ApplicationsPage(props) {
                     </div>
  
                   {shownApplications.length > 0 &&
-                    <ul className={styles.applicationList}>
+                    <ul className={styles.applicationList} ref={grid}>
                     {shownApplications.map((card) => <ApplicationCard key={card._id} {...card}/>)}
                     </ul>
                   }

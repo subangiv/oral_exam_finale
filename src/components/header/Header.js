@@ -19,7 +19,7 @@ export default function Header(props) {
           onClick={clickDonate}
           children="Donate"
         />
-        <button className="btn rounded btn-primary" children="Offer product" />
+        <button className="btn rounded btn-primary-light" children="Offer product" />
         <button
           className="btn rounded btn-primary"
           children="Apply for product"
