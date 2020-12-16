@@ -1,5 +1,6 @@
 import styles from "./Account.module.scss";
 import testimg from "../../images/test-image.jpg";
+import placeholderimg from "../../svg/placeholder-img.svg";
 import React, { useState, useEffect } from "react";
 
 function ProfileInfo() {
@@ -10,7 +11,7 @@ function ProfileInfo() {
 
   return (
     <div className={styles.wrapper__left}>
-      <img className={styles.profile__avatar} src={testimg} alt="" />
+      <img className={styles.profile__avatar} src={placeholderimg} alt="" />
       <div className={styles.purple__div}>
         <div className={styles.profile__text}>
           <h6>Name:</h6>

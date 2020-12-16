@@ -76,11 +76,14 @@
 //iPhone SE
 @media (max-width: 340px) {
   .topWrapper {
-    margin-top: 7vw;
+    margin-top: 10vh;
   }
 }
 
 @media (min-width: $max-s) {
+  .helpPage {
+    margin-top: 1vh;
+  }
   .topWrapper {
     display: grid;
     grid-template-columns: repeat((2, 1fr));
@@ -100,9 +103,9 @@
   }
 }
 
-@media (min-width: $max-s) {
-  .helpPage {
-    margin-top: 1vh;
+@media (min-width: $max-m) {
+  .cardWrapper {
+    padding: 0 60px;
   }
 }
 

@@ -1,22 +1,47 @@
 import React, { useState, useEffect } from "react";
+import { Link, Redirect } from "react-router-dom";
 import styles from "./Account.module.scss";
-import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import SignUpForm from "./SignUpForm";
 
-const SignInForm = () => {
+const SignInFormTest = () => {
   const { register, handleSubmit, errors } = useForm();
-  const [message, setMessage] = useState();
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState();
+  const [user, setUser] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      setUser(foundUser);
+    }
+  }, []);
+
+  // login the user
   const onSubmit = (person) => {
-    localStorage.setItem("user", JSON.stringify(person));
+    console.log(user);
+    const personEmail = user.email;
+    const personPass = user.password;
+    const userData = localStorage.getItem("user");
+    //if there's a user show the message below
+    let signIn;
+    if (personPass === password && personEmail === email) {
+      signIn = setSubmitted(true);
+    } else if (userData === null) {
+      signIn = alert(
+        "There's no user registered with this email. Please sign up."
+      );
+    } else {
+      signIn = alert("Your email or password is incorrect");
+    }
+    return signIn;
   };
 
-  // if there's a user show the message below
-
+  if (submitted) {
+    return <Redirect to="/account" />;
+  }
+  // if there's no user, show the login form
   return (
     <section className={styles.form__wrapper}>
       <h6>Log in to PolloPollo</h6>
@@ -40,6 +65,7 @@ const SignInForm = () => {
                   message: "Enter a valid email address",
                 },
               })}
+              onChange={(event) => setEmail(event.target.value)}
             />
             <label htmlFor="inputForEmail">Email address</label>
             {errors.email && (
@@ -63,6 +89,7 @@ const SignInForm = () => {
                   message: "Please enter password",
                 },
               })}
+              onChange={(event) => setPassword(event.target.value)}
             />
             <label htmlFor="inputForPassword">Password</label>
             {errors.password && (
@@ -83,4 +110,5 @@ const SignInForm = () => {
     </section>
   );
 };
-export default SignInForm;
+
+export default SignInFormTest;
