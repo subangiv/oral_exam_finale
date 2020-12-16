@@ -2,9 +2,30 @@
 
 .formStyle {
   margin: 5vh 0 0 0;
+  height: max-content;
   display: flex;
   flex-flow: column wrap;
   align-content: center;
+
+  & span {
+    font-size: 12px;
+    margin: 0 0 0 1rem;
+  }
+}
+
+.sendPos {
+  align-self: center;
+  margin: 16px;
+}
+
+.alertMsg {
+  color: red;
+  align-self: flex-start;
+}
+
+.successMsg {
+  color: $primary-lighter;
+  align-self: center;
 }
 
 @media (min-width: $max-s) {
