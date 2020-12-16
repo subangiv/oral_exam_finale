@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { RestDB } from "../../modules/APIRequests";
+import { RestDB } from "./data/APIRequest";
 import { useHistory, useLocation } from "react-router-dom";
 import styles from "./DonationPage.module.scss";
 import DonationImage from "../../assets/images/donation-img-small.png";

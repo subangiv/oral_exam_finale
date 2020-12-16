@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import countries from "../../../common/countries.json";
-import { RestDB } from "../../../modules/APIRequests";
+import { RestDB } from "../../donation_page/data/APIRequest";
 import { useHistory } from "react-router-dom";
 import styles from "../DonationForm.module.scss";
 import { useMediaQuery } from "react-responsive";
