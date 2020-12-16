@@ -7,6 +7,9 @@
   align-items: center;
   margin: 16px;
   background-color: #ffffff;
+
+  flex-flow: column;
+  align-items: center;
 }
 
 .textfield {
@@ -15,6 +18,8 @@
 }
 
 input {
+  -webkit-appearance: none;
+  appearance: none;
   border-radius: 15px;
   border-style: solid;
   border-width: 1px;
@@ -26,7 +31,9 @@ input::placeholder {
   font-size: $font-size-placeholder;
   font-family: $sans-serif;
 }
-
+input:invalid {
+  box-shadow: none;
+}
 label {
   font-size: $font-size-button;
   letter-spacing: $letter-spacing-button;

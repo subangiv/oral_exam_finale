@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import styles from "../DonationForm.module.scss";
 import { useMediaQuery } from "react-responsive";
 import TextField from "../../textfield/TextField";
@@ -15,6 +15,12 @@ export default function DonationFormSec1(props) {
   const responsiveInputs = {
     width: isTablet ? "90%" : "max-content",
     justifyContent: "flex-start",
+  };
+  const msgStyle = {
+    fontSize: "13px",
+    alignSelf: "flex-start",
+    margin: "0 0 0 3vw",
+    color: "#8b489c",
   };
 
   //Common box for payment methods
@@ -35,9 +41,64 @@ export default function DonationFormSec1(props) {
     e.target.firstChild.style.fontWeight = "800";
   };
 
+  //Validating Names
+  const firstNameMsg = useRef();
+  const lastNameMsg = useRef();
+  const capitalizeInput = (e) => {
+    e.target.style.textTransform = "capitalize";
+  };
+  const checkFirstName = (e) => {
+    if (e.target.value.length === 0) {
+      console.log(e.target.lastChild);
+      e.target.style.borderWidth = "2px";
+      e.target.style.borderColor = "#8b489c";
+      e.target.nextElementSibling.style.fontWeight = "800";
+      e.target.nextElementSibling.style.color = "#8b489c";
+      firstNameMsg.current.textContent = "First name cannot be empty";
+    }
+  };
+  const checkLastName = (e) => {
+    if (e.target.value.length === 0) {
+      console.log(e.target.lastChild);
+      e.target.style.borderWidth = "2px";
+      e.target.style.borderColor = "#8b489c";
+      e.target.nextElementSibling.style.fontWeight = "800";
+      e.target.nextElementSibling.style.color = "#8b489c";
+      lastNameMsg.current.textContent = "Last name cannot be empty";
+    }
+  };
+
+  //Validating Email
+  const emailInput = useRef();
+  const checkEmail = (e) => {
+    const emailPattern = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (!e.target.value.match(emailPattern)) {
+      e.target.style.borderWidth = "2px";
+      e.target.style.borderColor = "#8b489c";
+      e.target.nextElementSibling.style.fontWeight = "800";
+      e.target.nextElementSibling.style.color = "#8b489c";
+      emailInput.current.textContent = "Your provided email is wrong";
+    } else {
+      emailInput.current.textContent = "";
+      e.target.style.borderWidth = "1px";
+      e.target.style.borderColor = "#453266";
+      e.target.nextElementSibling.style.fontWeight = "unset";
+      e.target.nextElementSibling.style.color = "unset";
+    }
+    if (e.target.value.length === 0) {
+      e.target.style.borderWidth = "2px";
+      e.target.style.borderColor = "#8b489c";
+      e.target.nextElementSibling.style.fontWeight = "800";
+      e.target.nextElementSibling.style.color = "#8b489c";
+      emailInput.current.textContent = "Email cannot be empty";
+    }
+  };
+
   return (
     <>
-      <li className={styles.step1}>Select your payment method *</li>
+      <li className={styles.step1} step1={props.step1}>
+        Select your payment method *
+      </li>
       <fieldset className={styles.step1Container}>
         <PaymentMethods
           methodLabel="PayPal/Creditcard"
@@ -74,6 +135,8 @@ export default function DonationFormSec1(props) {
       <li className={styles.step1}>Personal information</li>
       <fieldset className={styles.eachStep}>
         <TextField
+          required
+          type="text"
           className="input-primary"
           labelFor="first-name"
           label="First name"
@@ -82,10 +145,16 @@ export default function DonationFormSec1(props) {
           inputPlaceHolder="Enter your first name here"
           inputValue={props.personalInputs.firstname}
           onChange={props.onFistNameChange}
+          onBlur={checkFirstName}
+          onKeyDown={capitalizeInput}
           textFieldStyle={responsiveInputs}
           style={responsiveInputs}
-        />
+        >
+          <span ref={firstNameMsg} style={msgStyle}></span>
+        </TextField>
         <TextField
+          required
+          type="text"
           className="input-primary"
           labelFor="last-name"
           label="Last name"
@@ -94,10 +163,17 @@ export default function DonationFormSec1(props) {
           inputPlaceHolder="Enter your last name here"
           inputValue={props.personalInputs.lastname}
           onChange={props.onLastNameChange}
+          onBlur={checkLastName}
+          onKeyDown={capitalizeInput}
           textFieldStyle={responsiveInputs}
           style={responsiveInputs}
-        />
+        >
+          <span ref={lastNameMsg} style={msgStyle}></span>
+        </TextField>
         <TextField
+          required
+          type="email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           className="input-primary"
           labelFor="email"
           label="Email"
@@ -106,14 +182,18 @@ export default function DonationFormSec1(props) {
           inputPlaceHolder="Enter your email here"
           inputValue={props.personalInputs.email}
           onChange={props.onEmailChange}
+          onBlur={checkEmail}
           textFieldStyle={responsiveInputs}
           style={responsiveInputs}
-        />
+        >
+          <span ref={emailInput} style={msgStyle}></span>
+        </TextField>
         <InputArea
+          type="text"
           className="textarea-primary"
           labelFor="message"
           label="Leave a message"
-          inputPlaceHolder="Leave a message to Rafael"
+          inputPlaceHolder="Leave a message to this applicant"
           cols={isTablet ? "27" : "19"}
           rows="5"
           inputValue={props.personalInputs.message}
@@ -122,11 +202,8 @@ export default function DonationFormSec1(props) {
           style={responsiveInputs}
         />
         <div className={styles.checkBoxContainer}>
-          {/* <div className={styles.roundCheckBox}> */}
           <input type="checkbox" />
-          {/* <label for="checkbox" className={styles.checkBoxLabel}></label> */}
-          {/* </div> */}
-          <p> I'd like to be informed about the donation</p>
+          <span> I'd like to be informed about the donation</span>
         </div>
         <button
           className="btn rounded btn-donate"

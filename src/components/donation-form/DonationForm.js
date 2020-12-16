@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { RestDB } from "../../modules/APIRequests";
 import styles from "./DonationForm.module.scss";
 import { Steps, Step } from "react-step-builder";
 import DonationFormSec1 from "./donation-form-section1/DonationFormSec1";
@@ -6,6 +7,7 @@ import DonationFormSec2 from "./donation-form-section2/DonationFormSec2";
 import DetailedCard from "../detailed-card/DetailedCard";
 
 export default function DonationForm(props) {
+  console.log(props);
   //Inputs in sections 1 & 2
   const [personalInputs, setPersonalInputs] = useState({
     firstname: "",
@@ -38,13 +40,22 @@ export default function DonationForm(props) {
     setCardInputs({ ...cardInputs, cardname: e.target.value });
   };
   const onCardNumberChange = (e) => {
-    setCardInputs({ ...cardInputs, cardnumber: e.target.value });
+    let formattedText = e.target.value
+      .replace(/\s?/g, "")
+      .replace(/(\d{4})/g, "$1 ")
+      .trim();
+    const onlyNumbers = e.target.validity.valid ? formattedText : "";
+    setCardInputs({
+      ...cardInputs,
+      cardnumber: onlyNumbers,
+    });
   };
   const onExpiryChange = (e) => {
     setCardInputs({ ...cardInputs, expiry: e.target.value });
   };
   const onCVVChange = (e) => {
-    setCardInputs({ ...cardInputs, cvv: e.target.value });
+    const onlyNumbers = e.target.validity.valid ? e.target.value : "";
+    setCardInputs({ ...cardInputs, cvv: onlyNumbers });
   };
 
   //Inputs in section 4
@@ -66,25 +77,44 @@ export default function DonationForm(props) {
     setBillingAdd({ ...billingAdd, city: e.target.value });
   };
   const onZipChange = (e) => {
-    setBillingAdd({ ...billingAdd, zip: e.target.value });
+    const onlyNumbers = e.target.validity.valid ? e.target.value : "";
+    setBillingAdd({ ...billingAdd, zip: onlyNumbers });
   };
   const onStateProvinceChange = (e) => {
     setBillingAdd({ ...billingAdd, stateprovince: e.target.value });
   };
   const onPhoneNumberChange = (e) => {
-    setBillingAdd({ ...billingAdd, phonenum: e.target.value });
+    const onlyNumbers = e.target.validity.valid ? e.target.value : "";
+    setBillingAdd({ ...billingAdd, phonenum: onlyNumbers });
   };
-  const onClick = (e) => {
+  const onSubmitDonationForm = (e) => {
     e.preventDefault();
-    console.log(personalInputs);
-    console.log(cardInputs);
-    console.log(billingAdd);
+    console.error(e.target.value);
+    if (
+      personalInputs.firstname.length === 0 &&
+      personalInputs.lastname.length === 0 &&
+      personalInputs.email.length === 0 &&
+      cardInputs.cardname.length === 0 &&
+      cardInputs.cardnumber.length === 0 &&
+      cardInputs.cvv.length === 0 &&
+      cardInputs.expiry.length === 0 &&
+      billingAdd.address1.length === 0 &&
+      billingAdd.address2.length === 0 &&
+      billingAdd.city.length === 0 &&
+      billingAdd.zip.length === 0 &&
+      billingAdd.stateprovince.length === 0
+    ) {
+      console.log("everything is empty");
+    } else {
+      //TODO: link to Success Page
+      RestDB.postADonation(personalInputs, cardInputs, billingAdd);
+    }
   };
 
   return (
     <section className={styles.donateSection}>
       <DetailedCard />
-      <form onSubmit={onClick}>
+      <form onSubmit={onSubmitDonationForm}>
         <ol className={styles.listOfSteps}>
           <Steps>
             <Step
