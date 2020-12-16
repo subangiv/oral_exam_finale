@@ -16,12 +16,6 @@ export default function DonationFormSec1(props) {
     width: isTablet ? "90%" : "max-content",
     justifyContent: "flex-start",
   };
-  const msgStyle = {
-    fontSize: "12px",
-    alignSelf: "flex-start",
-    margin: "0 0 0 3vw",
-    color: "#8b489c",
-  };
 
   //Common box for payment methods
   const PaymentMethods = ({ methodLabel, children, onClick, style }) => {
@@ -47,50 +41,38 @@ export default function DonationFormSec1(props) {
   const capitalizeInput = (e) => {
     e.target.style.textTransform = "capitalize";
   };
-  const checkFirstName = (e) => {
-    if (e.target.value.length === 0) {
-      console.log(e.target.lastChild);
-      e.target.style.borderWidth = "2px";
-      e.target.style.borderColor = "#8b489c";
-      e.target.nextElementSibling.style.fontWeight = "800";
-      e.target.nextElementSibling.style.color = "#8b489c‰";
-      firstNameMsg.current.textContent = "Please fill in your first name";
-    }
-  };
-  const checkLastName = (e) => {
-    if (e.target.value.length === 0) {
-      console.log(e.target.lastChild);
-      e.target.style.borderWidth = "2px";
-      e.target.style.borderColor = "#8b489c";
-      e.target.nextElementSibling.style.fontWeight = "800";
-      e.target.nextElementSibling.style.color = "#8b489c";
-      lastNameMsg.current.textContent = "Please fill in your last name";
-    }
-  };
 
+  const communication = useRef();
   //Validating Email
   const emailInput = useRef();
   const checkEmail = (e) => {
     const emailPattern = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (!e.target.value.match(emailPattern)) {
-      e.target.style.borderWidth = "2px";
-      e.target.style.borderColor = "#8b489c";
-      e.target.nextElementSibling.style.fontWeight = "800";
-      e.target.nextElementSibling.style.color = "red";
       emailInput.current.textContent = "Your provided email is invallid";
+      emailInput.current.style.color = "red";
+      e.target.style.borderWidth = "2px";
+      e.target.style.borderColor = "#453266";
+      e.target.nextElementSibling.style.fontWeight = "800";
+      if (e.target.value.length === 0) {
+        emailInput.current.textContent = "Please fill in your email";
+        emailInput.current.style.color = "red";
+      }
     } else {
       emailInput.current.textContent = "";
-      e.target.style.borderWidth = "1px";
-      e.target.style.borderColor = "#453266";
       e.target.nextElementSibling.style.fontWeight = "unset";
-      e.target.nextElementSibling.style.color = "unset";
+      e.target.style.borderWidth = "1px";
+      e.target.style.borderColor = "unset";
     }
-    if (e.target.value.length === 0) {
-      e.target.style.borderWidth = "2px";
-      e.target.style.borderColor = "#8b489c";
-      e.target.nextElementSibling.style.fontWeight = "800";
-      e.target.nextElementSibling.style.color = "#8b489c";
-      emailInput.current.textContent = "Email cannot be empty";
+  };
+
+  //Before proceeding check if email is filled
+  const clickProceed = (e) => {
+    e.preventDefault();
+    if (props.personalInputs.email.length === 0) {
+      emailInput.current.textContent = "Please fill in your email";
+      console.log(communication.current.checked);
+    } else {
+      props.next();
     }
   };
 
@@ -145,12 +127,12 @@ export default function DonationFormSec1(props) {
           inputPlaceHolder="Enter your first name here"
           inputValue={props.personalInputs.firstname}
           onChange={props.onFistNameChange}
-          onBlur={checkFirstName}
+          // onBlur={checkFirstName}
           onKeyDown={capitalizeInput}
           textFieldStyle={responsiveInputs}
           style={responsiveInputs}
         >
-          <span ref={firstNameMsg} style={msgStyle}></span>
+          <span ref={firstNameMsg} className={styles.message}></span>
         </TextField>
         <TextField
           required
@@ -163,12 +145,12 @@ export default function DonationFormSec1(props) {
           inputPlaceHolder="Enter your last name here"
           inputValue={props.personalInputs.lastname}
           onChange={props.onLastNameChange}
-          onBlur={checkLastName}
+          // onBlur={checkLastName}
           onKeyDown={capitalizeInput}
           textFieldStyle={responsiveInputs}
           style={responsiveInputs}
         >
-          <span ref={lastNameMsg} style={msgStyle}></span>
+          <span ref={lastNameMsg} className={styles.message}></span>
         </TextField>
         <TextField
           required
@@ -186,7 +168,7 @@ export default function DonationFormSec1(props) {
           textFieldStyle={responsiveInputs}
           style={responsiveInputs}
         >
-          <span ref={emailInput} style={msgStyle}></span>
+          <span ref={emailInput} className={styles.message}></span>
         </TextField>
         <InputArea
           type="text"
@@ -202,13 +184,17 @@ export default function DonationFormSec1(props) {
           style={responsiveInputs}
         />
         <div className={styles.checkBoxContainer}>
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            ref={communication}
+            onChange={props.onCommunicationChange}
+          />
           <span> I'd like to be informed about the donation</span>
         </div>
         <button
           className="btn rounded btn-donate"
           style={{ alignSelf: "center" }}
-          onClick={props.next}
+          onClick={clickProceed}
           disabled={props.isLast()}
         >
           Proceed

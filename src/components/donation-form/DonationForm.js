@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import { RestDB } from "../../modules/APIRequests";
 import styles from "./DonationForm.module.scss";
 import { Steps, Step } from "react-step-builder";
 import DonationFormSec1 from "./donation-form-section1/DonationFormSec1";
 import DonationFormSec2 from "./donation-form-section2/DonationFormSec2";
 import DetailedCard from "../detailed-card/DetailedCard";
+import Success from "../payment/Success";
 
-export default function DonationForm(props) {
-  console.log(props);
+export default function DonationForm(props, onSubmitDonationForm) {
   //Inputs in sections 1 & 2
   const [personalInputs, setPersonalInputs] = useState({
     firstname: "",
     lastname: "",
     email: "",
     message: "",
+    communication: false,
   });
   const onFistNameChange = (e) => {
     setPersonalInputs({ ...personalInputs, firstname: e.target.value });
@@ -27,15 +27,22 @@ export default function DonationForm(props) {
   const onMessageChange = (e) => {
     setPersonalInputs({ ...personalInputs, message: e.target.value });
   };
+  const onCommunicationChange = (e) => {
+    setPersonalInputs({ ...personalInputs, communication: e.target.checked });
+  };
 
   //Inputs in section 3
   const [cardInputs, setCardInputs] = useState({
+    country: "",
     cardname: "",
     cardnumber: "",
     expiry: "",
     cvv: "",
   });
 
+  const onCountryChange = (e) => {
+    setCardInputs({ ...cardInputs, country: e.target.value });
+  };
   const onCardNameChange = (e) => {
     setCardInputs({ ...cardInputs, cardname: e.target.value });
   };
@@ -87,34 +94,11 @@ export default function DonationForm(props) {
     const onlyNumbers = e.target.validity.valid ? e.target.value : "";
     setBillingAdd({ ...billingAdd, phonenum: onlyNumbers });
   };
-  const onSubmitDonationForm = (e) => {
-    e.preventDefault();
-    console.error(e.target.value);
-    if (
-      personalInputs.firstname.length === 0 &&
-      personalInputs.lastname.length === 0 &&
-      personalInputs.email.length === 0 &&
-      cardInputs.cardname.length === 0 &&
-      cardInputs.cardnumber.length === 0 &&
-      cardInputs.cvv.length === 0 &&
-      cardInputs.expiry.length === 0 &&
-      billingAdd.address1.length === 0 &&
-      billingAdd.address2.length === 0 &&
-      billingAdd.city.length === 0 &&
-      billingAdd.zip.length === 0 &&
-      billingAdd.stateprovince.length === 0
-    ) {
-      console.log("everything is empty");
-    } else {
-      //TODO: link to Success Page
-      RestDB.postADonation(personalInputs, cardInputs, billingAdd);
-    }
-  };
 
   return (
     <section className={styles.donateSection}>
       <DetailedCard />
-      <form onSubmit={onSubmitDonationForm}>
+      <form noValidate="">
         <ol className={styles.listOfSteps}>
           <Steps>
             <Step
@@ -124,10 +108,14 @@ export default function DonationForm(props) {
               onLastNameChange={onLastNameChange}
               onEmailChange={onEmailChange}
               onMessageChange={onMessageChange}
+              onCommunicationChange={onCommunicationChange}
             ></Step>
             <Step
               component={DonationFormSec2}
+              personalInputs={personalInputs}
+              onCommunicationChange={onCommunicationChange}
               cardInputs={cardInputs}
+              onCountryChange={onCountryChange}
               onCardNameChange={onCardNameChange}
               onCardNumberChange={onCardNumberChange}
               onExpiryChange={onExpiryChange}
@@ -140,7 +128,7 @@ export default function DonationForm(props) {
               onStateProvinceChange={onStateProvinceChange}
               onPhoneNumberChange={onPhoneNumberChange}
             ></Step>
-            <Step component={<h1>Success</h1>}></Step>
+            <Step component={Success}></Step>
           </Steps>
         </ol>
       </form>

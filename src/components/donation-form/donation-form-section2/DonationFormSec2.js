@@ -1,5 +1,7 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import countries from "../../../common/countries.json";
+import { RestDB } from "../../../modules/APIRequests";
+import { useHistory } from "react-router-dom";
 import styles from "../DonationForm.module.scss";
 import { useMediaQuery } from "react-responsive";
 import { ReactSVG } from "react-svg";
@@ -7,47 +9,73 @@ import TextField from "../../textfield/TextField";
 import SelectField from "../../selectfield/SelectField";
 import LongArrow from "../../../assets/svgs/long-arrow.svg";
 
+//Extra Styling for inputs and span only on this page
+const responsiveInputs = {
+  justifyContent: "flex-start",
+};
+
+const msgStyle = {
+  fontSize: "12px",
+  alignSelf: "flex-start",
+  margin: "0 0 0 1.5vw",
+  color: "#8b489c",
+};
+const msgForSmallInputs = {
+  fontSize: "13px",
+  alignSelf: "flex-start",
+  padding: "0 0 0 1.5vw",
+  color: "#8b489c",
+  maxWidth: "90px",
+};
+
 export default function DonationFormSec2(props) {
   const isTablet = useMediaQuery({ query: "(min-width: 767.98px)" });
   // const isBigScreen = useMediaQuery({ query: "(min-width: 991.98px)" });
-  const responsiveInputs = {
-    // width: isTablet ? "90%" : "max-content",
-    justifyContent: "flex-start",
-  };
 
-  const msgStyle = {
-    fontSize: "12px",
-    alignSelf: "flex-start",
-    margin: "0 0 0 1.5vw",
-    color: "#8b489c",
-  };
-  const msgForSmallInputs = {
-    fontSize: "13px",
-    alignSelf: "flex-start",
-    padding: "0 0 0 1.5vw",
-    color: "#8b489c",
-    maxWidth: "90px",
-  };
+  //Add default value in countries array
+  useEffect(() => {
+    const emptySelect = {
+      name: "Select your country here...",
+      code: "",
+    };
 
+    return countries ? countries.unshift(emptySelect) : null;
+  }, []);
+
+  //Text inputs are capitalized as writing
   const capitalizeInput = (e) => {
     e.target.style.textTransform = "capitalize";
+  };
+
+  //Validate country
+  const countryField = useRef();
+  const checkCountry = (e) => {
+    if (e.target.value.length === 0) {
+      countryField.current.textContent = "Please select your country";
+      e.target.style.borderWidth = "2px";
+      e.target.style.borderColor = "#453266";
+      e.target.nextElementSibling.style.fontWeight = "800";
+    } else {
+      countryField.current.textContent = "";
+      e.target.style.borderWidth = "1px";
+      e.target.style.borderColor = "unset";
+      e.target.nextElementSibling.style.fontWeight = "unset";
+    }
   };
 
   //Validate name
   const nameOnCard = useRef();
   const checkNameOnCard = (e) => {
     if (e.target.value.length === 0) {
+      nameOnCard.current.textContent = "Please provide name on credit card";
       e.target.style.borderWidth = "2px";
-      e.target.style.borderColor = "#8b489c";
+      e.target.style.borderColor = "#453266";
       e.target.nextElementSibling.style.fontWeight = "800";
-      e.target.nextElementSibling.style.color = "#8b489c";
-      nameOnCard.current.textContent = "Name on card cannot be empty";
     } else {
       nameOnCard.current.textContent = "";
       e.target.style.borderWidth = "1px";
-      e.target.style.borderColor = "#453266";
+      e.target.style.borderColor = "unset";
       e.target.nextElementSibling.style.fontWeight = "unset";
-      e.target.nextElementSibling.style.color = "unset";
     }
   };
 
@@ -57,25 +85,19 @@ export default function DonationFormSec2(props) {
     //https://regexlib.com/Search.aspx?k=credit&c=-1&m=-1&ps=20
     const cardPattern = /^(\d{4}-){3}\d{4}$|^(\d{4} ){3}\d{4}$|^\d{16}$/;
     if (!e.target.value.match(cardPattern)) {
-      e.target.style.borderWidth = "2px";
-      e.target.style.borderColor = "#8b489c";
-      e.target.nextElementSibling.style.fontWeight = "800";
-      e.target.nextElementSibling.style.color = "#8b489c";
       cardNumber.current.textContent = "Invalid card number";
+      e.target.style.borderWidth = "2px";
+      e.target.style.borderColor = "#453266";
+      e.target.nextElementSibling.style.fontWeight = "800";
       if (e.target.value.length === 0) {
         cardNumber.current.textContent = "Card number cannot be empty";
       }
     } else {
       cardNumber.current.textContent = "";
       e.target.style.borderWidth = "1px";
-      e.target.style.borderColor = "#453266";
+      e.target.style.borderColor = "unset";
       e.target.nextElementSibling.style.fontWeight = "unset";
-      e.target.nextElementSibling.style.color = "unset";
     }
-  };
-  const showCardNumEx = (e) => {
-    cardNumber.current.textContent = "E.g. XXXX  XXXX  XXXX  XXXX";
-    e.target.nextElementSibling.style.color = "#453266";
   };
 
   //Validate expiry date
@@ -84,20 +106,18 @@ export default function DonationFormSec2(props) {
     //https://regexlib.com/
     const expDatePattern = /^((0[1-9])|(1[0-2]))(\/){0,1}((\d{2})|(\d{4}))$/;
     if (!e.target.value.match(expDatePattern)) {
-      e.target.style.borderWidth = "2px";
-      e.target.style.borderColor = "#8b489c";
-      e.target.nextElementSibling.style.fontWeight = "800";
-      e.target.nextElementSibling.style.color = "#8b489c";
       expDate.current.textContent = "Invalid expiry date";
+      e.target.style.borderWidth = "2px";
+      e.target.style.borderColor = "#453266";
+      e.target.nextElementSibling.style.fontWeight = "800";
       if (e.target.value.length === 0) {
         expDate.current.textContent = "Expiry date cannot be empty";
       }
     } else {
-      e.target.style.borderWidth = "1px";
-      e.target.style.borderColor = "#453266";
-      e.target.nextElementSibling.style.fontWeight = "unset";
-      e.target.nextElementSibling.style.color = "unset";
       expDate.current.textContent = "";
+      e.target.style.borderWidth = "1px";
+      e.target.style.borderColor = "unset";
+      e.target.nextElementSibling.style.fontWeight = "unset";
     }
   };
 
@@ -105,124 +125,43 @@ export default function DonationFormSec2(props) {
   const cvvCode = useRef();
   const checkCVV = (e) => {
     if (e.target.value.length === 0) {
-      e.target.style.borderWidth = "2px";
-      e.target.style.borderColor = "#8b489c";
-      e.target.nextElementSibling.style.fontWeight = "800";
-      e.target.nextElementSibling.style.color = "#8b489c";
-      cvvCode.current.textContent = "Expiry date cannot be empty";
+      cvvCode.current.textContent = "Please enter CVV code";
+      e.target.nextElementSibling.style.fontWeight = "800"; //label
+      e.target.style.borderColor = "#453266"; //input
+      e.target.style.borderWidth = "2px"; //input
     } else {
-      e.target.style.borderWidth = "1px";
-      e.target.style.borderColor = "#453266";
-      e.target.nextElementSibling.style.fontWeight = "unset";
-      e.target.nextElementSibling.style.color = "unset";
       cvvCode.current.textContent = "";
+      e.target.nextElementSibling.style.fontWeight = "unset";
+      e.target.style.borderWidth = "1px";
+      e.target.style.borderColor = "unset";
     }
   };
 
-  //Validate address
-  const addressL1 = useRef();
-  const addressL2 = useRef();
-  const checkAddress1 = (e) => {
-    if (e.target.value.length === 0) {
-      e.target.style.borderWidth = "2px";
-      e.target.style.borderColor = "#8b489c";
-      e.target.nextElementSibling.style.fontWeight = "800";
-      e.target.nextElementSibling.style.color = "#8b489c";
-      addressL1.current.textContent = "Please provide street name";
+  const history = useHistory();
+  const onSubmitDonationForm = (e) => {
+    e.preventDefault();
+    if (
+      props.cardInputs.country.length === 0 &&
+      props.cardInputs.cardname.length === 0 &&
+      props.cardInputs.cardnumber.length === 0 &&
+      props.cardInputs.cvv.length === 0 &&
+      props.cardInputs.expiry.length === 0
+    ) {
+      countryField.current.textContent = "Please select your country";
+      nameOnCard.current.textContent = "Please provide name on credit card";
+      cardNumber.current.textContent = "Please provide card number";
+      expDate.current.textContent = "Please provide expiry date";
+      cvvCode.current.textContent = "Please enter CVV code";
     } else {
-      e.target.style.borderWidth = "1px";
-      e.target.style.borderColor = "#453266";
-      e.target.nextElementSibling.style.fontWeight = "unset";
-      e.target.nextElementSibling.style.color = "unset";
-      addressL1.current.textContent = "";
+      props.next();
+      history.push("/success");
+      RestDB.postADonation(
+        props.personalInputs,
+        props.cardInputs,
+        props.billingAdd
+      );
     }
   };
-  const checkAddress2 = (e) => {
-    if (e.target.value.length === 0) {
-      e.target.style.borderWidth = "2px";
-      e.target.style.borderColor = "#8b489c";
-      e.target.nextElementSibling.style.fontWeight = "800";
-      e.target.nextElementSibling.style.color = "#8b489c";
-      addressL2.current.textContent = "Please provide house or apt. number";
-    } else {
-      e.target.style.borderWidth = "1px";
-      e.target.style.borderColor = "#453266";
-      e.target.nextElementSibling.style.fontWeight = "unset";
-      e.target.nextElementSibling.style.color = "unset";
-      addressL2.current.textContent = "";
-    }
-  };
-
-  //Validate City
-  const cityName = useRef();
-  const checkCity = (e) => {
-    if (e.target.value.length === 0) {
-      e.target.style.borderWidth = "2px";
-      e.target.style.borderColor = "#8b489c";
-      e.target.nextElementSibling.style.fontWeight = "800";
-      e.target.nextElementSibling.style.color = "#8b489c";
-      cityName.current.textContent = "Please provide your city";
-    } else {
-      e.target.style.borderWidth = "1px";
-      e.target.style.borderColor = "#453266";
-      e.target.nextElementSibling.style.fontWeight = "unset";
-      e.target.nextElementSibling.style.color = "unset";
-      cityName.current.textContent = "";
-    }
-  };
-
-  //Validate ZIP Code
-  const zipCode = useRef();
-  const checkZIP = (e) => {
-    if (e.target.value.length === 0) {
-      e.target.style.borderWidth = "2px";
-      e.target.style.borderColor = "#8b489c";
-      e.target.nextElementSibling.style.fontWeight = "800";
-      e.target.nextElementSibling.style.color = "#8b489c";
-      zipCode.current.textContent = "Zip Code cannot be empty";
-    } else {
-      e.target.style.borderWidth = "1px";
-      e.target.style.borderColor = "#453266";
-      e.target.nextElementSibling.style.fontWeight = "unset";
-      e.target.nextElementSibling.style.color = "unset";
-      zipCode.current.textContent = "";
-    }
-  };
-  //Validate State Province
-  const stateProvince = useRef();
-  const checkStateProvince = (e) => {
-    if (e.target.value.length === 0) {
-      e.target.style.borderWidth = "2px";
-      e.target.style.borderColor = "#8b489c";
-      e.target.nextElementSibling.style.fontWeight = "800";
-      e.target.nextElementSibling.style.color = "#8b489c";
-      stateProvince.current.textContent = "State/Province cannot be empty";
-    } else {
-      e.target.style.borderWidth = "1px";
-      e.target.style.borderColor = "#453266";
-      e.target.nextElementSibling.style.fontWeight = "unset";
-      e.target.nextElementSibling.style.color = "unset";
-      stateProvince.current.textContent = "";
-    }
-  };
-  //Validate phone number (optional)
-  // const phoneNum = useRef();
-  // const checkPhoneNum = (e) => {
-  //   const phoneNumPattern = /\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$/;
-  //   if (e.target.value.length === 0) {
-  //     e.target.style.borderWidth = "2px";
-  //     e.target.style.borderColor = "#8b489c";
-  //     e.target.nextElementSibling.style.fontWeight = "800";
-  //     e.target.nextElementSibling.style.color = "#8b489c";
-  //     phoneNum.current.textContent = "";
-  //   } else {
-  //     e.target.style.borderWidth = "1px";
-  //     e.target.style.borderColor = "#453266";
-  //     e.target.nextElementSibling.style.fontWeight = "unset";
-  //     e.target.nextElementSibling.style.color = "unset";
-  //     phoneNum.current.textContent = "";
-  //   }
-  // };
 
   return (
     <>
@@ -236,11 +175,15 @@ export default function DonationFormSec2(props) {
           selectStyle={{ width: isTablet ? "94%" : "89%" }}
           labelFor="select-countries"
           label="Select a country"
-          inputPlaceHolder="Enter your full name here"
+          inputValue={props.cardInputs.country}
+          onChange={props.onCountryChange}
+          onBlur={checkCountry}
           options={countries.map((country, i) => (
-            <option key={i}>{country.name}</option>
+            <option key={i} value={country.code} children={country.name} />
           ))}
-        ></SelectField>
+        >
+          <span ref={countryField} style={msgStyle}></span>
+        </SelectField>
         <TextField
           required
           type="text"
@@ -256,7 +199,7 @@ export default function DonationFormSec2(props) {
           textFieldStyle={responsiveInputs}
           style={responsiveInputs}
         >
-          <span ref={nameOnCard} style={msgStyle}></span>
+          <span ref={nameOnCard} className={styles.message}></span>
         </TextField>
         <TextField
           required
@@ -272,9 +215,9 @@ export default function DonationFormSec2(props) {
           inputValue={props.cardInputs.cardnumber}
           onChange={props.onCardNumberChange}
           onBlur={checkCardNumber}
-          onKeyDown={showCardNumEx}
+          // onKeyDown={showCardNumEx}
         >
-          <span ref={cardNumber} style={msgStyle}></span>
+          <span ref={cardNumber} className={styles.message}></span>
         </TextField>
         <div className={styles.inputWrapper}>
           <TextField
@@ -309,7 +252,7 @@ export default function DonationFormSec2(props) {
           </TextField>
         </div>
       </fieldset>
-      <li className={styles.step2last}>Billing address *</li>
+      <li className={styles.step2last}>Billing address</li>
       <fieldset className={styles.eachStep}>
         <TextField
           type="text"
@@ -321,9 +264,9 @@ export default function DonationFormSec2(props) {
           inputSize={isTablet ? "30" : "20"}
           inputValue={props.billingAdd.address1}
           onChange={props.onAddress1Change}
-          onBlur={checkAddress1}
+          // onBlur={checkAddress1}
         >
-          <span ref={addressL1} style={msgStyle}></span>
+          {/* <span ref={addressL1} className={styles.message}></span> */}
         </TextField>
         <TextField
           type="text"
@@ -334,9 +277,9 @@ export default function DonationFormSec2(props) {
           inputSize={isTablet ? "30" : "20"}
           inputValue={props.billingAdd.address2}
           onChange={props.onAddress2Change}
-          onBlur={checkAddress2}
+          // onBlur={checkAddress2}
         >
-          <span ref={addressL2} style={msgStyle}></span>
+          {/* <span ref={addressL2} className={styles.message}></span> */}
         </TextField>
         <TextField
           required
@@ -348,9 +291,9 @@ export default function DonationFormSec2(props) {
           inputSize={isTablet ? "30" : "20"}
           inputValue={props.billingAdd.city}
           onChange={props.onCityChange}
-          onBlur={checkCity}
+          // onBlur={checkCity}
         >
-          <span ref={cityName} style={msgStyle}></span>
+          {/* <span ref={cityName} className={styles.message}></span> */}
         </TextField>
         <div className={styles.inputWrapper}>
           <TextField
@@ -365,9 +308,9 @@ export default function DonationFormSec2(props) {
             inputSize="4"
             inputValue={props.billingAdd.zip}
             onChange={props.onZipChange}
-            onBlur={checkZIP}
+            // onBlur={checkZIP}
           >
-            <span ref={zipCode} style={msgForSmallInputs}></span>
+            {/* <span ref={zipCode} style={msgForSmallInputs}></span> */}
           </TextField>
           <TextField
             type="text"
@@ -379,9 +322,9 @@ export default function DonationFormSec2(props) {
             inputValue={props.billingAdd.stateprovince}
             onChange={props.onStateProvinceChange}
             onKeyDown={capitalizeInput}
-            onBlur={checkStateProvince}
+            // onBlur={checkStateProvince}
           >
-            <span ref={stateProvince} style={msgForSmallInputs}></span>
+            {/* <span ref={stateProvince} style={msgForSmallInputs}></span> */}
           </TextField>
         </div>
         <TextField
@@ -396,7 +339,7 @@ export default function DonationFormSec2(props) {
           onChange={props.onPhoneNumberChange}
           // onBlur={checkPhoneNum}
         >
-          <span style={msgStyle}></span>
+          <span className={styles.message}></span>
         </TextField>
         <div
           style={{
@@ -419,8 +362,9 @@ export default function DonationFormSec2(props) {
             }}
           />
           <button
+            type="submit"
             className="btn rounded btn-donate"
-            // onClick={props.next}
+            onClick={onSubmitDonationForm}
           >
             Donate
           </button>
