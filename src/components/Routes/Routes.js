@@ -45,7 +45,10 @@ const Routes = (props) => (
         <SignIn />
       </Route>
       <Route path="/sign-up">
-        <SignUp />
+        <SignUp signedUp={(signedUp) => {
+          console.log(signedUp);
+          props.signedUp(signedUp);
+        }} />
       </Route>
       <Route path="/account">
         <Account />
