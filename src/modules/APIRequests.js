@@ -1,7 +1,7 @@
 import { url, apiKey } from "./Vars";
 
-function getApplications(callback, para) {
-  fetch(url + "applications", {
+function getOneApplication(callback, id) {
+  fetch(url + "applications/" + id, {
     method: "get",
     headers: {
       "Content-Type": "application/json; charset=utf-8",
@@ -11,7 +11,6 @@ function getApplications(callback, para) {
   })
     .then((e) => e.json())
     .then((data) => {
-      console.log(data);
       callback(data);
     })
     .then((data) => console.error(data));
@@ -60,4 +59,4 @@ function postADonation(personalData, cardData, billing) {
     .then(() => console.error(mergedData));
 }
 
-export const RestDB = { getApplications, postADonation, postContactRequest };
+export const RestDB = { getOneApplication, postADonation, postContactRequest };

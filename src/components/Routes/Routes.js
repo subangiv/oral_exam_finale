@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy } from "react";
 import {
   Route,
   BrowserRouter as Router,
@@ -9,37 +9,41 @@ import SignIn from "../account/SignIn";
 import SignUp from "../account/SignUp";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
-import LandingPage from "../landingpage/LandingPage";
-import AboutPage from "../aboutpage/AboutPage";
 import Success from "../payment/Success";
-import ApplicationsPage from "../applications-page/ApplicationsPage";
-import ProductsPage from "../products-page/ProductsPage";
 import Account from "../account/Account";
-import DonationPage from "../donation_page/DonationPage";
-import HelpPage from "../help_page/HelpPage";
-import ContactPage from "../contact_page/ContactPage";
+const LandingPage = lazy(() => import("../landingpage/LandingPage"));
+const AboutPage = lazy(() => import("../aboutpage/AboutPage"));
+const ApplicationsPage = lazy(() => import("../applications-page/ApplicationsPage"));
+const ProductsPage = lazy(() => import("../products-page/ProductsPage"));
+const DonationPage = lazy(() => import("../donation_page/DonationPage"));
+const HelpPage = lazy(() => import("../help_page/HelpPage"));
+const ContactPage = lazy(() => import("../contact_page/ContactPage"));
 
-const Routes = (props) => (
+
+
+function Routes(props) {
+
+  return (
   <Router {...props}>
     <Header {...props} />
     <Switch>
-      <Route path="/about">
-        <AboutPage />
+      <Route path="/about" render={()=>
+        <AboutPage />}>
       </Route>
-      <Route path="/applications">
-        <ApplicationsPage />
+      <Route path="/applications" render={() =>
+        <ApplicationsPage />}>
       </Route>
-      <Route path="/products">
-        <ProductsPage />
+      <Route path="/products" render={()=>
+        <ProductsPage />}>
       </Route>
-      <Route path="/help">
-        <HelpPage />
+      <Route path="/help" render={()=>
+        <HelpPage />}>
       </Route>
-      <Route path="/contact">
-        <ContactPage />
+      <Route path="/contact" render={()=>
+        <ContactPage />}>
       </Route>
-      <Route path="/donations">
-        <DonationPage />
+      <Route path="/donations" render={()=>
+        <DonationPage />}>
       </Route>
       <Route path="/success">
         <Success />
@@ -56,11 +60,10 @@ const Routes = (props) => (
       <Route path="/account">
         <Account />
       </Route>
-      <Route path="/">
-        <LandingPage />
-      </Route>
+      <Route path="/" render={() => <LandingPage/>}/>
     </Switch>
     <Footer />
   </Router>
-);
+  )
+};
 export default Routes;

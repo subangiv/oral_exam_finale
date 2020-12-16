@@ -70,7 +70,6 @@ export default function DonationFormSec1(props) {
     e.preventDefault();
     if (props.personalInputs.email.length === 0) {
       emailInput.current.textContent = "Please fill in your email";
-      console.log(communication.current.checked);
     } else {
       props.next();
     }
