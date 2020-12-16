@@ -7,28 +7,36 @@
   align-items: center;
   margin: 16px;
   background-color: #ffffff;
+
+  flex-flow: column;
+  align-items: center;
 }
 
-.inputarea {
+.textfield {
   position: relative;
   background-color: inherit;
-  width: 100%;
 }
 
-textarea {
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent url("../../assets/svgs/arrow-down.svg") no-repeat 90%
+    50%;
+  cursor: pointer;
   border-radius: 15px;
   border-style: solid;
   border-width: 1px;
   outline: none;
   padding: 0.5rem 1rem 0.5rem 1rem;
-  width: 100%;
 }
 
-textarea::placeholder {
+select::placeholder {
   font-size: $font-size-placeholder;
   font-family: $sans-serif;
 }
-
+select:invalid {
+  box-shadow: none;
+}
 label {
   font-size: $font-size-button;
   letter-spacing: $letter-spacing-button;
@@ -47,31 +55,27 @@ label {
   pointer-events: none;
 }
 
-textarea + label {
+select + label {
   top: 0;
   transform: translateY(-50%) translateX(16px) scale(0.9);
 }
 
-textarea:focus {
+select:focus {
   border-width: 2px;
   + label {
     font-weight: 800;
   }
 }
 
-.textarea-primary textarea {
+.input-primary select {
   border-color: $primary;
   color: $primary;
-  resize: none;
-  font-family: $sans-serif;
-  font-size: $font-size-input;
 
   &::placeholder {
     color: $primary;
-    font-family: $sans-serif;
   }
 }
 
-.textarea-primary label {
+.input-primary label {
   color: $primary;
 }

@@ -2,14 +2,23 @@ import React from "react";
 import styles from "./Header.module.scss";
 import BurgerMenu from "../burgermenu/BurgerMenu";
 import { useMediaQuery } from "react-responsive";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export default function Header(props) {
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
+
+  const clickDonate = () => {
+    useHistory.push("/applications");
+  };
+  
   const ActionButtons = () => {
     return (
       <div className={styles.actionBtns}>
-        <button className="btn rounded btn-donate" children="Donate" />
+        <button
+          className="btn rounded btn-donate"
+          onClick={clickDonate}
+          children="Donate"
+        />
         <button className="btn rounded btn-primary" children="Offer product" />
         <button
           className="btn rounded btn-primary"
@@ -38,11 +47,6 @@ export default function Header(props) {
       ) : (
         <ul className={styles.expanedMenuList}>
           <li>
-            <Link className="primary-text" to="/">
-              Home
-            </Link>
-          </li>
-          <li>
             <Link className="primary-text" to="/about">
               About
             </Link>
@@ -58,6 +62,11 @@ export default function Header(props) {
             </Link>
           </li>
           <li>
+            <Link className="primary-text" to="/donations">
+              Donations
+            </Link>
+          </li>
+          <li>
             <Link className="primary-text" to="/help">
               Help
             </Link>
@@ -69,13 +78,8 @@ export default function Header(props) {
             <ActionButtons />
           </li>
           <li>
-            <Link to="/sign-in">
-              <p>Sign in</p>
-            </Link>
-          </li>
-          <li>
-            <Link to="/sign-up">
-              <p>Sign up</p>
+            <Link className="primary-text" to="/sign-in">
+              Sign in
             </Link>
           </li>
         </ul>
