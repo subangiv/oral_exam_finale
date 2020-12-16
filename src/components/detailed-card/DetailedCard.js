@@ -3,14 +3,8 @@ import styles from "./DetailedCard.module.scss";
 import countryFlags from "../../logic/countryFlag";
 
 export default function DetailedCard(props) {
-  const thisApplicant =
-    props.application.applicant !== undefined
-      ? props.application.applicant[0]
-      : null;
-  const productApplied =
-    props.application.product !== undefined
-      ? props.application.product[0]
-      : null;
+  const thisApplicant = props.application.applicant[0];
+  const productApplied = props.application.product[0];
 
   return (
     <section>
