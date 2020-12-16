@@ -6,7 +6,6 @@ function ProfileSide() {
   // logout the user
   const handleLogout = () => {
     setLogout(true);
-    localStorage.clear();
   };
   const [logout, setLogout] = useState(false);
   const btnWidth = {
@@ -14,7 +13,7 @@ function ProfileSide() {
     margin: "10px 0",
   };
   if (logout) {
-    return <Redirect to="/sign-in" />;
+    return <Redirect to="/" />;
   }
   return (
     <div className={styles.wrapper__right}>
