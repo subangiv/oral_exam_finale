@@ -11,7 +11,7 @@ const [showToggle, setShowToggle] = useState(false);
 
         return (
             <p>
-                {!showToggle ? `${props.text.substr(0, props.maxLength).trim()} (...) ` : props.text} <br/>
+                {!showToggle ? `${props.text.substr(0, props.maxLength).trim()} ... ` : props.text} <br/>
                 {!showToggle ? (
                     <a onClick={() => setShowToggle(!showToggle)} className="primary-text"> Show more</a>
                     ) : (

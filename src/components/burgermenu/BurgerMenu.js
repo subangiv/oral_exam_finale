@@ -101,24 +101,39 @@ export default function BurgerMenu(props) {
               <li className={styles.separateBar}>
                 <hr />
               </li>
-              <li>
+              {!props.isLoggedIn &&
+                <li>
+                  <Link
+                    className="primary-text"
+                    to="/sign-in"
+                    onClick={clickCloseMenu}
+                  >
+                    Sign in
+                  </Link>
+                </li>
+              }
+              {!props.isLoggedIn &&
+                <li>
+                  <Link
+                    className="primary-text"
+                    to="/sign-up"
+                    onClick={clickCloseMenu}
+                  >
+                    Sign up
+                  </Link>
+                </li>
+              }
+              {props.isLoggedIn && 
+                <li>
                 <Link
                   className="primary-text"
-                  to="/sign-in"
+                  to="/account"
                   onClick={clickCloseMenu}
                 >
-                  Sign in
+                  Username
                 </Link>
               </li>
-              <li>
-                <Link
-                  className="primary-text"
-                  to="/sign-up"
-                  onClick={clickCloseMenu}
-                >
-                  Sign up
-                </Link>
-              </li>
+              }
             </ul>
             <div id="polloPolloLogo" className={styles.logoWrapper}>
               <ReactSVG

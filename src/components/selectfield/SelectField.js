@@ -5,9 +5,7 @@ function SelectField(props) {
     <div className={props.className + " container"} style={props.style}>
       <div className="textfield" style={props.selectFieldStyle}>
         <select
-          type={props.type}
           required={props.required}
-          placeholder={props.inputPlaceHolder}
           pattern={props.pattern}
           name={props.name}
           value={props.inputValue}

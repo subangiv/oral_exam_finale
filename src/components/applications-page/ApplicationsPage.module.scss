@@ -58,12 +58,6 @@ h1 {
   grid-gap: 1rem;
 }
 
-// .applicationsWrapper {
-//   // display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// }
-
 .filterSortGroup {
   display: flex;
   position: relative;
@@ -88,7 +82,7 @@ h1 {
   text-align: center;
 }
 
-.loadingBtn {
+#loadingBtn {
   margin: 0 auto;
   display: block;
 }
@@ -137,8 +131,12 @@ h1 {
   }
 }
 
-@media screen and (min-width: $max-ml) {
+@media screen and (min-width: $max-ml + 24) {
   .applicationList {
     justify-content: flex-start;
+  }
+
+  .filler {
+    border-radius: 20px;
   }
 }

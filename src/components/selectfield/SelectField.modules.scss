@@ -18,11 +18,12 @@
 }
 
 select {
-  -webkit-appearance: none;
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
   appearance: none;
   background: transparent url("../../assets/svgs/arrow-down.svg") no-repeat 90%
     50%;
-  cursor: pointer;
+  // cursor: pointer;
   border-radius: 15px;
   border-style: solid;
   border-width: 1px;

@@ -125,6 +125,7 @@ fieldset.eachStep,
     background-color: $primary-lighter;
   }
 }
+
 .checkBoxContainer > input[type="checkbox"]:checked + span::before {
   content: "\2713";
   display: block;
@@ -135,17 +136,19 @@ fieldset.eachStep,
   top: -0.4vh;
   font-size: 16px;
 }
+
 .checkBoxContainer > input[type="checkbox"]:checked + span::after {
   content: "";
   display: none;
 }
 
-@media (min-width: 400px) {
-  // .checkBoxContainer > input[type="checkbox"]:checked + span::before {
-  //   left: 0.2rem;
-  //   top: 0.4rem;
-  // }
+span.message {
+  font-size: 12px;
+  align-self: flex-start;
+  margin: 0 0 0 3vw;
+  color: red;
 }
+
 @media (min-width: $max-s) {
   .donateSection {
     display: flex;

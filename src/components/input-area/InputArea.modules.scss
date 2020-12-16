@@ -16,12 +16,18 @@
 }
 
 textarea {
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
   border-radius: 15px;
   border-style: solid;
   border-width: 1px;
   outline: none;
   padding: 0.5rem 1rem 0.5rem 1rem;
   width: 100%;
+}
+
+textarea:invalid {
+  box-shadow: none;
 }
 
 textarea::placeholder {
