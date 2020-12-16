@@ -7,10 +7,11 @@ import { Link, useHistory } from "react-router-dom";
 export default function Header(props) {
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
 
+  const history = useHistory();
   const clickDonate = () => {
-    useHistory.push("/applications");
+    history.push("/applications");
   };
-  
+
   const ActionButtons = () => {
     return (
       <div className={styles.actionBtns}>
