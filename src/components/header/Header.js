@@ -3,6 +3,8 @@ import styles from "./Header.module.scss";
 import BurgerMenu from "../burgermenu/BurgerMenu";
 import { useMediaQuery } from "react-responsive";
 import { Link, useHistory } from "react-router-dom";
+import { Button, Menu, MenuItem } from "@material-ui/core";
+import UserMenu from "../user-menu/UserMenu";
 
 export default function Header(props) {
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
@@ -20,7 +22,7 @@ export default function Header(props) {
           onClick={clickDonate}
           children="Donate"
         />
-        <button className="btn rounded btn-primary" children="Offer product" />
+        <button className="btn rounded btn-primary-light" children="Offer product" />
         <button
           className="btn rounded btn-primary"
           children="Apply for product"
@@ -43,7 +45,7 @@ export default function Header(props) {
         <>
           <Title />
           <ActionButtons />
-          <BurgerMenu />
+          <BurgerMenu isLoggedIn={props.isLoggedIn} />
         </>
       ) : (
         <ul className={styles.expanedMenuList}>
@@ -78,11 +80,18 @@ export default function Header(props) {
           <li>
             <ActionButtons />
           </li>
+          {!props.isLoggedIn && 
           <li>
             <Link className="primary-text" to="/sign-in">
               Sign in
             </Link>
           </li>
+          }
+          {props.isLoggedIn && 
+            <li className={styles.userLink}>
+              <UserMenu/>
+            </li>
+          }
         </ul>
       )}
     </header>

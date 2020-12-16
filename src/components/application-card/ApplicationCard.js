@@ -34,7 +34,7 @@ function convertDate(date) {
                 </div>
                 <section className={styles.applicationCardInteraction}>
                     <button onClick={() => {setDetailsToggle(!detailsToggle)}} className={styles.detailsButton}><b>{!detailsToggle ? "▼" : "▲"}</b> Details</button>
-                    <button className="btn btn-secondary rounded secondary-text">Donate ${props.product[0].price}</button>
+                    <button onClick={() => {props.clickDonateHandler(props._id)}} className="btn btn-secondary rounded secondary-text">Donate ${props.product[0].price}</button>
                 </section>
             </section>
             {detailsToggle &&
