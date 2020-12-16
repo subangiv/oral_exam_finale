@@ -16,12 +16,18 @@
 }
 
 textarea {
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
   border-radius: 15px;
   border-style: solid;
   border-width: 1px;
   outline: none;
   padding: 0.5rem 1rem 0.5rem 1rem;
   width: 100%;
+}
+
+textarea:invalid {
+  box-shadow: none;
 }
 
 textarea::placeholder {
@@ -50,6 +56,13 @@ label {
 textarea + label {
   top: 0;
   transform: translateY(-50%) translateX(16px) scale(0.9);
+}
+
+textarea:focus {
+  border-width: 2px;
+  + label {
+    font-weight: 800;
+  }
 }
 
 .textarea-primary textarea {

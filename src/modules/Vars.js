@@ -1,3 +1,2 @@
-export const apiKeyforContact = "368aac09b0c5462733e8f8310406da246f6b6";
-export const urlToPost =
-  "https://frontendspring20-e4cd.restdb.io/rest/pollopollo";
+export const apiKey = "5fc678a84af3f9656800d169";
+export const url = "https://exampollopollo-e360.restdb.io/rest/";

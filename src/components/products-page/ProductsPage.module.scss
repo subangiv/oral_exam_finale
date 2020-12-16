@@ -1,0 +1,113 @@
+@import "../../styles/index";
+
+.page {
+  position: relative;
+  max-width: $max-ml;
+  margin: 24px auto;
+}
+
+h1 {
+  text-align: left;
+  margin-bottom: 16px;
+}
+.topSection {
+  display: flex;
+  margin-bottom: 16px;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 16px 16px 16px;
+  align-items: flex-end;
+  margin: 16px auto;
+  // padding: 16px;
+}
+
+.bannerWrapper {
+  max-width: 650px;
+  width: 100%;
+  position: relative;
+}
+.filler {
+  margin: 0 auto;
+}
+
+.banner {
+  width: 100%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.paragraphWrapper {
+  justify-self: center;
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.paragraph {
+  margin-bottom: 16px;
+  line-height: 1.7rem;
+}
+
+.productList {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 400px));
+  justify-content: center;
+  grid-gap: 1rem;
+}
+
+.filterSortGroup {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0 auto;
+  width: 300px;
+}
+.filterSortWrapper {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.filterButton {
+  max-width: 100px;
+  margin-bottom: 8px;
+}
+
+.loadingBtn {
+  margin: 0 auto;
+  display: block;
+}
+
+.outOfScope {
+  width: 200px;
+  margin: 8px auto;
+}
+
+@media screen and (min-width: $max-m) {
+  .bannerWrapper {
+    flex-basis: 45%;
+  }
+
+  .paragraphWrapper {
+    flex-basis: 45%;
+  }
+
+  .filterSortGroup {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 0 24px;
+  }
+  .filterSortWrapper {
+    display: flex;
+    margin-bottom: 8px;
+  }
+}
+
+@media screen and (min-width: $max-ml) {
+  .applicationList {
+    justify-content: flex-start;
+  }
+}

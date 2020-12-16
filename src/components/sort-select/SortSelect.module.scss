@@ -1,0 +1,12 @@
+@import "../../styles/index";
+
+.selection {
+  border-radius: 25px;
+  padding: 8px;
+  border-color: $primary;
+  border-width: 2px;
+  outline: none;
+  height: 35px;
+  max-width: 200px;
+  margin-right: 8px;
+}

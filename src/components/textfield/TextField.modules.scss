@@ -7,6 +7,9 @@
   align-items: center;
   margin: 30px 0;
   background-color: #ffffff;
+
+  flex-flow: column;
+  align-items: center;
 }
 
 .textfield {
@@ -23,6 +26,9 @@
   }
 }
 input {
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
+  appearance: none;
   border-radius: 15px;
   border-style: solid;
   border-width: 1px;
@@ -36,7 +42,9 @@ input::placeholder {
   font-family: $sans-serif;
   opacity: 0.5;
 }
-
+input:invalid {
+  box-shadow: none;
+}
 label {
   font-size: $font-size-button;
   letter-spacing: $letter-spacing-button;
@@ -58,6 +66,13 @@ label {
 input + label {
   top: 0;
   transform: translateY(-50%) translateX(16px) scale(0.9);
+}
+
+input:focus {
+  border-width: 2px;
+  + label {
+    font-weight: 800;
+  }
 }
 
 .input-primary input {

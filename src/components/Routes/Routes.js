@@ -11,20 +11,50 @@ import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import LandingPage from "../landingpage/LandingPage";
 import AboutPage from "../aboutpage/AboutPage";
-import Sucess from "../payment/Success";
+import Success from "../payment/Success";
+import ApplicationsPage from "../applications-page/ApplicationsPage";
+import ProductsPage from "../products-page/ProductsPage";
+import Account from "../account/Account";
+import DonationPage from "../donation_page/DonationPage";
+import HelpPage from "../help_page/HelpPage";
+import ContactPage from "../contact_page/ContactPage";
 
 const Routes = (props) => (
   <Router {...props}>
-    <Header />
+    <Header {...props} />
     <Switch>
       <Route path="/about">
         <AboutPage />
+      </Route>
+      <Route path="/applications">
+        <ApplicationsPage />
+      </Route>
+      <Route path="/products">
+        <ProductsPage />
+      </Route>
+      <Route path="/help">
+        <HelpPage />
+      </Route>
+      <Route path="/contact">
+        <ContactPage />
+      </Route>
+      <Route path="/donations">
+        <DonationPage />
+      </Route>
+      <Route path="/success">
+        <Success />
       </Route>
       <Route path="/sign-in">
         <SignIn />
       </Route>
       <Route path="/sign-up">
-        <SignUp />
+        <SignUp signedUp={(signedUp) => {
+          console.log(signedUp);
+          props.signedUp(signedUp);
+        }} />
+      </Route>
+      <Route path="/account">
+        <Account />
       </Route>
       <Route path="/">
         <LandingPage />

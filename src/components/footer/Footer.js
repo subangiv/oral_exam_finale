@@ -1,4 +1,5 @@
 import styles from "./Footer.module.scss";
+import { Link } from "react-router-dom";
 import DiscordLogo from "../../assets/images/icon_awesome_discord.png";
 import TwitterLogo from "../../assets/images/icon_awesome_twitter.png";
 import ITULogo from "../../assets/svgs/ITU.svg";
@@ -11,9 +12,9 @@ export default function Footer(props) {
   return (
     <footer style={{ styles }}>
       <ul className={styles.listWrapper}>
-        <h6>Discover</h6>
+        <h5>Discover</h5>
         <li>
-          <a href="#" children="Make a donation" />
+          <Link to="/applications" children="Make a donation"></Link>
         </li>
         <li>
           <a href="#" children="Offer a product" />
@@ -23,16 +24,16 @@ export default function Footer(props) {
         </li>
       </ul>
       <ul className={styles.listWrapper}>
-        <h6>Connect</h6>
+        <h5>Connect</h5>
         <li>
-          <a href="#" children="Contact" />
+          <Link to="/contact">Contact</Link>
         </li>
         <li>
-          <a href="#" children="Help" />
+          <Link to="/help">Help</Link>
         </li>
       </ul>
       <div className={styles.listWrapper}>
-        <h6 style={{ marginBottom: "1vh" }}>Community & Help desk</h6>
+        <h5 style={{ marginBottom: "1vh" }}>Community & Help desk</h5>
         <a href="https://discord.gg/kQzuR4c">
           <img
             src={DiscordLogo}
@@ -74,7 +75,7 @@ export default function Footer(props) {
           beforeInjection={(svg) => {
             svg.classList.add("svgObyteLogo");
             svg.setAttribute("style", "width: 100px");
-            svg.setAttribute("style", "height: 6vh");
+            svg.setAttribute("style", "height: 50px");
           }}
         />
         <ReactSVG

@@ -1,5 +1,4 @@
 import React from "react";
-import { ReactSVG } from "react-svg";
 import styles from "./LandingPage.module.scss";
 import stepone from "../../svg/step-1.svg";
 import steptwo from "../../svg/step-2.svg";

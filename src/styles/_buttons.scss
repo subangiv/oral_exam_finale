@@ -19,7 +19,7 @@
   overflow: visible;
   vertical-align: middle;
   border-radius: 4px;
-  height: 32px;
+  height: 35px;
   padding: 0 8px 0 8px;
 
   &:hover {
@@ -70,8 +70,6 @@
   &.rounded {
     border-radius: 24px;
     padding: 0 20px;
-    width: auto;
-    max-width: 100%;
   }
 
   //Standard and outlined styling of Primary button
@@ -79,9 +77,91 @@
     background-color: $primary;
     color: $light;
 
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgb(255, 255, 255);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    &:hover::before {
+      opacity: 0.08;
+    }
+
     &.outlined {
       color: $primary;
       border-color: $primary;
+
+      &.rounded::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: $primary;
+        opacity: 0;
+        transition: opacity 0.2s;
+        border-radius: 24px;
+      }
+
+      &:hover::before {
+        opacity: 0.1;
+      }
+    }
+  }
+
+  // primary light buttons
+
+  &-primary-light {
+    background-color: $primary-light;
+    color: $light;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgb(255, 255, 255);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    &:hover::before {
+      opacity: 0.08;
+    }
+
+    &.outlined {
+      color: $primary-light;
+      border-color: $primary-light;
+
+      &.rounded::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: $primary-light;
+        opacity: 0;
+        transition: opacity 0.2s;
+        border-radius: 24px;
+      }
+
+      &:hover::before {
+        opacity: 0.1;
+      }
+    }
+
+    &:hover {
+      background-color: $primary-light;
     }
   }
 
@@ -89,6 +169,45 @@
   &-secondary,
   &-donate {
     background-color: $secondary;
-    color: $primary;
+    color: $dark;
+
+    &.rounded::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgb(0, 0, 0);
+      opacity: 0;
+      transition: opacity 0.2s;
+      border-radius: 24px;
+    }
+
+    &:hover::before {
+      opacity: 0.04;
+    }
+
+    &.outlined {
+      color: $secondary;
+      border-color: $secondary;
+
+      &.rounded::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: $secondary;
+        opacity: 0;
+        transition: opacity 0.2s;
+        border-radius: 24px;
+      }
+
+      &:hover::before {
+        opacity: 0.1;
+      }
+    }
   }
 }

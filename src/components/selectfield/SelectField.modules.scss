@@ -5,38 +5,39 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 30px 0;
+  margin: 16px;
   background-color: #ffffff;
+
+  flex-flow: column;
+  align-items: center;
 }
 
 .textfield {
   position: relative;
   background-color: inherit;
 }
-.textfield-flex {
-  display: flex;
-  flex-direction: column;
 
-  & span {
-    font-size: 12px;
-    color: red;
-  }
-}
-input {
+select {
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
+  appearance: none;
+  background: transparent url("../../assets/svgs/arrow-down.svg") no-repeat 90%
+    50%;
+  // cursor: pointer;
   border-radius: 15px;
   border-style: solid;
   border-width: 1px;
   outline: none;
-  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-  width: 325px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
-input::placeholder {
+select::placeholder {
   font-size: $font-size-placeholder;
   font-family: $sans-serif;
-  opacity: 0.5;
 }
-
+select:invalid {
+  box-shadow: none;
+}
 label {
   font-size: $font-size-button;
   letter-spacing: $letter-spacing-button;
@@ -55,12 +56,19 @@ label {
   pointer-events: none;
 }
 
-input + label {
+select + label {
   top: 0;
   transform: translateY(-50%) translateX(16px) scale(0.9);
 }
 
-.input-primary input {
+select:focus {
+  border-width: 2px;
+  + label {
+    font-weight: 800;
+  }
+}
+
+.input-primary select {
   border-color: $primary;
   color: $primary;
 

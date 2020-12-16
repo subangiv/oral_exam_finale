@@ -6,28 +6,40 @@ footer {
   color: $light;
   padding: 3vh 0;
   margin-top: 3vh;
+  text-align: center;
+
+  & h5 {
+    color: $light;
+  }
+
+  & a {
+    font-weight: $font-weight-normal;
+    color: $light;
+  }
 }
 a {
-  color: $light;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
   }
 }
 .listWrapper {
-  margin: 4.5vw auto;
+  margin: 2.5rem auto;
   line-height: $line-height-a;
   list-style: none;
 }
+
 .soMeLogos {
   width: 10vw;
   height: 100%;
 }
+
 .keaLogo {
   // width: 28vw;
   // height: 80%;
   width: clamp(30%, 6rem, 100%);
 }
+
 @media (min-width: $max-s) {
   footer {
     display: grid;

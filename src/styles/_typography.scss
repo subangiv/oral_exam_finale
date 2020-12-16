@@ -78,6 +78,7 @@ p {
   font-weight: $font-weight-normal;
   line-height: $line-height-p;
   color: $primary;
+  text-align: left;
 }
 
 span {
@@ -89,7 +90,7 @@ span {
 
 a {
   font-size: $font-size-a;
-  font-weight: $font-weight-medium;
+  font-weight: $font-weight-bold;
   letter-spacing: $letter-spacing-a;
   line-height: $line-height-a;
 }

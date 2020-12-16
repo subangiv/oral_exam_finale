@@ -1,0 +1,142 @@
+@import "../../styles";
+
+.page {
+  position: relative;
+  max-width: $max-ml;
+  margin: 24px auto;
+}
+
+h1 {
+  text-align: left;
+  margin-bottom: 16px;
+}
+.topSection {
+  display: flex;
+  margin-bottom: 16px;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 16px 16px 16px;
+  align-items: flex-end;
+  margin: 16px auto;
+  padding: 16px;
+}
+
+.bannerWrapper {
+  min-height: 300px;
+  margin-bottom: 8px;
+  margin: 0 auto 8px auto;
+  display: block;
+}
+.filler {
+  background-color: $primary;
+  border-radius: 20px;
+  margin: 0 auto;
+}
+
+.banner {
+  height: 100%;
+  object-fit: cover;
+  margin: 0 16px;
+}
+
+.paragraphWrapper {
+  max-width: 550px;
+  padding: 1.5rem;
+  color: white;
+}
+
+.paragraph {
+  margin-bottom: 16px;
+  line-height: 1.7rem;
+}
+
+.applicationList {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 400px));
+  justify-content: center;
+  grid-gap: 1rem;
+}
+
+.filterSortGroup {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0 auto;
+  width: 300px;
+}
+.filterSortWrapper {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.filterButton {
+  max-width: 100px;
+  margin-bottom: 8px;
+}
+
+.noApplicationsText {
+  margin-bottom: 40px;
+  padding-top: 32px;
+  text-align: center;
+}
+
+#loadingBtn {
+  margin: 0 auto;
+  display: block;
+}
+
+@media screen and (min-width: $max-m) {
+  .bannerWrapper {
+    // flex-basis: 45%;
+  }
+
+  .topSection {
+    margin-bottom: 40px;
+  }
+
+  .bannerWrapper {
+    min-height: 300px;
+    margin-bottom: 8px;
+    width: 50%;
+    position: relative;
+    right: 0;
+    margin: 0;
+  }
+
+  .banner {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .paragraphWrapper {
+    flex-basis: 45%;
+    position: absolute;
+    right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .filterSortGroup {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 0;
+  }
+  .filterSortWrapper {
+    display: flex;
+    margin-bottom: 8px;
+  }
+}
+
+@media screen and (min-width: $max-ml + 24) {
+  .applicationList {
+    justify-content: flex-start;
+  }
+
+  .filler {
+    border-radius: 20px;
+  }
+}

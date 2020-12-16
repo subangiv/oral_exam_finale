@@ -97,6 +97,10 @@
     object-fit: cover;
     border-radius: 50%;
   }
+
+  & p {
+    text-align: center;
+  }
 }
 
 .profile__grid {
@@ -157,5 +161,10 @@
   }
   .articles__wrapper {
     padding: 1rem;
+  }
+}
+@media (min-width: 1300px) {
+  .flex {
+    height: 80vh;
   }
 }

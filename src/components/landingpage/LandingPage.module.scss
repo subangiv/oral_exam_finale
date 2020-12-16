@@ -97,7 +97,7 @@
 //purple box background for banner
 .purplebox__large {
   background-color: $primary;
-  min-height: 70vh;
+  height: 70vh;
   width: 70%;
   float: right;
   border-radius: 20px;
@@ -124,6 +124,8 @@
 @media (max-width: $max-xs) {
   .flex {
     flex-direction: column-reverse;
+    height: auto;
+    margin-top: 2rem;
   }
   .flex__small {
     flex-direction: column;
@@ -144,7 +146,7 @@
     padding: 30px !important;
   }
   .purplebox__large {
-    min-height: 40vh;
+    height: 40vh;
     border-radius: 20px 0 0 20px;
   }
   .purplelightbox {
@@ -161,12 +163,15 @@
     padding: 5rem 0;
   }
 }
-@media (max-width: $max-s) and (min-width: $max-xs) {
+@media (max-width: 768px) and (min-width: $max-xs) {
+  .flex {
+    height: 60vh;
+  }
   .padding__left__large {
     padding-left: 60px;
   }
   .purplebox__large {
-    min-height: 40vh;
+    height: 40vh;
   }
   .purplelightbox {
     min-height: 25vh;
@@ -174,6 +179,7 @@
   .grid__five {
     grid-template-columns: 1fr 1fr 1fr;
     text-align: center;
+    grid-row-gap: 30px;
   }
   .grid__box__flex {
     justify-content: center;
