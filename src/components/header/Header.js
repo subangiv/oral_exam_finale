@@ -2,14 +2,25 @@ import React from "react";
 import styles from "./Header.module.scss";
 import BurgerMenu from "../burgermenu/BurgerMenu";
 import { useMediaQuery } from "react-responsive";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { Button, Menu, MenuItem } from "@material-ui/core";
+import UserMenu from "../user-menu/UserMenu";
 
 export default function Header(props) {
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
+
+  const clickDonate = () => {
+    useHistory.push("/applications");
+  };
+  
   const ActionButtons = () => {
     return (
       <div className={styles.actionBtns}>
-        <button className="btn rounded btn-donate" children="Donate" />
+        <button
+          className="btn rounded btn-donate"
+          onClick={clickDonate}
+          children="Donate"
+        />
         <button className="btn rounded btn-primary" children="Offer product" />
         <button
           className="btn rounded btn-primary"
@@ -33,15 +44,10 @@ export default function Header(props) {
         <>
           <Title />
           <ActionButtons />
-          <BurgerMenu />
+          <BurgerMenu isLoggedIn={props.isLoggedIn} />
         </>
       ) : (
         <ul className={styles.expanedMenuList}>
-          <li>
-            <Link className="primary-text" to="/">
-              Home
-            </Link>
-          </li>
           <li>
             <Link className="primary-text" to="/about">
               About
@@ -58,6 +64,11 @@ export default function Header(props) {
             </Link>
           </li>
           <li>
+            <Link className="primary-text" to="/donations">
+              Donations
+            </Link>
+          </li>
+          <li>
             <Link className="primary-text" to="/help">
               Help
             </Link>
@@ -70,17 +81,15 @@ export default function Header(props) {
           </li>
           {!props.isLoggedIn && 
           <li>
-            <Link to="/sign-in">
-              <p>Sign in</p>
+            <Link className="primary-text" to="/sign-in">
+              Sign in
             </Link>
           </li>
           }
-          {!props.isLoggedIn &&
-          <li>
-            <Link to="/sign-up">
-              <p>Sign up</p>
-            </Link>
-          </li>
+          {props.isLoggedIn && 
+            <li className={styles.userLink}>
+              <UserMenu/>
+            </li>
           }
         </ul>
       )}

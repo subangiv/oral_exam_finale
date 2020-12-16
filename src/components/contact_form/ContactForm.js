@@ -3,7 +3,7 @@ import styles from "./ContactForm.module.scss";
 import TextField from "../textfield/TextField";
 import InputArea from "../input-area/InputArea";
 import { useMediaQuery } from "react-responsive";
-import { RestDB } from "../../modules/APIRequest";
+import { RestDB } from "../../modules/APIRequests";
 
 export default function ContactForm(props) {
   const isTablet = useMediaQuery({ query: "(min-width: 767.98px)" });

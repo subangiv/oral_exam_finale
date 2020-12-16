@@ -3,8 +3,9 @@ import styles from "./Account.module.scss";
 import { useForm } from "react-hook-form";
 import { Link, Redirect } from "react-router-dom";
 import data from "../../common/countries.json";
+import ProductsPage from "../products-page/ProductsPage";
 
-const SignUpForm = () => {
+const SignUpForm = (props) => {
   const { register, handleSubmit, errors, watch } = useForm();
   const [message, setMessage] = useState();
   const password = useRef({});
@@ -16,6 +17,7 @@ const SignUpForm = () => {
     console.log(person);
   };
   if (submitted) {
+    props.submitHandler(true);
     return <Redirect to="/" />;
   }
   //const getUser = localStorage.getItem("user");

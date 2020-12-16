@@ -15,6 +15,9 @@ import Success from "../payment/Success";
 import ApplicationsPage from "../applications-page/ApplicationsPage";
 import ProductsPage from "../products-page/ProductsPage";
 import Account from "../account/Account";
+import DonationPage from "../donation_page/DonationPage";
+import HelpPage from "../help_page/HelpPage";
+import ContactPage from "../contact_page/ContactPage";
 
 const Routes = (props) => (
   <Router {...props}>
@@ -29,11 +32,23 @@ const Routes = (props) => (
       <Route path="/products">
         <ProductsPage />
       </Route>
+      <Route path="/help">
+        <HelpPage />
+      </Route>
+      <Route path="/contact">
+        <ContactPage />
+      </Route>
+      <Route path="/donations">
+        <DonationPage />
+      </Route>
       <Route path="/sign-in">
         <SignIn />
       </Route>
       <Route path="/sign-up">
-        <SignUp />
+        <SignUp signedUp={(signedUp) => {
+          console.log(signedUp);
+          props.signedUp(signedUp);
+        }} />
       </Route>
       <Route path="/account">
         <Account />

@@ -156,7 +156,7 @@ function ApplicationsPage(props) {
                   </div>}
 
                   {shownApplications.length !== total  && (
-                  <button className={"btn outlined rounded btn-primary " + styles.loadingBtn} onClick={loadApplicationsHandler} >Load more...</button>
+                  <button className={"btn outlined rounded btn-primary "} id={styles.loadingBtn} onClick={loadApplicationsHandler} >Load more...</button>
                   )}
                 </section>
             </article>

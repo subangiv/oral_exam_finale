@@ -1,10 +1,10 @@
-import "./TextField.modules.scss";
+import "./SelectField.modules.scss";
 
-function TextField(props) {
+function SelectField(props) {
   return (
     <div className={props.className + " container"} style={props.style}>
-      <div className="textfield" style={props.textFieldStyle}>
-        <input
+      <div className="textfield" style={props.selectFieldStyle}>
+        <select
           type={props.type}
           required={props.required}
           placeholder={props.inputPlaceHolder}
@@ -14,13 +14,13 @@ function TextField(props) {
           size={props.inputSize}
           maxLength={props.maxLength}
           min={props.min}
-          style={{ width: "100%" }}
+          style={props.selectStyle}
           onChange={props.onChange}
           onInput={props.onInput}
           onKeyDown={props.onKeyDown}
-          onKeyUp={props.onKeyUp}
           onBlur={props.onBlur}
           onInvalid={props.onInvalid}
+          children={props.options}
         />
         <label htmlFor={props.labelFor} children={props.label}></label>
       </div>
@@ -29,4 +29,4 @@ function TextField(props) {
   );
 }
 
-export default TextField;
+export default SelectField;
