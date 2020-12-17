@@ -8,6 +8,8 @@ import DonationForm from "../donation-form/DonationForm";
 export default function DonationPage(props) {
   const location = useLocation();
   const applicationId = location.state.application;
+  console.log(location.state);
+  console.log(props);
 
   const [application, setApplication] = useState([]);
   useEffect(() => {
