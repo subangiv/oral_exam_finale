@@ -36,18 +36,21 @@
 // import Routes from "./components/Routes/Routes";
 // const App = (props) => props.children;
 
-function App() {
-  return <Routes />;
-import './App.css';
+import "./App.css";
 import React, { Suspense, useEffect, useState } from "react";
-import Routes from './components/routes/Routes';
+import Routes from "./components/routes/Routes";
 
 function App() {
-
   return (
-    <Suspense fallback={<div className={"lazy-loader"}><div role="alert" aria-live="assertive" className={"spinner"}></div>
-    <span>Loading...</span></div>}>
-      <Routes isLoggedIn={isLoggedIn}/>
+    <Suspense
+      fallback={
+        <div className={"lazy-loader"}>
+          <div role="alert" aria-live="assertive" className={"spinner"}></div>
+          <span>Loading...</span>
+        </div>
+      }
+    >
+      <Routes />
     </Suspense>
   );
 }
