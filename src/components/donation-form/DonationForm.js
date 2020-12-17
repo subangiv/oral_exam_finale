@@ -98,7 +98,7 @@ export default function DonationForm(props) {
   return (
     <section className={styles.donateSection}>
       <DetailedCard {...props} />
-      <form noValidate="">
+      <form noValidate="" autoComplete="off">
         <ol className={styles.listOfSteps}>
           <Steps>
             <Step
