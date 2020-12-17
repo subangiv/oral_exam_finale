@@ -33,7 +33,6 @@ const SignInFormTest = () => {
     const personEmail = user.email;
     const personPass = user.password;
     //if there's a user show the message below
-    let signIn;
     if (personPass === password && personEmail === email) {
       setSubmitted(true);
       history.push("/account");
