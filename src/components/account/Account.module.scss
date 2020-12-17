@@ -128,7 +128,9 @@
   border-radius: 20px;
   padding: 20px;
 }
-
+.alertMsgBox {
+  margin: 0 0 3vh 0;
+}
 @media (max-width: 1024px) {
   .profile__wrapper {
     padding: 4rem;

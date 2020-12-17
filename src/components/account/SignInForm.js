@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import styles from "./Account.module.scss";
 import { useForm } from "react-hook-form";
+import Alert from "@material-ui/lab/Alert";
 
 const SignInFormTest = () => {
   const { register, handleSubmit, errors } = useForm();
@@ -18,34 +19,50 @@ const SignInFormTest = () => {
     }
   }, []);
 
-  // login the user
-  const onSubmit = (person) => {
-    console.log(user);
-    const personEmail = user.email;
-    const personPass = user.password;
-    const userData = localStorage.getItem("user");
-    //if there's a user show the message below
-    let signIn;
-    if (personPass === password && personEmail === email) {
-      signIn = setSubmitted(true);
-    } else if (userData === null) {
-      signIn = alert(
-        "There's no user registered with this email. Please sign up."
-      );
-    } else {
-      signIn = alert("Your email or password is incorrect");
-    }
-    return signIn;
+  const history = useHistory();
+  const clickSignUp = () => {
+    history.push("/sign-up");
   };
 
-  if (submitted) {
-    return <Redirect to="/account" />;
-  }
+  // login the user
+  const personEmail = user.email;
+  const personPass = user.password;
+  const userData = localStorage.getItem("user");
+  const [isClickedSignIn, setIsClickedSignIn] = useState(false);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setIsClickedSignIn(true);
+    if (personPass === password && personEmail === email) {
+      setSubmitted(true);
+      history.push("/account");
+    }
+  };
+  // const onSubmit = (person) => {
+  //   console.log(user);
+  //   setIsClickedSignIn(true);
+  //   //if there's a user show the message below
+  //   let signIn;
+  //   if (personPass === password && personEmail === email) {
+  //     setSubmitted(true);
+  //   } else if (userData === null) {
+  //     // signIn = alert(
+  //     //   "There's no user registered with this email. Please sign up."
+  //     // );
+  //   //} else {
+  //     // signIn = alert("Your email or password is incorrect");
+  //   }
+  //   // return signIn;
+  // };
+
+  // if (submitted) {
+  //   return <Redirect to="/account" />;
+  // }
   // if there's no user, show the login form
   return (
     <section className={styles.form__wrapper}>
       <h6>Log in to PolloPollo</h6>
-      <form onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
+      <form onSubmit={onSubmit} noValidate autoComplete="off">
         <div className="input-primary container">
           <div className="textfield textfield-flex">
             <input
@@ -99,12 +116,32 @@ const SignInFormTest = () => {
             )}
           </div>
         </div>
+        {/* User's info is not found in localStorage */}
+        {isClickedSignIn && userData === null && (
+          <Alert
+            variant="outlined"
+            className={styles.alertMsgBox}
+            severity="error"
+            children="There's no user registered with this email. Please sign up."
+          />
+        )}
+        {/* Either email of pass is matched with localStorage */}
+        {isClickedSignIn &&
+          userData !== null &&
+          (personEmail !== email || personPass !== password) && (
+            <Alert
+              variant="outlined"
+              className={styles.alertMsgBox}
+              severity="error"
+              children="Your email or password is incorrect."
+            />
+          )}
         <button type="submit" className={styles.btn}>
           Sign in
         </button>
         <p>or</p>
-        <button className={styles.btn__outline}>
-          <Link to="/sign-up">Sign up</Link>
+        <button className={styles.btn__outline} onClick={clickSignUp}>
+          Sign up
         </button>
       </form>
     </section>
