@@ -199,3 +199,10 @@
     }
   }
 }
+@media (max-width: 1279px) and (min-width: 769px) {
+  .grid__box__flex {
+    & img {
+      width: 80%;
+    }
+  }
+}

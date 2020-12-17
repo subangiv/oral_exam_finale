@@ -8,29 +8,33 @@
 
 h1 {
   text-align: left;
-  margin-bottom: 16px;
+  margin-bottom: 2rem;
 }
 .topSection {
   display: flex;
-  margin-bottom: 16px;
   position: relative;
-  flex-wrap: wrap;
-  margin: 0 16px 16px 16px;
-  align-items: flex-end;
-  margin: 16px auto;
-  padding: 16px;
+  height: 50vh;
+  //flex-wrap: wrap;
+  //align-items: flex-end;
+  margin: 60px auto 100px;
+  //padding: 16px;
 }
 
 .bannerWrapper {
-  min-height: 300px;
+  width: 50%;
   margin-bottom: 8px;
   margin: 0 auto 8px auto;
   display: block;
 }
 .filler {
   background-color: $primary;
-  border-radius: 20px;
-  margin: 0 auto;
+  border-radius: 20px 0 0 20px;
+  margin-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 350px;
+  padding: 3rem 4rem;
 }
 
 .banner {
@@ -40,9 +44,12 @@ h1 {
 }
 
 .paragraphWrapper {
-  max-width: 550px;
-  padding: 1.5rem;
+  width: 50%;
+  //padding: 1.5rem;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .paragraph {
@@ -89,14 +96,6 @@ h1 {
 
 @media screen and (min-width: $max-m) {
   .bannerWrapper {
-    // flex-basis: 45%;
-  }
-
-  .topSection {
-    margin-bottom: 40px;
-  }
-
-  .bannerWrapper {
     min-height: 300px;
     margin-bottom: 8px;
     width: 50%;
@@ -111,11 +110,12 @@ h1 {
   }
 
   .paragraphWrapper {
-    flex-basis: 45%;
-    position: absolute;
+    width: 50%;
+    //position: absolute;
     right: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    //margin-left: 40px;
   }
 
   .filterSortGroup {
@@ -137,6 +137,12 @@ h1 {
   }
 
   .filler {
-    border-radius: 20px;
+    border-radius: 20px 0 0 20px;
+    padding: 3rem 4rem;
+    //margin-left: 50px;
+
+    & h1 {
+      font-size: 3.5rem;
+    }
   }
 }

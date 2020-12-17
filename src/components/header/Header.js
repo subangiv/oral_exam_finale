@@ -55,44 +55,50 @@ export default function Header(props) {
         </>
       ) : (
         <ul className={styles.expanedMenuList}>
-          <li>
-            <Link className="primary-text" to="/about">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link className="primary-text" to="/applications">
-              Applications
-            </Link>
-          </li>
-          <li>
-            <Link className="primary-text" to="/products">
-              Products
-            </Link>
-          </li>
-          <li>
-            <Link className="primary-text" to="/help">
-              Help
-            </Link>
-          </li>
-          <li>
-            <Title />
-          </li>
-          <li>
-            <ActionButtons />
-          </li>
-          {!props.isLoggedIn && (
+          <div className={styles.header__left}>
             <li>
-              <Link className="primary-text" to="/sign-in">
-                Sign in
+              <Link className="primary-text" to="/about">
+                About
               </Link>
             </li>
-          )}
-          {props.isLoggedIn && (
-            <li className={styles.userLink}>
-              <UserMenu />
+            <li>
+              <Link className="primary-text" to="/applications">
+                Applications
+              </Link>
             </li>
-          )}
+            <li>
+              <Link className="primary-text" to="/products">
+                Products
+              </Link>
+            </li>
+            <li>
+              <Link className="primary-text" to="/help">
+                Help
+              </Link>
+            </li>
+          </div>
+          <div className={styles.header__middle}>
+            <li>
+              <Title />
+            </li>
+          </div>
+          <div className={styles.header__right}>
+            <li>
+              <ActionButtons />
+            </li>
+            {!props.isLoggedIn && (
+              <li>
+                <Link className="primary-text" to="/sign-in">
+                  Sign in
+                </Link>
+              </li>
+            )}
+            {props.isLoggedIn && (
+              <li className={styles.userLink}>
+                <UserMenu />
+              </li>
+            )}
+          </div>
         </ul>
       )}
     </header>
