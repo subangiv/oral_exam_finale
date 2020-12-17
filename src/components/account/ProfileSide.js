@@ -5,9 +5,9 @@ import { Redirect } from "react-router-dom";
 function ProfileSide() {
   // logout the user
   const handleLogout = () => {
-    setUser({});
-    setUsername("");
-    setPassword("");
+    //setUser({});
+    //setUsername("");
+    //setPassword("");
     setLogout(true);
   };
   const [logout, setLogout] = useState(false);
