@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import styles from "./Account.module.scss";
 import { useForm } from "react-hook-form";
 import Alert from "@material-ui/lab/Alert";
+import Collapse from "@material-ui/core/Collapse";
 
 const SignInFormTest = () => {
   const { register, handleSubmit, errors } = useForm();
@@ -30,12 +31,20 @@ const SignInFormTest = () => {
   const userData = localStorage.getItem("user");
   const [isClickedSignIn, setIsClickedSignIn] = useState(false);
 
+  const emailMsg = useRef();
+  const passMsg = useRef();
   const onSubmit = (e) => {
+    console.log(email, password);
     e.preventDefault();
     setIsClickedSignIn(true);
     if (personPass === password && personEmail === email) {
       setSubmitted(true);
       history.push("/account");
+    }
+    if (email.length === 0 && password.length === 0) {
+      console.log("empty");
+      emailMsg.current.textContent = "Please enter your email";
+      passMsg.current.textContent = "Please enter password";
     }
   };
   // const onSubmit = (person) => {
@@ -85,11 +94,18 @@ const SignInFormTest = () => {
               onChange={(event) => setEmail(event.target.value)}
             />
             <label htmlFor="inputForEmail">Email address</label>
-            {errors.email && (
-              <span className={`${styles.errorMessage} mandatory`}>
+            <span
+              ref={emailMsg}
+              className={`${styles.errorMessage} mandatory`}
+            ></span>
+            {/* {errors.email && (
+              <span
+                ref={emailMsg}
+                className={`${styles.errorMessage} mandatory`}
+              >
                 {errors.email.message}
               </span>
-            )}
+            )} */}
           </div>
         </div>
         <div className="input-primary container">
@@ -109,27 +125,39 @@ const SignInFormTest = () => {
               onChange={(event) => setPassword(event.target.value)}
             />
             <label htmlFor="inputForPassword">Password</label>
-            {errors.password && (
-              <span className={`${styles.errorMessage} mandatory`}>
+            <span
+              ref={passMsg}
+              className={`${styles.errorMessage} mandatory`}
+            ></span>
+            {/* {errors.password && (
+              <span
+                ref={passMsg}
+                className={`${styles.errorMessage} mandatory`}
+              >
                 {errors.password.message}
               </span>
-            )}
+            )} */}
           </div>
         </div>
         {/* User's info is not found in localStorage */}
-        {isClickedSignIn && userData === null && (
-          <Alert
-            variant="outlined"
-            className={styles.alertMsgBox}
-            severity="error"
-            children="There's no user registered with this email. Please sign up."
-          />
-        )}
+        {isClickedSignIn &&
+          email.length !== 0 &&
+          password.length !== 0 &&
+          userData === null && (
+            <Alert
+              role="alert"
+              variant="outlined"
+              className={styles.alertMsgBox}
+              severity="error"
+              children="There's no user registered with this email. Please sign up."
+            />
+          )}
         {/* Either email of pass is matched with localStorage */}
         {isClickedSignIn &&
           userData !== null &&
           (personEmail !== email || personPass !== password) && (
             <Alert
+              role="alert"
               variant="outlined"
               className={styles.alertMsgBox}
               severity="error"
