@@ -1,40 +1,9 @@
 import styles from "./HelpPage.module.scss";
-// import cardStyles from "../QAcard/QACard.module.scss";
+import questions from "./static/questions.json";
 import QACard from "../qAcard/QACard";
 import helpBannerImg from "../../assets/images/help_splash.jpg";
 
-const FAQlist = [
-  {
-    question: "Why can I only use Obyte cryptocurrency for donations?",
-    answer:
-      "The entire PolloPollo platform is built on the Obyte platform. To enable donations in other currencies, a more complex setup is required, both in terms of technology as well as regulatory frameworks. We do plan to enable other currencies as well.",
-  },
-  {
-    question: "Where can I acquire Bytes for donations?",
-    answer: "Bytes can be bought at several cryptocurrency exchanges.",
-    link: "https://obyte.org/#exchanges",
-    linkText: "See the exchange list here",
-  },
-  {
-    question: "Why is there no applications showing?",
-    answer:
-      "If applicants haven't applied for donation of products, there are no open applications. PolloPollo does not control when applicants apply for donations of products.",
-  },
-  {
-    question: "Is there a way to support the PolloPollo project directly?",
-    answer:
-      "We rely 100% on the work of volunteers, and always welcome more to help us improve the platform. Please join our and let us know you want to help.",
-    link: "https://discord.pollopollo.org",
-    linkText: "Community Discord",
-  },
-  {
-    question: "Is there a way to financially support PolloPollo?",
-    answer:
-      "Thanks to the generous partners helping us, the operational cost of the platform is close to zero. The best help would be to make donations regularly or suggesting new improvements to the platform.",
-  },
-];
-
-export default function HelpPage(props) {
+export default function HelpPage() {
   return (
     <main className={styles.helpPage}>
       <section className={styles.topWrapper}>
@@ -70,7 +39,7 @@ export default function HelpPage(props) {
       <section id="faqSection" className={styles.sections}>
         <h2 className="display-2">Frequently Asked Questions</h2>
         <div className={styles.cardWrapper}>
-          {FAQlist.map((faq, index) => (
+          {questions.map((faq, index) => (
             <QACard
               key={index}
               question={faq.question}
