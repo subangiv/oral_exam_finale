@@ -128,7 +128,7 @@ function ApplicationsPage(props) {
     const change = {
       status: "closed",
     };
-    // data.updateApplication(id, change);
+    data.updateApplication(id, change);
     const array = [...shownApplications];
     const newList = array.filter((card) => card._id !== id);
     console.log(newList);

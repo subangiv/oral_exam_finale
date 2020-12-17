@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import countries from "../../../common/countries.json";
 import { RestDB } from "../../donation_page/data/APIRequest";
+import data from "../../applications-page/data/data";
 import { useHistory } from "react-router-dom";
 import styles from "../DonationForm.module.scss";
 import { useMediaQuery } from "react-responsive";
@@ -14,17 +15,11 @@ const responsiveInputs = {
   justifyContent: "flex-start",
 };
 
-const msgStyle = {
-  fontSize: "12px",
-  alignSelf: "flex-start",
-  margin: "0 0 0 1.5vw",
-  color: "#8b489c",
-};
 const msgForSmallInputs = {
   fontSize: "13px",
   alignSelf: "flex-start",
-  padding: "0 0 0 1.5vw",
-  color: "#8b489c",
+  // padding: "0 0 0 1.5vw",
+  color: "red",
   maxWidth: "90px",
 };
 
@@ -140,6 +135,8 @@ export default function DonationFormSec2(props) {
 
   const history = useHistory();
   const onSubmitDonationForm = (e) => {
+    // console.log(props.application.status);
+    const change = { status: "closed" };
     e.preventDefault();
     if (
       props.cardInputs.country.length === 0 &&
@@ -161,9 +158,10 @@ export default function DonationFormSec2(props) {
         props.cardInputs,
         props.billingAdd
       );
+      data.updateApplication(props.application._id, change);
     }
   };
-
+  console.log(props);
   return (
     <>
       <li className={styles.step2}>Card details *</li>

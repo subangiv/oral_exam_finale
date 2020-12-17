@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import styles from "./Account.module.scss";
 import { useForm } from "react-hook-form";
 import Alert from "@material-ui/lab/Alert";
-import Collapse from "@material-ui/core/Collapse";
 
 const SignInFormTest = () => {
   const { register, handleSubmit, errors } = useForm();
