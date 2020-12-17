@@ -29,6 +29,7 @@ const SignInFormTest = () => {
   const personPass = user.password;
   const userData = localStorage.getItem("user");
   const [isClickedSignIn, setIsClickedSignIn] = useState(false);
+  console.log(userData);
 
   const onSubmit = (e) => {
     e.preventDefault();
