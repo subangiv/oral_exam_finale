@@ -12,6 +12,9 @@ import "swiper/components/scrollbar/scrollbar.scss";
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 export default function Stories() {
+  const swiperStyle = {
+    height: "420px",
+  };
   return (
     <section className={styles.wrapper}>
       <h3>
@@ -20,7 +23,8 @@ export default function Stories() {
       </h3>
       <Swiper
         id="stories-swiper"
-        className="stories-swiper-desktop"
+        className={styles.swiperCon + " stories-swiper-desktop"}
+        // style={swiperStyle}
         spaceBetween={50}
         slidesPerView={4}
         navigation
@@ -30,7 +34,7 @@ export default function Stories() {
       >
         {data.Stories.map((story, i) => {
           return (
-            <SwiperSlide>
+            <SwiperSlide key={i}>
               <div key={i}>
                 <div className={styles.purple__div}>
                   <img
@@ -49,6 +53,7 @@ export default function Stories() {
       <Swiper
         id="stories-swiper"
         className="stories-swiper-ipad"
+        style={{ minHeight: "500px" }}
         spaceBetween={50}
         slidesPerView={2}
         navigation
@@ -58,7 +63,7 @@ export default function Stories() {
       >
         {data.Stories.map((story, i) => {
           return (
-            <SwiperSlide>
+            <SwiperSlide key={i}>
               <div key={i}>
                 <div className={styles.purple__div}>
                   <img
@@ -76,7 +81,7 @@ export default function Stories() {
       </Swiper>
       <Swiper
         id="stories-swiper"
-        className="stories-swiper-mobile"
+        className={styles.swiperCon + " stories-swiper-mobile"}
         spaceBetween={50}
         slidesPerView={1}
         navigation
@@ -86,7 +91,7 @@ export default function Stories() {
       >
         {data.Stories.map((story, i) => {
           return (
-            <SwiperSlide>
+            <SwiperSlide key={i}>
               <div key={i}>
                 <div className={styles.purple__div}>
                   <img

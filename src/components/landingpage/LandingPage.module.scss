@@ -120,6 +120,9 @@
   left: 0;
   transform: translate(0%, -50%);
 }
+.swiperCon {
+  min-height: 420px;
+}
 //meida queries for responsiveness
 @media (max-width: $max-xs) {
   .flex {
