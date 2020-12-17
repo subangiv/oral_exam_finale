@@ -37,7 +37,7 @@ export default function Header(props) {
 
   const Title = () => {
     return (
-      <Link to="/">
+      <Link to="/" style={{ appearance: "none" }}>
         <h2 className={styles.polloName}>
           POLLO<span>POLLO</span>
         </h2>
