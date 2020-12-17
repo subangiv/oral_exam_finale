@@ -161,7 +161,7 @@ export default function DonationFormSec2(props) {
       data.updateApplication(props.application._id, change);
     }
   };
-  console.log(props);
+
   return (
     <>
       <li className={styles.step2}>Card details *</li>
