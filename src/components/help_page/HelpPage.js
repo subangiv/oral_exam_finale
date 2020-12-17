@@ -1,6 +1,6 @@
 import styles from "./HelpPage.module.scss";
 // import cardStyles from "../QAcard/QACard.module.scss";
-import QACard from "../qAcard/QACard";
+import QACard from "../QAcard/QACard";
 import helpBannerImg from "../../assets/images/help_splash.jpg";
 
 const FAQlist = [
