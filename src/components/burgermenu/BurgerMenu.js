@@ -74,15 +74,6 @@ export default function BurgerMenu(props) {
               <li>
                 <Link
                   className="primary-text"
-                  to="/donations"
-                  onClick={clickCloseMenu}
-                >
-                  Donations
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="primary-text"
                   to="/applications"
                   onClick={clickCloseMenu}
                 >
@@ -101,7 +92,7 @@ export default function BurgerMenu(props) {
               <li className={styles.separateBar}>
                 <hr />
               </li>
-              {!props.isLoggedIn &&
+              {!props.isLoggedIn && (
                 <li>
                   <Link
                     className="primary-text"
@@ -111,8 +102,8 @@ export default function BurgerMenu(props) {
                     Sign in
                   </Link>
                 </li>
-              }
-              {!props.isLoggedIn &&
+              )}
+              {!props.isLoggedIn && (
                 <li>
                   <Link
                     className="primary-text"
@@ -122,18 +113,18 @@ export default function BurgerMenu(props) {
                     Sign up
                   </Link>
                 </li>
-              }
-              {props.isLoggedIn && 
+              )}
+              {props.isLoggedIn && (
                 <li>
-                <Link
-                  className="primary-text"
-                  to="/account"
-                  onClick={clickCloseMenu}
-                >
-                  Username
-                </Link>
-              </li>
-              }
+                  <Link
+                    className="primary-text"
+                    to="/account"
+                    onClick={clickCloseMenu}
+                  >
+                    Username
+                  </Link>
+                </li>
+              )}
             </ul>
             <div id="polloPolloLogo" className={styles.logoWrapper}>
               <ReactSVG
