@@ -19,6 +19,7 @@ export default function Profiles() {
                       profile.image
                     }
                     alt=""
+                    style={{ filter: "grayscale(100%)" }}
                   />
                 </div>
                 <h5>{profile.name}</h5>

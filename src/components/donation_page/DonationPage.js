@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { RestDB } from "../../modules/APIRequests";
+import { RestDB } from "./data/APIRequest";
 import { useHistory, useLocation } from "react-router-dom";
 import styles from "./DonationPage.module.scss";
 import DonationImage from "../../assets/images/donation-img-small.png";
@@ -10,7 +10,6 @@ export default function DonationPage(props) {
   const applicationId = location.state.application;
 
   const [application, setApplication] = useState([]);
-
   useEffect(() => {
     RestDB.getOneApplication(setApplication, applicationId);
   }, [applicationId]);
@@ -50,21 +49,27 @@ export default function DonationPage(props) {
       </section>
       {!isGuestMode ? (
         <div className={styles.donationBtns}>
-          <button
-            className="btn outlined rounded btn-primary"
-            onClick={clickGuest}
-            children="Continue as guest"
-          ></button>
-          <button
-            className="btn outlined rounded btn-primary"
-            children=" Sign in"
-            onClick={clickSignIn}
-          />
-          <button
-            className="btn outlined rounded btn-primary"
-            children="Sign up"
-            onClick={clickSignUp}
-          />
+          {application.length !== 0 ? (
+            <>
+              <button
+                className="btn outlined rounded btn-primary"
+                onClick={clickGuest}
+                children="Continue as guest"
+              ></button>
+              <button
+                className="btn outlined rounded btn-primary"
+                children=" Sign in"
+                onClick={clickSignIn}
+              />
+              <button
+                className="btn outlined rounded btn-primary"
+                children="Sign up"
+                onClick={clickSignUp}
+              />
+            </>
+          ) : (
+            <div role="alert" aria-live="assertive" className={"spinner"}></div>
+          )}
         </div>
       ) : (
         <h4 style={{ margin: "4vh auto" }}>Continue as guest</h4>

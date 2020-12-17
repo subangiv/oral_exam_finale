@@ -5,6 +5,10 @@ header.header {
   height: 15vh;
   & a {
     font-weight: $font-weight-normal;
+    transition: font-weight 0.3s;
+    & :hover {
+      text-decoration: none;
+    }
   }
 }
 
@@ -41,6 +45,23 @@ header.header {
   color: $primary;
   cursor: pointer;
   margin-top: 1vw;
+
+  // & li a {
+  //   display: inline-block;
+  //   text-align: center;
+  // }
+  & a:hover {
+    text-decoration: none;
+    font-weight: bold;
+  }
+  a::before {
+    display: block;
+    content: attr(title);
+    font-weight: bold;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
 }
 
 //iphone SE

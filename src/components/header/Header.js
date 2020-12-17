@@ -16,13 +16,17 @@ export default function Header(props) {
 
   const ActionButtons = () => {
     return (
+      //TODO: add spaces between buttons
       <div className={styles.actionBtns}>
         <button
           className="btn rounded btn-donate"
           onClick={clickDonate}
           children="Donate"
         />
-        <button className="btn rounded btn-primary-light" children="Offer product" />
+        <button
+          className="btn rounded btn-primary-light"
+          children="Offer product"
+        />
         <button
           className="btn rounded btn-primary"
           children="Apply for product"
@@ -30,6 +34,7 @@ export default function Header(props) {
       </div>
     );
   };
+
   const Title = () => {
     return (
       <Link to="/">
@@ -39,6 +44,7 @@ export default function Header(props) {
       </Link>
     );
   };
+
   return (
     <header className={styles.header}>
       {isMobile ? (
@@ -65,11 +71,6 @@ export default function Header(props) {
             </Link>
           </li>
           <li>
-            <Link className="primary-text" to="/donations">
-              Donations
-            </Link>
-          </li>
-          <li>
             <Link className="primary-text" to="/help">
               Help
             </Link>
@@ -80,18 +81,18 @@ export default function Header(props) {
           <li>
             <ActionButtons />
           </li>
-          {!props.isLoggedIn && 
-          <li>
-            <Link className="primary-text" to="/sign-in">
-              Sign in
-            </Link>
-          </li>
-          }
-          {props.isLoggedIn && 
-            <li className={styles.userLink}>
-              <UserMenu/>
+          {!props.isLoggedIn && (
+            <li>
+              <Link className="primary-text" to="/sign-in">
+                Sign in
+              </Link>
             </li>
-          }
+          )}
+          {props.isLoggedIn && (
+            <li className={styles.userLink}>
+              <UserMenu />
+            </li>
+          )}
         </ul>
       )}
     </header>
