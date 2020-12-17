@@ -23,7 +23,7 @@ export default function Articles() {
           >
             {data.Articles.map((article, i) => {
               return (
-                <SwiperSlide>
+                <SwiperSlide key={i}>
                   <div key={i}>
                     <div className={styles.purple__div}>
                       <a href={article.url}>
@@ -49,7 +49,7 @@ export default function Articles() {
           >
             {data.Articles.map((article, i) => {
               return (
-                <SwiperSlide>
+                <SwiperSlide key={i}>
                   <div key={i}>
                     <div className={styles.purple__div}>
                       <a href={article.url}>

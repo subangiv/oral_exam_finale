@@ -94,13 +94,13 @@ export default function DonationForm(props) {
     const onlyNumbers = e.target.validity.valid ? e.target.value : "";
     setBillingAdd({ ...billingAdd, phonenum: onlyNumbers });
   };
-
+  console.log(props);
   return (
     <section className={styles.donateSection}>
       <DetailedCard {...props} />
-      <form noValidate="">
+      <form noValidate="" autoComplete="off">
         <ol className={styles.listOfSteps}>
-          <Steps>
+          <Steps {...props}>
             <Step
               component={DonationFormSec1}
               personalInputs={personalInputs}
@@ -111,6 +111,7 @@ export default function DonationForm(props) {
               onCommunicationChange={onCommunicationChange}
             ></Step>
             <Step
+              {...props}
               component={DonationFormSec2}
               personalInputs={personalInputs}
               onCommunicationChange={onCommunicationChange}

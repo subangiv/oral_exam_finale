@@ -128,6 +128,19 @@
   border-radius: 20px;
   padding: 20px;
 }
+.alertMsgBox {
+  margin: 0 0 3vh 0;
+}
+input:focus {
+  border-width: 2px;
+  + label {
+    font-weight: 800;
+  }
+}
+input[type="select"]:focus {
+  // cursor: pointer;
+  border-width: 2px;
+}
 
 @media (max-width: 1024px) {
   .profile__wrapper {

@@ -3,7 +3,7 @@ import ShowText from "../show-text/ShowText";
 import styles from "./ApplicationCard.module.scss";
 import flags from "../../logic/countryFlag";
 import { getAllByPlaceholderText } from "@testing-library/react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 function ApplicationCard(props) {
   const [detailsToggle, setDetailsToggle] = useState(false);
@@ -65,7 +65,9 @@ function ApplicationCard(props) {
                 props.clickDonateHandler(props._id);
                 history.push({
                   pathname: "/donations",
-                  state: { application: props._id },
+                  state: {
+                    application: props._id,
+                  },
                 });
               }}
               className="btn btn-secondary rounded secondary-text"

@@ -17,13 +17,14 @@
   background-color: inherit;
 }
 
-select {
+select,
+input[type="select"] {
   -moz-appearance: none; /* Firefox */
   -webkit-appearance: none; /* Safari and Chrome */
   appearance: none;
-  background: transparent url("../../assets/svgs/arrow-down.svg") no-repeat 90%
+  background: transparent url("../../assets/svgs/arrow-down.svg") no-repeat 96%
     50%;
-  // cursor: pointer;
+  cursor: pointer;
   border-radius: 15px;
   border-style: solid;
   border-width: 1px;

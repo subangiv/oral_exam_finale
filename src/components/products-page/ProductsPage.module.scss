@@ -17,13 +17,12 @@ h1 {
   flex-wrap: wrap;
   margin: 0 16px 16px 16px;
   align-items: flex-end;
-  margin: 16px auto;
+  margin: 50px auto;
   // padding: 16px;
 }
 
 .bannerWrapper {
-  max-width: 650px;
-  width: 100%;
+  width: 50%;
   position: relative;
 }
 .filler {
@@ -38,9 +37,9 @@ h1 {
 
 .paragraphWrapper {
   justify-self: center;
-  max-width: 550px;
   margin: 0 auto;
-  padding: 16px;
+  width: 50%;
+  align-self: center;
 }
 
 .paragraph {

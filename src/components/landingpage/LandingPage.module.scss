@@ -120,6 +120,9 @@
   left: 0;
   transform: translate(0%, -50%);
 }
+.swiperCon {
+  min-height: 420px;
+}
 //meida queries for responsiveness
 @media (max-width: $max-xs) {
   .flex {
@@ -187,5 +190,19 @@
   }
   .flex__small {
     padding: 5rem 0;
+  }
+}
+@media (min-width: 1281px) and (max-width: 1600px) {
+  .padding__left__large {
+    & h1 {
+      font-size: 3.5rem;
+    }
+  }
+}
+@media (max-width: 1279px) and (min-width: 769px) {
+  .grid__box__flex {
+    & img {
+      width: 80%;
+    }
   }
 }

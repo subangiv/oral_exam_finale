@@ -3,6 +3,7 @@
 
 header.header {
   height: 15vh;
+  
   & a {
     font-weight: $font-weight-normal;
     transition: font-weight 0.3s;
@@ -34,10 +35,15 @@ header.header {
   :nth-child(2) {
     background-color: $primary-light;
   }
+
+  & button {
+    margin-left: 5px;
+  }
 }
 
 .expanedMenuList {
-  @include row-flex;
+  //@include row-flex;
+  display: flex;
   justify-content: space-evenly;
   list-style-type: none;
   line-height: 3;
@@ -94,9 +100,23 @@ header.header {
 @media (min-width: $max-m) {
   .actionBtns {
     margin-top: 0;
+    display: flex;
+    flex-flow: row;
+    height: 100%;
+    align-items: center;
   }
   .polloName {
     text-align: center;
     padding: 1rem;
   }
+}
+.header__left {
+  width: 45%;
+  display: flex;
+  justify-content: space-around;
+}
+.header__right {
+  width: 45%;
+  display: flex;
+  justify-content: space-around;
 }

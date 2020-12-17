@@ -15,13 +15,13 @@ footer {
   & a {
     font-weight: $font-weight-normal;
     color: $light;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 a {
   text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
 }
 .listWrapper {
   margin: 2.5rem auto;
