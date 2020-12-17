@@ -67,6 +67,10 @@
     color: $primary;
     text-indent: 13vw;
   }
+  & a:hover {
+    text-decoration: none;
+    font-weight: bold;
+  }
 }
 .separateBar {
   display: flex;
