@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, Redirect } from "react-router-dom";
 import data from "../../common/countries.json";
 import ProductsPage from "../products-page/ProductsPage";
+import SelectField from "../selectfield/SelectField";
 
 const SignUpForm = (props) => {
   const { register, handleSubmit, errors, watch } = useForm();

@@ -52,6 +52,7 @@ export default function DonationFormSec2(props) {
   const checkCountry = (e) => {
     if (e.target.value.length === 0) {
       countryField.current.textContent = "Please select your country";
+      // countryField.current.style.color = "red";
       e.target.style.borderWidth = "2px";
       e.target.style.borderColor = "#453266";
       e.target.nextElementSibling.style.fontWeight = "800";
@@ -182,7 +183,7 @@ export default function DonationFormSec2(props) {
             <option key={i} value={country.code} children={country.name} />
           ))}
         >
-          <span ref={countryField} style={msgStyle}></span>
+          <span ref={countryField} className={styles.message}></span>
         </SelectField>
         <TextField
           required
