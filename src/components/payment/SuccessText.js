@@ -13,10 +13,9 @@ export default function SuccessText() {
       <div className={styles.text__div__wrapper}>
         <h1>Thank you so much for your donation</h1>
         <p>
-          Donation return policy here. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-          ullamco laboris nisi ut aliquip ex ea commodo consequat.{" "}
+          It will be sent to the producer immediately. If the producer can't
+          receive your donation, the money will be transferred back to your
+          account within 7 days.
         </p>
         <button className="btn rounded btn-secondary" onClick={clickReturn}>
           Return to application
