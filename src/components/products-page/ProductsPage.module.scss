@@ -85,6 +85,13 @@ h1 {
   width: 200px;
   margin: 8px auto;
 }
+
+.noProductsText {
+  margin-bottom: 40px;
+  padding-top: 32px;
+  text-align: center;
+}
+
 @media (max-width: $max-s) {
   .topSection {
     flex-direction: column;

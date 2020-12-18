@@ -230,7 +230,9 @@ function ProductsPage(props) {
         )}
 
         {shownProducts.length <= 0 && !pending && (
-          <p>Unfortunately, there's no products from this country yet</p>
+         <h2 className={styles.noProductsText + " display-4"}>
+          Sorry, there is no applications from this country
+        </h2>
         )}
 
         {pending && <div className={"spinner"}></div>}
