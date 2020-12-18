@@ -13,15 +13,11 @@ const SignUpForm = (props) => {
   password.current = watch("password", "");
   const [submitted, setSubmitted] = useState(false);
   const history = useHistory();
-  const clickSignIn = () => {
-    history.push("/sign-in");
-  };
   const onSubmit = (person) => {
     setSubmitted(true);
     const newPerson = { ...person };
     newPerson.isLoggedIn = true;
     localStorage.setItem("user", JSON.stringify(newPerson));
-   
   };
   const clickSignIn = () => {
     history.push("/sign-in");
@@ -30,7 +26,7 @@ const SignUpForm = (props) => {
   if (submitted) {
     return <Redirect to="/account" />;
   }
-  
+
   return (
     <section className={styles.form__wrapper}>
       <h6>Register a new user</h6>
