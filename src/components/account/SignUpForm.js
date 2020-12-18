@@ -15,7 +15,6 @@ const SignUpForm = (props) => {
   const history = useHistory();
   
   const onSubmit = (person) => {
-    setSubmitted(true);
     console.log(person)
     const newPerson = { ...person };
     newPerson.isLoggedIn = true;
@@ -23,6 +22,7 @@ const SignUpForm = (props) => {
     console.log(newPerson)
     localStorage.setItem("user", JSON.stringify(newPerson));
     props.handleLogin();
+    setSubmitted(true);
    
   };
   const clickSignIn = () => {
