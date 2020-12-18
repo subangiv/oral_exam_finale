@@ -21,10 +21,16 @@ const SignUpForm = (props) => {
     const newPerson = { ...person };
     newPerson.isLoggedIn = true;
     localStorage.setItem("user", JSON.stringify(newPerson));
+   
   };
+  const clickSignIn = () => {
+    history.push("/sign-in");
+  };
+
   if (submitted) {
     return <Redirect to="/account" />;
   }
+  
   return (
     <section className={styles.form__wrapper}>
       <h6>Register a new user</h6>
