@@ -26,6 +26,10 @@ function ProductsPage(props) {
   const [toggleFilter, setToggleFilter] = useState(false);
   const [isFiltered, setIsFiltered] = useState(false);
   const [open, setOpen] = useState(false);
+  const centerBtn = {
+    margin: "0 auto",
+    display: "block",
+  };
 
   const filterOptions = countries;
 
@@ -233,6 +237,7 @@ function ProductsPage(props) {
 
         {shownProducts.length !== total && (
           <button
+            style={centerBtn}
             className={"btn outlined rounded btn-primary " + styles.loadingBtn}
             onClick={loadProductsHandler}
           >
