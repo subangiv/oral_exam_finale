@@ -13,11 +13,14 @@ const SignUpForm = (props) => {
   password.current = watch("password", "");
   const [submitted, setSubmitted] = useState(false);
   const history = useHistory();
+  
   const onSubmit = (person) => {
     setSubmitted(true);
+    console.log(person)
     const newPerson = { ...person };
     newPerson.isLoggedIn = true;
     newPerson.balance = "100$";
+    console.log(newPerson)
     localStorage.setItem("user", JSON.stringify(newPerson));
     props.handleLogin();
    
