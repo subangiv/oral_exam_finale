@@ -16,9 +16,9 @@ export default function Header(props) {
 
   const clickApply = () => {
     history.push("/products");
-  }
+  };
 
-  console.log(props.user)
+  console.log(props.user);
   const ActionButtons = () => {
     return (
       //TODO: add spaces between buttons
@@ -30,7 +30,7 @@ export default function Header(props) {
         />
         <button
           className="btn rounded btn-primary-light"
-          onClick={()=>props.clickOffer()}
+          onClick={() => props.clickOffer()}
           children="Offer product"
         />
         <button
@@ -94,22 +94,35 @@ export default function Header(props) {
               <li>
                 <ActionButtons />
               </li>
-              {!props.isLoggedIn && (
-                <li>
-                  <Link className="primary-text" to="/sign-in">
-                    Sign in
-                  </Link>
-                </li>
-              )}
-              {props.isLoggedIn && (
+              {props.isLoggedIn === false ||
+                (Object.keys(props.user).length === 0 &&
+                  props.user.constructor === Object && (
+                    <li>
+                      <Link className="primary-text" to="/sign-in">
+                        Sign in
+                      </Link>
+                    </li>
+                  ))}
+              {props.isLoggedIn && Object.keys(props.user).length !== 0 && (
                 <li className={styles.userLink}>
-                    <Link to="/account"  className={"primary-text"}  style={{ textDecoration: 'none' }} >{props.user.firstname}</Link>
+                  <Link
+                    to="/account"
+                    className={"primary-text"}
+                    style={{
+                      textDecoration: "none",
+                      textTransform: "capitalize",
+                    }}
+                  >
+                    {props.user.firstname}
+                  </Link>
                 </li>
               )}
             </div>
           </ul>
-          {props.isLoggedIn && (
-          <div className={styles.balance}>Your balance: <span className={"display-5"}>0$</span></div>
+          {props.isLoggedIn && Object.keys(props.user).length !== 0 && (
+            <div className={styles.balance}>
+              Your balance: <span className={"display-5"}>0$</span>
+            </div>
           )}
         </>
       )}

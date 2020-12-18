@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./Account.module.scss";
 import { useForm } from "react-hook-form";
 import { Link, Redirect, useHistory } from "react-router-dom";
@@ -20,7 +20,6 @@ const SignUpForm = (props) => {
     newPerson.balance = "100$";
     localStorage.setItem("user", JSON.stringify(newPerson));
     props.handleLogin();
-   
   };
   const clickSignIn = () => {
     history.push("/sign-in");
@@ -30,6 +29,9 @@ const SignUpForm = (props) => {
     return <Redirect to="/account" />;
   }
 
+  const capitalizeInput = (e) => {
+    e.target.style.textTransform = "capitalize";
+  };
   return (
     <section className={styles.form__wrapper}>
       <h6>Register a new user</h6>
@@ -67,6 +69,7 @@ const SignUpForm = (props) => {
               type="text"
               aria-describedby="Enter your first name here"
               placeholder="Enter your first name here"
+              onKeyDown={capitalizeInput}
               ref={register({
                 required: {
                   value: true,
@@ -88,6 +91,7 @@ const SignUpForm = (props) => {
               type="text"
               aria-describedby="Enter your last name here"
               placeholder="Enter your last name here"
+              onKeyDown={capitalizeInput}
               ref={register({
                 required: {
                   value: true,

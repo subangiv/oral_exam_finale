@@ -9,10 +9,10 @@ function ProfileSide(props) {
     //setUsername("");
     //setPassword("");
     const user = localStorage.getItem("user");
-
+    console.log(user);
     const newUser = JSON.parse(user);
     newUser.isLoggedIn = false;
-    console.log(newUser)
+    console.log(newUser);
     localStorage.setItem("user", JSON.stringify(newUser));
     console.log(localStorage.getItem("user"));
     props.logOutHandler(newUser);

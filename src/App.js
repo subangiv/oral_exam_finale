@@ -23,32 +23,36 @@
 import "./App.css";
 import React, { Suspense, useEffect, useState } from "react";
 import Routes from "./components/routes/Routes";
-import { Dialog, DialogContent, DialogContentText, DialogTitle } from "@material-ui/core";
-
+import {
+  Dialog,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@material-ui/core";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
   const [open, setOpen] = useState(false);
 
-  console.log(open)
-  
- useEffect(() => {
-   console.log(localStorage.getItem("user"));
-   logInHandler();
- }, []);
+  console.log(open);
+  const [test, setTest] = useState();
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify({}));
+    console.log(localStorage.getItem("user"));
+    logInHandler();
+  }, []);
 
-console.log(isLoggedIn);
- function logInHandler() {
-   const person = JSON.parse(localStorage.getItem("user"));
-  if (person === null || person.isLoggedIn === false) {
-    setIsLoggedIn(false);
- } else {
-    setIsLoggedIn(true);
-    setUser(person);
-}
-}
-
+  console.log(isLoggedIn);
+  function logInHandler() {
+    const person = JSON.parse(localStorage.getItem("user"));
+    if (person === null || person.isLoggedIn === false) {
+      setIsLoggedIn(false);
+    } else {
+      setIsLoggedIn(true);
+      setUser(person);
+    }
+  }
 
   return (
     <Suspense
@@ -59,23 +63,28 @@ console.log(isLoggedIn);
         </div>
       }
     >
-      <Routes isLoggedIn={isLoggedIn} user={user} logInHandler={logInHandler} clickOffer={()=>setOpen(true)} />
+      <Routes
+        isLoggedIn={isLoggedIn}
+        user={user}
+        logInHandler={logInHandler}
+        clickOffer={() => setOpen(true)}
+      />
       <Dialog open={open}>
-          <DialogTitle>Proof of concept</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              As this part is out of scope for the exams project, applying for a
-              product is not avaible.
-            </DialogContentText>
-          </DialogContent>
-          <button
-            onClick={()=>setOpen(false)}
-            className={"btn btn-primary rounded"}
-            style={{width: "200px", margin: "0 auto", marginBottom: "8px"}}
-          >
-            Understood
-          </button>
-        </Dialog>
+        <DialogTitle>Proof of concept</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            As this part is out of scope for the exams project, applying for a
+            product is not avaible.
+          </DialogContentText>
+        </DialogContent>
+        <button
+          onClick={() => setOpen(false)}
+          className={"btn btn-primary rounded"}
+          style={{ width: "200px", margin: "0 auto", marginBottom: "8px" }}
+        >
+          Understood
+        </button>
+      </Dialog>
     </Suspense>
   );
 }

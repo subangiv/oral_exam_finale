@@ -14,7 +14,7 @@ const SignInFormTest = (props) => {
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
-    console.log(loggedInUser + "logged in user")
+    console.log(loggedInUser + "logged in user");
     if (loggedInUser) {
       const foundUser = JSON.parse(loggedInUser);
       setUser(foundUser);
@@ -23,6 +23,7 @@ const SignInFormTest = (props) => {
   const history = useHistory();
   const clickSignUp = () => {
     history.push("/sign-up");
+    // localStorage.setItem("use", "");
   };
   const personEmail = user.email;
   const personPass = user.password;
