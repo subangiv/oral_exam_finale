@@ -200,6 +200,7 @@ function ApplicationsPage(props) {
               {shownApplications.map((card) => (
                 <ApplicationCard
                   clickDonateHandler={clickDonateHandler}
+                  isLoggedIn={props.isLoggedIn}
                   key={card._id}
                   {...card}
                 />

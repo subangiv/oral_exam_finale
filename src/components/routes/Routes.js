@@ -31,7 +31,7 @@ function Routes(props) {
         <AboutPage />}>
       </Route>
       <Route path="/applications" render={() =>
-        <ApplicationsPage />}>
+        <ApplicationsPage isLoggedIn={props.isLoggedIn} />}>
       </Route>
       <Route path="/products" render={()=>
         <ProductsPage />}>
