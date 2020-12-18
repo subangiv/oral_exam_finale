@@ -14,6 +14,10 @@ export default function Header(props) {
     history.push("/applications");
   };
 
+  const clickApply = () => {
+    history.push("/products");
+  }
+
   console.log(props.user)
   const ActionButtons = () => {
     return (
@@ -26,10 +30,12 @@ export default function Header(props) {
         />
         <button
           className="btn rounded btn-primary-light"
+          onClick={()=>props.clickOffer()}
           children="Offer product"
         />
         <button
           className="btn rounded btn-primary"
+          onClick={clickApply}
           children="Apply for product"
         />
       </div>

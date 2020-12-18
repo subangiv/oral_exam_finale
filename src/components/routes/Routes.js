@@ -25,7 +25,7 @@ function Routes(props) {
 
   return (
   <Router {...props}>
-    <Header logOutHandler={()=>props.logInHandler()} {...props} />
+    <Header logOutHandler={()=>props.logInHandler()} clickOffer={() => props.clickOffer()} {...props} />
     <Switch>
       <Route path="/about" render={()=>
         <AboutPage />}>
