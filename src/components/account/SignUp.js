@@ -7,7 +7,7 @@ function SignUp(props) {
   return (
     <section className={styles.container}>
       <img className={styles.profile__img} src={signupprofile} alt="" />
-      <SignUpForm />
+      <SignUpForm handleLogin={()=> props.handleLogin()} />
     </section>
   );
 }

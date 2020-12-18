@@ -17,7 +17,10 @@ const SignUpForm = (props) => {
     setSubmitted(true);
     const newPerson = { ...person };
     newPerson.isLoggedIn = true;
+    newPerson.balance = "100$";
     localStorage.setItem("user", JSON.stringify(newPerson));
+    props.handleLogin();
+   
   };
   const clickSignIn = () => {
     history.push("/sign-in");

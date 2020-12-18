@@ -126,6 +126,9 @@ export default function BurgerMenu(props) {
                 </li>
               )}
             </ul>
+            {props.isLoggedIn && (
+          <div className={styles.balance}>Your balance: <span className={"display-5"}>0$</span></div>
+          )}
             <div id="polloPolloLogo" className={styles.logoWrapper}>
               <ReactSVG
                 src={PollopolloLogo}

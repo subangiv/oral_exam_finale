@@ -14,7 +14,7 @@ import {
   DialogTitle,
 } from "@material-ui/core";
 
-const productsShown = 2;
+const productsShown = 3;
 
 function ProductsPage(props) {
   const [shownProducts, setShownProducts] = useState([]);
