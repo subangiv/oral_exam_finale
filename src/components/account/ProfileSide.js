@@ -43,7 +43,6 @@ function ProfileSide(props) {
         style={btnWidth}
         className="btn rounded btn-primary"
         onClick={handleLogout}
-        disabled={true}
       >
         Log out
       </button>

@@ -70,7 +70,7 @@ function ApplicationCard(props) {
                   },
                 });
               }}
-              className="btn btn-secondary rounded secondary-text"
+              className={props.isLoggedIn ? "btn rounded btn-disabled" : "btn btn-secondary rounded secondary-text"}
             >
               Donate ${props.product[0].price}
             </button>
