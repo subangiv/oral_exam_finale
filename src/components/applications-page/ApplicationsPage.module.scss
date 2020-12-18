@@ -13,7 +13,7 @@ h1 {
 .topSection {
   display: flex;
   position: relative;
-  height: 50vh;
+  //height: 50vh;
   //flex-wrap: wrap;
   //align-items: flex-end;
   margin: 60px auto 100px;
@@ -25,6 +25,7 @@ h1 {
   margin-bottom: 8px;
   margin: 0 auto 8px auto;
   display: block;
+  text-align: center;
 }
 .filler {
   background-color: $primary;
@@ -94,11 +95,36 @@ h1 {
   display: block;
 }
 
-@media screen and (min-width: $max-m) {
+@media (max-width: $max-s) {
+  .topSection {
+    flex-direction: column;
+  }
+  .bannerWrapper,
+  .paragraphWrapper {
+    width: 100%;
+  }
   .bannerWrapper {
-    min-height: 300px;
+    & img {
+      width: 50%;
+    }
+  }
+  .paragraphWrapper {
+    padding-top: 2rem;
+  }
+  .filler {
+    margin: 2rem 0 2rem 2rem;
+    padding: 1rem;
+  }
+}
+@media (max-width: $max-xs) {
+  .filler {
+    margin: 1rem;
+  }
+}
+@media screen and (max-width: $max-m) {
+  .bannerWrapper {
+    //min-height: 300px;
     margin-bottom: 8px;
-    width: 50%;
     position: relative;
     right: 0;
     margin: 0;
@@ -110,8 +136,6 @@ h1 {
   }
 
   .paragraphWrapper {
-    width: 50%;
-    //position: absolute;
     right: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
