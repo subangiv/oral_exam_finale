@@ -15,7 +15,7 @@ const SignUpForm = (props) => {
   const history = useHistory();
   const onSubmit = (person) => {
     setSubmitted(true);
-    const newPerson = {...person};
+    const newPerson = { ...person };
     newPerson.isLoggedIn = true;
     newPerson.balance = "100$";
     localStorage.setItem("user", JSON.stringify(newPerson));
@@ -29,7 +29,7 @@ const SignUpForm = (props) => {
   if (submitted) {
     return <Redirect to="/account" />;
   }
-  
+
   return (
     <section className={styles.form__wrapper}>
       <h6>Register a new user</h6>

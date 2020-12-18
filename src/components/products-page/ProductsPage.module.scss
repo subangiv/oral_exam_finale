@@ -14,7 +14,7 @@ h1 {
   display: flex;
   margin-bottom: 16px;
   position: relative;
-  flex-wrap: wrap;
+  //flex-wrap: wrap;
   margin: 0 16px 16px 16px;
   align-items: flex-end;
   margin: 50px auto;
@@ -24,6 +24,9 @@ h1 {
 .bannerWrapper {
   width: 50%;
   position: relative;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
 }
 .filler {
   margin: 0 auto;
@@ -37,7 +40,7 @@ h1 {
 
 .paragraphWrapper {
   justify-self: center;
-  margin: 0 auto;
+  margin-right: 2rem;
   width: 50%;
   align-self: center;
 }
@@ -82,16 +85,29 @@ h1 {
   width: 200px;
   margin: 8px auto;
 }
-
-@media screen and (min-width: $max-m) {
-  .bannerWrapper {
-    flex-basis: 45%;
+@media (max-width: $max-s) {
+  .topSection {
+    flex-direction: column;
   }
-
+  .bannerWrapper,
   .paragraphWrapper {
-    flex-basis: 45%;
+    width: 100%;
   }
-
+  .bannerWrapper {
+    & img {
+      width: 100%;
+    }
+  }
+  .paragraphWrapper {
+    padding: 2rem;
+  }
+}
+@media (max-width: $max-xs) {
+  .paragraphWrapper {
+    padding: 1rem;
+  }
+}
+@media screen and (min-width: $max-m) {
   .filterSortGroup {
     display: flex;
     position: relative;
