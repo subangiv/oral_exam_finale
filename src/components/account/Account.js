@@ -3,11 +3,11 @@ import ProfileInfo from "./ProfileInfo";
 import styles from "./Account.module.scss";
 import ProfileSide from "./ProfileSide";
 
-function Account() {
+function Account(props) {
   return (
     <div className={styles.profile__wrapper}>
       <ProfileInfo />
-      <ProfileSide />
+      <ProfileSide logOutHandler={(user) => props.logOutHandler(user)} />
     </div>
   );
 }

@@ -121,7 +121,7 @@ export default function BurgerMenu(props) {
                     to="/account"
                     onClick={clickCloseMenu}
                   >
-                    Username
+                    {props.user.firstname}
                   </Link>
                 </li>
               )}

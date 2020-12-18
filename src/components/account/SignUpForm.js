@@ -14,11 +14,11 @@ const SignUpForm = (props) => {
   const [submitted, setSubmitted] = useState(false);
   const onSubmit = (person) => {
     setSubmitted(true);
-    localStorage.setItem("user", JSON.stringify(person));
-    console.log(person);
+    const newPerson = {...person};
+    newPerson.isLoggedIn = true;
+    localStorage.setItem("user", JSON.stringify(newPerson));
   };
   if (submitted) {
-    //props.submitHandler(true);
     return <Redirect to="/" />;
   }
   return (

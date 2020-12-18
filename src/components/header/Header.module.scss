@@ -3,7 +3,7 @@
 
 header.header {
   height: 15vh;
-  
+
   & a {
     font-weight: $font-weight-normal;
     transition: font-weight 0.3s;
@@ -68,6 +68,14 @@ header.header {
     overflow: hidden;
     visibility: hidden;
   }
+}
+
+.balance {
+  position: absolute;
+  right: 16px;
+  background-color: rgba($primary-lighter, 0.5);
+  padding: 8px 16px;
+  border-radius: 20px;
 }
 
 //iphone SE
