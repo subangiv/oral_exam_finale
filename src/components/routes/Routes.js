@@ -52,9 +52,8 @@ function Routes(props) {
         <SignIn logIn={() => props.logInHandler()}/>
       </Route>
       <Route path="/sign-up">
-        <SignUp loggedInHandler={(signedUp) => {
-          console.log(signedUp);
-          props.loggedInHandler(signedUp);
+        <SignUp handleLogin={() => {
+          props.logInHandler();
         }} />
       </Route>
       <Route path="/account">

@@ -102,7 +102,9 @@ export default function Header(props) {
               )}
             </div>
           </ul>
-          <div className={styles.balance}>Your balance: <span className={"display-5"}>100$</span></div>
+          {props.isLoggedIn && (
+          <div className={styles.balance}>Your balance: <span className={"display-5"}>0$</span></div>
+          )}
         </>
       )}
     </header>

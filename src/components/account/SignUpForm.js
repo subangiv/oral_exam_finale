@@ -17,7 +17,9 @@ const SignUpForm = (props) => {
     setSubmitted(true);
     const newPerson = {...person};
     newPerson.isLoggedIn = true;
+    newPerson.balance = "100$";
     localStorage.setItem("user", JSON.stringify(newPerson));
+    props.handleLogin();
    
   };
   const clickSignIn = () => {
@@ -25,7 +27,7 @@ const SignUpForm = (props) => {
   };
 
   if (submitted) {
-    return <Redirect to="/" />;
+    return <Redirect to="/account" />;
   }
   
   return (

@@ -36,13 +36,14 @@ function ProfileSide(props) {
       <button style={btnWidth} className="btn rounded btn-disabled">
         Top up
       </button>
-      <button style={btnWidth} className="btn rounded btn-donate">
+      <button style={btnWidth} className="btn rounded btn-disabled">
         Donate more?
       </button>
       <button
         style={btnWidth}
         className="btn rounded btn-primary"
         onClick={handleLogout}
+        disabled={true}
       >
         Log out
       </button>
