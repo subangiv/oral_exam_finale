@@ -21,15 +21,15 @@ const SignUpForm = (props) => {
     newPerson.balance = "100$";
     console.log(newPerson)
     localStorage.setItem("user", JSON.stringify(newPerson));
-    props.handleLogin();
     setSubmitted(true);
-   
   };
   const clickSignIn = () => {
     history.push("/sign-in");
   };
 
   if (submitted) {
+    props.handleLogin();
+
     return <Redirect to="/account" />;
   }
 
