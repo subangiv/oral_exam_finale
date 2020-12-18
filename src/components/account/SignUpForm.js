@@ -13,13 +13,13 @@ const SignUpForm = (props) => {
   password.current = watch("password", "");
   const [submitted, setSubmitted] = useState(false);
   const history = useHistory();
-  
+
   const onSubmit = (person) => {
-    console.log(person)
+    console.log(person);
     const newPerson = { ...person };
     newPerson.isLoggedIn = true;
     newPerson.balance = "100$";
-    console.log(newPerson)
+    console.log(newPerson);
     localStorage.setItem("user", JSON.stringify(newPerson));
     setSubmitted(true);
   };
@@ -32,6 +32,9 @@ const SignUpForm = (props) => {
 
     return <Redirect to="/account" />;
   }
+  const capitalizeInput = (e) => {
+    e.target.style.textTransform = "capitalize";
+  };
 
   return (
     <section className={styles.form__wrapper}>
@@ -70,6 +73,7 @@ const SignUpForm = (props) => {
               type="text"
               aria-describedby="Enter your first name here"
               placeholder="Enter your first name here"
+              onKeyDown={capitalizeInput}
               ref={register({
                 required: {
                   value: true,
@@ -91,6 +95,7 @@ const SignUpForm = (props) => {
               type="text"
               aria-describedby="Enter your last name here"
               placeholder="Enter your last name here"
+              onKeyDown={capitalizeInput}
               ref={register({
                 required: {
                   value: true,

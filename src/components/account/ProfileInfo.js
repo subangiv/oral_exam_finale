@@ -15,13 +15,13 @@ function ProfileInfo() {
       <div className={styles.purple__div}>
         <div className={styles.profile__text}>
           <h6>Name:</h6>
-          <p>{personName}</p>
+          <p style={{ textTransform: "capitalize" }}>{personName}</p>
           <h6>Country:</h6>
-          <p>{personInfo.country}</p>
+          <p style={{ textTransform: "capitalize" }}>{personInfo.country}</p>
           <h6>Email:</h6>
-          <p>{personInfo.email}</p>
+          <p style={{ textTransform: "capitalize" }}>{personInfo.email}</p>
           <h6>Position:</h6>
-          <p>{personInfo.position}</p>
+          <p style={{ textTransform: "capitalize" }}>{personInfo.position}</p>
         </div>
       </div>
     </div>
