@@ -93,6 +93,7 @@
 }
 .padding__left__large {
   padding-left: 115px;
+  max-width: 600px;
 }
 //purple box background for banner
 .purplebox__large {
@@ -137,6 +138,9 @@
   .flex__left {
     width: 100%;
   }
+  .padding__left__large {
+    padding: 30px 20px 20px;
+  }
   .flex__left p {
     text-align: center;
   }
@@ -163,9 +167,10 @@
     padding: 5rem 0;
   }
 }
-@media (max-width: 768px) and (min-width: $max-xs) {
+@media (max-width: 780px) and (min-width: $max-xs) {
   .flex {
-    height: 60vh;
+    height: 70vh;
+    padding-top: 2rem;
   }
   .padding__left__large {
     padding-left: 30px;
@@ -200,6 +205,11 @@
   }
 }
 @media (max-width: 1279px) and (min-width: 769px) {
+  .padding__left__large {
+    & h1 {
+      font-size: 2.2rem;
+    }
+  }
   .grid__box__flex {
     & img {
       width: 80%;

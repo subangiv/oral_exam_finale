@@ -121,11 +121,14 @@ export default function BurgerMenu(props) {
                     to="/account"
                     onClick={clickCloseMenu}
                   >
-                    Username
+                    {props.user.firstname}
                   </Link>
                 </li>
               )}
             </ul>
+            {props.isLoggedIn && (
+          <div className={styles.balance}>Your balance: <span className={"display-5"}>0$</span></div>
+          )}
             <div id="polloPolloLogo" className={styles.logoWrapper}>
               <ReactSVG
                 src={PollopolloLogo}

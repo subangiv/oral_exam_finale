@@ -41,11 +41,10 @@ export default function DonationPage(props) {
         <div className={styles.introText}>
           <h1 className="display-1">Donations</h1>
           <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur.
+            Support people in crisis in Venezuela Your donation will not only
+            feed and care for families, young children, and elder in need - your
+            gift will also help heal and rebuild lives during these difficult
+            times.
           </p>
         </div>
       </section>

@@ -14,7 +14,7 @@ import {
   DialogTitle,
 } from "@material-ui/core";
 
-const productsShown = 2;
+const productsShown = 3;
 
 function ProductsPage(props) {
   const [shownProducts, setShownProducts] = useState([]);
@@ -26,6 +26,10 @@ function ProductsPage(props) {
   const [toggleFilter, setToggleFilter] = useState(false);
   const [isFiltered, setIsFiltered] = useState(false);
   const [open, setOpen] = useState(false);
+  const centerBtn = {
+    margin: "0 auto",
+    display: "block",
+  };
 
   const filterOptions = countries;
 
@@ -226,13 +230,16 @@ function ProductsPage(props) {
         )}
 
         {shownProducts.length <= 0 && !pending && (
-          <p>Unfortunately, there's no products from this country yet</p>
+         <h2 className={styles.noProductsText + " display-4"}>
+          Sorry, there is no applications from this country
+        </h2>
         )}
 
         {pending && <div className={"spinner"}></div>}
 
         {shownProducts.length !== total && (
           <button
+            style={centerBtn}
             className={"btn outlined rounded btn-primary " + styles.loadingBtn}
             onClick={loadProductsHandler}
           >

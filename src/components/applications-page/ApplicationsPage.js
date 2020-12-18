@@ -8,7 +8,7 @@ import FilterSelect from "../filter-select/FilterSelect";
 import SortSelect from "../sort-select/SortSelect";
 import data from "./data/data";
 
-const applicationsShown = 2;
+const applicationsShown = 3;
 
 function ApplicationsPage(props) {
   const [shownApplications, setShownApplications] = useState([]);
@@ -200,6 +200,7 @@ function ApplicationsPage(props) {
               {shownApplications.map((card) => (
                 <ApplicationCard
                   clickDonateHandler={clickDonateHandler}
+                  isLoggedIn={props.isLoggedIn}
                   key={card._id}
                   {...card}
                 />

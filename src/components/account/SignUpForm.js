@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import styles from "./Account.module.scss";
 import { useForm } from "react-hook-form";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import data from "../../common/countries.json";
 import ProductsPage from "../products-page/ProductsPage";
 import SelectField from "../selectfield/SelectField";
@@ -12,15 +12,24 @@ const SignUpForm = (props) => {
   const password = useRef({});
   password.current = watch("password", "");
   const [submitted, setSubmitted] = useState(false);
+  const history = useHistory();
   const onSubmit = (person) => {
     setSubmitted(true);
-    localStorage.setItem("user", JSON.stringify(person));
-    console.log(person);
+    const newPerson = { ...person };
+    newPerson.isLoggedIn = true;
+    newPerson.balance = "100$";
+    localStorage.setItem("user", JSON.stringify(newPerson));
+    props.handleLogin();
+   
   };
+  const clickSignIn = () => {
+    history.push("/sign-in");
+  };
+
   if (submitted) {
-    //props.submitHandler(true);
-    return <Redirect to="/" />;
+    return <Redirect to="/account" />;
   }
+
   return (
     <section className={styles.form__wrapper}>
       <h6>Register a new user</h6>
@@ -30,7 +39,7 @@ const SignUpForm = (props) => {
             <input
               id="inputForOption"
               name="position"
-              type="select"
+              //type="select"
               aria-describedby="Select an option here"
               placeholder="Select an option here"
               list="positions"
@@ -125,7 +134,7 @@ const SignUpForm = (props) => {
             <input
               id="inputForCountry"
               name="country"
-              type="select"
+              //type="select"
               list="countries"
               aria-describedby="Choose your country here"
               placeholder="Choose your country here"
@@ -202,8 +211,8 @@ const SignUpForm = (props) => {
           Sign Up
         </button>
         <p>or</p>
-        <button className={styles.btn__outline}>
-          <Link to="/sign-in">Sign in</Link>
+        <button className={styles.btn__outline} onClick={clickSignIn}>
+          Sign In
         </button>
       </form>
     </section>

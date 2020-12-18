@@ -84,6 +84,15 @@
     margin: 2vw auto;
   }
 }
+
+.balance {
+  max-width: 200px;
+  background-color: rgba($primary-lighter, 0.3);
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin: 0 auto;
+}
+
 .logoWrapper {
   @include row-flex();
   justify-content: center;

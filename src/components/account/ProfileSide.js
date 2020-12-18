@@ -2,12 +2,20 @@ import styles from "./Account.module.scss";
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 
-function ProfileSide() {
+function ProfileSide(props) {
   // logout the user
   const handleLogout = () => {
     //setUser({});
     //setUsername("");
     //setPassword("");
+    const user = localStorage.getItem("user");
+
+    const newUser = JSON.parse(user);
+    newUser.isLoggedIn = false;
+    console.log(newUser)
+    localStorage.setItem("user", JSON.stringify(newUser));
+    console.log(localStorage.getItem("user"));
+    props.logOutHandler(newUser);
     setLogout(true);
   };
   const [logout, setLogout] = useState(false);
@@ -28,7 +36,7 @@ function ProfileSide() {
       <button style={btnWidth} className="btn rounded btn-disabled">
         Top up
       </button>
-      <button style={btnWidth} className="btn rounded btn-donate">
+      <button style={btnWidth} className="btn rounded btn-disabled">
         Donate more?
       </button>
       <button
