@@ -4,7 +4,7 @@ import styles from "./Account.module.scss";
 import { useForm } from "react-hook-form";
 import Alert from "@material-ui/lab/Alert";
 
-const SignInFormTest = () => {
+const SignInFormTest = (props) => {
   const { register, handleSubmit, errors } = useForm();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,6 +14,7 @@ const SignInFormTest = () => {
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
+    console.log(loggedInUser + "logged in user")
     if (loggedInUser) {
       const foundUser = JSON.parse(loggedInUser);
       setUser(foundUser);
@@ -35,6 +36,11 @@ const SignInFormTest = () => {
     //if there's a user show the message below
     if (personPass === password && personEmail === email) {
       setSubmitted(true);
+      const person = localStorage.getItem("user");
+      const newPerson = JSON.parse(person);
+      newPerson.isLoggedIn = true;
+      localStorage.setItem("user", JSON.stringify(newPerson));
+      props.logIn();
       history.push("/account");
     }
   };

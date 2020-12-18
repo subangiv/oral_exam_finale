@@ -2,11 +2,11 @@ import styles from "./Account.module.scss";
 import SignInForm from "./SignInForm";
 import signinprofile from "../../svg/sign-in.svg";
 
-function SignUp() {
+function SignUp(props) {
   return (
     <section className={styles.container}>
       <img className={styles.profile__img} src={signinprofile} alt="" />
-      <SignInForm />
+      <SignInForm logIn={() => props.logIn()} />
     </section>
   );
 }

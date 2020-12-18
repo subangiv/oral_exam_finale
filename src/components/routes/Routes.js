@@ -25,7 +25,7 @@ function Routes(props) {
 
   return (
   <Router {...props}>
-    <Header {...props} />
+    <Header logOutHandler={()=>props.logInHandler()} {...props} />
     <Switch>
       <Route path="/about" render={()=>
         <AboutPage />}>
@@ -49,16 +49,16 @@ function Routes(props) {
         <Success />
       </Route>
       <Route path="/sign-in">
-        <SignIn />
+        <SignIn logIn={() => props.logInHandler()}/>
       </Route>
       <Route path="/sign-up">
-        <SignUp signedUp={(signedUp) => {
+        <SignUp loggedInHandler={(signedUp) => {
           console.log(signedUp);
-          props.signedUp(signedUp);
+          props.loggedInHandler(signedUp);
         }} />
       </Route>
       <Route path="/account">
-        <Account />
+        <Account logOutHandler={(user) => props.logInHandler(user)} />
       </Route>
       <Route path="/" render={() => <LandingPage/>}/>
     </Switch>

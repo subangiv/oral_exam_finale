@@ -15,17 +15,13 @@ const SignUpForm = (props) => {
   const history = useHistory();
   const onSubmit = (person) => {
     setSubmitted(true);
-    localStorage.setItem("user", JSON.stringify(person));
-    console.log(person);
-    history.push("/account");
+    const newPerson = {...person};
+    newPerson.isLoggedIn = true;
+    localStorage.setItem("user", JSON.stringify(newPerson));
   };
-  const clickSignIn = () => {
-    history.push("/sign-in");
-  };
-  //if (submitted) {
-  //props.submitHandler(true);
-  //  return <Redirect to="/" />;
-  //}
+  if (submitted) {
+    return <Redirect to="/" />;
+  }
   return (
     <section className={styles.form__wrapper}>
       <h6>Register a new user</h6>
