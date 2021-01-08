@@ -7,6 +7,7 @@ import countries from "../../common/countries.json";
 import FilterSelect from "../filter-select/FilterSelect";
 import SortSelect from "../sort-select/SortSelect";
 import Dialog from "@material-ui/core/Dialog";
+import productbanner from "../../images/product-banner.webp";
 import {
   Button,
   DialogContent,
@@ -163,10 +164,7 @@ function ProductsPage(props) {
     <main>
       <section className={styles.topSection}>
         <div className={styles.bannerWrapper}>
-          <img
-            className={styles.banner}
-            src={process.env.PUBLIC_URL + "product-banner.png"}
-          ></img>
+          <img className={styles.banner} src={productbanner}></img>
         </div>
         <section className={styles.paragraphWrapper}>
           <h1 className={"primary-text display-1"}>Products</h1>
@@ -230,9 +228,9 @@ function ProductsPage(props) {
         )}
 
         {shownProducts.length <= 0 && !pending && (
-         <h2 className={styles.noProductsText + " display-4"}>
-          Sorry, there is no applications from this country
-        </h2>
+          <h2 className={styles.noProductsText + " display-4"}>
+            Sorry, there is no applications from this country
+          </h2>
         )}
 
         {pending && <div className={"spinner"}></div>}

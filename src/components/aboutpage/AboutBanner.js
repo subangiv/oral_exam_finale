@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./AboutPage.module.scss";
-import aboutbanner from "../../images/about-banner-img.png";
+import aboutbanner from "../../images/about-banner-img.webp";
 
 export default function AboutBanner() {
   return (
