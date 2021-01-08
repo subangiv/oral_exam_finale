@@ -68,9 +68,18 @@ export default function DonationFormSec1(props) {
   //Before proceeding check if email is filled
   const clickProceed = (e) => {
     e.preventDefault();
-    if (props.personalInputs.email.length === 0) {
-      emailInput.current.textContent = "Please fill in your email";
-    } else {
+    if (
+      communication.current.checked === true &&
+      props.personalInputs.email.length === 0
+    ) {
+      emailInput.current.textContent =
+        "Please fill in your email if you want to informed about this donation";
+    } else if (
+      (communication.current.checked === true &&
+        props.personalInputs.email.length !== 0) ||
+      (!communication.current.checked &&
+        props.personalInputs.email.length === 0)
+    ) {
       props.next();
     }
   };
@@ -113,7 +122,10 @@ export default function DonationFormSec1(props) {
           </a>
         </PaymentMethods>
       </fieldset>
-      <li className={styles.step1}>Personal information</li>
+      <li className={styles.step1}>
+        Personal information <br />
+        <span style={{ fontSize: "12px" }}>You can be anonymous here </span>
+      </li>
       <fieldset className={styles.eachStep}>
         <TextField
           required
