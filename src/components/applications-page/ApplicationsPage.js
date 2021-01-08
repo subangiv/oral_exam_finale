@@ -6,6 +6,7 @@ import "../application-card/ApplicationCard";
 import countries from "../../common/countries.json";
 import FilterSelect from "../filter-select/FilterSelect";
 import SortSelect from "../sort-select/SortSelect";
+import applicationbanner from "../../images/application-banner-2.webp";
 import data from "./data/data";
 import flags from "../../logic/countryFlag";
 
@@ -178,10 +179,7 @@ function ApplicationsPage(props) {
     <main>
       <section className={styles.topSection}>
         <div className={styles.bannerWrapper}>
-          <img
-            className={styles.banner}
-            src={process.env.PUBLIC_URL + "application-banner-2.png"}
-          ></img>
+          <img className={styles.banner} src={applicationbanner}></img>
         </div>
         <section className={`${styles.paragraphWrapper}`}>
           <div className={styles.filler}>

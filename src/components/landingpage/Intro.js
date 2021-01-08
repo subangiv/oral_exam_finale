@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./LandingPage.module.scss";
-import landingpageimg from "../../images/landingpage-img.jpeg";
+import landingpageimg from "../../images/landingpage-img-compressed.jpg";
 
 export default function Intro() {
   return (
