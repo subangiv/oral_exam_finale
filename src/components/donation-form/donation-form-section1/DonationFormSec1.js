@@ -47,16 +47,16 @@ export default function DonationFormSec1(props) {
   const emailInput = useRef();
   const checkEmail = (e) => {
     const emailPattern = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    if (!e.target.value.match(emailPattern)) {
+    if (e.target.value.length !== 0 && !e.target.value.match(emailPattern)) {
       emailInput.current.textContent = "Your provided email is invallid";
       emailInput.current.style.color = "red";
       e.target.style.borderWidth = "2px";
       e.target.style.borderColor = "#453266";
       e.target.nextElementSibling.style.fontWeight = "800";
-      if (e.target.value.length === 0) {
-        emailInput.current.textContent = "Please fill in your email";
-        emailInput.current.style.color = "red";
-      }
+      // if (e.target.value.length === 0) {
+      //   emailInput.current.textContent = "Please fill in your email";
+      //   emailInput.current.style.color = "red";
+      // }
     } else {
       emailInput.current.textContent = "";
       e.target.nextElementSibling.style.fontWeight = "unset";
@@ -73,7 +73,7 @@ export default function DonationFormSec1(props) {
       props.personalInputs.email.length === 0
     ) {
       emailInput.current.textContent =
-        "Please fill in your email if you want to informed about this donation";
+        "Please fill in your email if you want to be informed about this donation";
     } else if (
       (communication.current.checked === true &&
         props.personalInputs.email.length !== 0) ||

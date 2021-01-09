@@ -7,11 +7,8 @@ import countries from "../../common/countries.json";
 import FilterSelect from "../filter-select/FilterSelect";
 import SortSelect from "../sort-select/SortSelect";
 import Dialog from "@material-ui/core/Dialog";
-<<<<<<< HEAD
 import flags from "../../logic/countryFlag";
-=======
 import productbanner from "../../images/product-banner.webp";
->>>>>>> added compressed images
 import {
   Button,
   DialogContent,
