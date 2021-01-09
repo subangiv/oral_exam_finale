@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import ApplicationCard from "../application-card/ApplicationCard";
 import styles from "./ApplicationsPage.module.scss";
 import text from "./static/applications-page.json";
@@ -7,10 +7,13 @@ import countries from "../../common/countries.json";
 import FilterSelect from "../filter-select/FilterSelect";
 import SortSelect from "../sort-select/SortSelect";
 import data from "./data/data";
+import flags from "../../logic/countryFlag";
 
 const applicationsShown = 3;
 
+
 function ApplicationsPage(props) {
+
   const [shownApplications, setShownApplications] = useState([]);
   const [index, setIndex] = useState(0);
   const [total, setTotal] = useState(0);
@@ -19,6 +22,7 @@ function ApplicationsPage(props) {
   const [filterOption, setFilterOption] = useState("");
   const [toggleFilter, setToggleFilter] = useState(false);
   const [isFiltered, setIsFiltered] = useState(false);
+  const [filterCountries, setFilterCountries] = useState([]);
   const sortOptions = [
     {
       label: "Sort by: Newest",
@@ -38,11 +42,30 @@ function ApplicationsPage(props) {
     },
   ];
 
-  function showApplications(data) {
+  const showApplications = useCallback((data) => {
     setShownApplications([...shownApplications].concat(data.data));
     setIndex(index + applicationsShown);
+    console.log(data.totals.total);
     setTotal(data.totals.total);
+  }, [index, shownApplications]);
+
+  const handleFilter = useCallback( (data) => {
+    setFilterCountries(makeCountryArray(data));
+    console.log(makeCountryArray(data));
+    console.log(filterCountries);
+  }, [filterCountries])
+
+  function makeCountryArray(data) {
+    console.log(data)
+    let array = [];
+
+    data.forEach(country => {
+     array.push(flags.findCountry(countries, country))
+    })
+
+    return array;
   }
+
 
   function sortList(selected, array) {
     let sorted;
@@ -143,8 +166,13 @@ function ApplicationsPage(props) {
         "&max=" + applicationsShown + "&totals=true",
         setPending
       );
+      
+    console.log("again");
+    data.getCountryFilter(handleFilter);
     }
-  });
+
+
+  }, [shownApplications.length, index, showApplications, handleFilter]);
 
   return (
     <main>
@@ -189,7 +217,7 @@ function ApplicationsPage(props) {
               <FilterSelect
                 all="All countries"
                 filterOption={filterOption}
-                filterOptions={countries}
+                filterOptions={filterCountries}
                 filterChangeHandler={filterChangeHandler}
               />
             )}

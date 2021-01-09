@@ -31,9 +31,27 @@ function updateApplication(id, data) {
       });
 }
 
+ function getCountryFilter(callback) {
+  fetch('https://exampollopollo-e360.restdb.io/rest/applications?q={"$distinct":"applicant[0].country"}&filter=open', {
+        method: "get",
+        headers: {
+        "x-apikey": "5fc678a84af3f9656800d169",
+        "cache-control": "no-cache",
+      },
+    })
+    .then((e) => e.json())
+    .then((data) => {
+      callback(data);
+      })
+    .catch(()=>{
+      console.log("oops")
+    })
+}
+
 const data = {
     getApplications,
-    updateApplication
+    updateApplication, 
+    getCountryFilter
 }
 
 export default data;
