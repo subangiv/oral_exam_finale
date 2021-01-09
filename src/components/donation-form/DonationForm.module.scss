@@ -97,7 +97,7 @@ fieldset.eachStep,
   align-items: center;
   flex-flow: row wrap;
   justify-content: flex-start;
-  margin: 16px;
+  margin: 16px 30px;
 
   & span {
     padding: 0.5rem 0.25rem;
@@ -145,8 +145,11 @@ fieldset.eachStep,
 span.message {
   font-size: 12px;
   align-self: flex-start;
-  // margin: 0 0 0 3vw;
   color: red;
+  width: min-content;
+  min-width: 100%;
+  // margin: 0 0 0 30px;
+  // max-width: 70%;
 }
 
 @media (min-width: $max-s) {
@@ -179,5 +182,8 @@ span.message {
   }
   .checkBoxContainer > input[type="checkbox"]:checked + span::before {
     top: 0.6vh;
+  }
+  span.message {
+    padding-left: 16px;
   }
 }
