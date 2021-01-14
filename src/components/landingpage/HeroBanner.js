@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./LandingPage.module.scss";
-import landingpageimg from "../../images/landing-page-banner.png";
+import landingpageimg from "../../images/landing-page-banner.webp";
 import { useHistory } from "react-router-dom";
 import scrollbtn from "../../svg/scroll-button.svg";
 

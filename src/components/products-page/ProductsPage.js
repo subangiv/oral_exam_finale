@@ -7,6 +7,8 @@ import countries from "../../common/countries.json";
 import FilterSelect from "../filter-select/FilterSelect";
 import SortSelect from "../sort-select/SortSelect";
 import Dialog from "@material-ui/core/Dialog";
+import flags from "../../logic/countryFlag";
+import productbanner from "../../images/product-banner.webp";
 import {
   Button,
   DialogContent,
@@ -26,6 +28,8 @@ function ProductsPage(props) {
   const [toggleFilter, setToggleFilter] = useState(false);
   const [isFiltered, setIsFiltered] = useState(false);
   const [open, setOpen] = useState(false);
+  const [filterCountries, setFilterCountries] = useState([]);
+
   const centerBtn = {
     margin: "0 auto",
     display: "block",
@@ -37,6 +41,7 @@ function ProductsPage(props) {
     if (shownProducts.length === 0 && index === 0) {
       getData(showProducts, "?max=" + productsShown + "&totals=true");
       console.log(shownProducts);
+      getCountryFilter(handleFilter);
     }
   });
 
@@ -85,6 +90,40 @@ function ProductsPage(props) {
       .then(() => {
         setPending(false);
       });
+  }
+
+  function getCountryFilter(callback) {
+    fetch('https://exampollopollo-e360.restdb.io/rest/products?q={"$distinct":"producer[0].country"}', {
+          method: "get",
+          headers: {
+          "x-apikey": "5fc678a84af3f9656800d169",
+          "cache-control": "no-cache",
+        },
+      })
+      .then((e) => e.json())
+      .then((data) => {
+        callback(data);
+        })
+      .catch(()=>{
+        console.log("oops")
+      })
+  }
+
+  function handleFilter(data) {
+    setFilterCountries(makeCountryArray(data));
+    console.log(makeCountryArray(data));
+    console.log(filterCountries);
+  }
+
+  function makeCountryArray(data) {
+    console.log(data)
+    let array = [];
+
+    data.forEach(country => {
+     array.push(flags.findCountry(countries, country))
+    })
+
+    return array;
   }
 
   const sortOptions = [
@@ -163,10 +202,7 @@ function ProductsPage(props) {
     <main>
       <section className={styles.topSection}>
         <div className={styles.bannerWrapper}>
-          <img
-            className={styles.banner}
-            src={process.env.PUBLIC_URL + "product-banner.png"}
-          ></img>
+          <img className={styles.banner} src={productbanner}></img>
         </div>
         <section className={styles.paragraphWrapper}>
           <h1 className={"primary-text display-1"}>Products</h1>
@@ -215,7 +251,7 @@ function ProductsPage(props) {
             <FilterSelect
               all="All countries"
               filterOption={filterOption}
-              filterOptions={countries}
+              filterOptions={filterCountries}
               filterChangeHandler={filterChangeHandler}
             />
           )}
@@ -230,9 +266,9 @@ function ProductsPage(props) {
         )}
 
         {shownProducts.length <= 0 && !pending && (
-         <h2 className={styles.noProductsText + " display-4"}>
-          Sorry, there is no applications from this country
-        </h2>
+          <h2 className={styles.noProductsText + " display-4"}>
+            Sorry, there is no applications from this country
+          </h2>
         )}
 
         {pending && <div className={"spinner"}></div>}

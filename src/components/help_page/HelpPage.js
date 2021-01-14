@@ -1,7 +1,7 @@
 import styles from "./HelpPage.module.scss";
 import questions from "./static/questions.json";
 import QACard from "../qAcard/QACard";
-import helpBannerImg from "../../assets/images/help-splash.jpg";
+import helpBannerImg from "../../images/help-splash-compressed.jpg";
 
 export default function HelpPage() {
   return (
